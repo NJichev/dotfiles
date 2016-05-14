@@ -9,6 +9,7 @@
 
   " Set ctags lookup
   " set tags+=tags;$HOME
+  set tags+=.tags,.git/tags
   
   " Use the backspace key as expected
   set backspace=2
@@ -33,14 +34,15 @@
 " Plugin settings {{{
   " Plug {{{
     call plug#begin()
-    Plug 'benekastah/neomake'
-    "Themes
+    " Themes and interface
+    Plug 'reedes/vim-thematic'
     Plug 'tomasr/molokai'
     Plug 'morhetz/gruvbox'
     Plug 'goatslacker/mango.vim'
     Plug 'altercation/vim-colors-solarized'
     Plug 'w0ng/vim-hybrid'
     Plug 'tomasr/molokai'
+    Plug 'trapd00r/neverland-vim-theme'
     " Plug 'ryanoasis/vim-devicons'
     Plug 'nanotech/jellybeans.vim'
     " {{{
@@ -52,20 +54,8 @@
       map <F2> :NERDTreeTabsToggle<CR>
     " }}}
 
-    Plug 'easymotion/vim-easymotion'
-    Plug 'jistr/vim-nerdtree-tabs'
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'hail2u/vim-css3-syntax'
-    Plug 'terryma/vim-multiple-cursors'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tomtom/tcomment_vim'
     Plug 'groenewege/vim-less'
-    Plug 'mattn/emmet-vim'
     Plug 'klen/python-mode'
-    Plug 'sjl/gundo.vim'
-    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'jiangmiao/auto-pairs'
     " {{{
       let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
@@ -77,108 +67,154 @@
       nnoremap <F9> :SCCompileRun<cr>
     " }}}
 
+    " Web and template syntax and more {{{
+    Plug 'plasticboy/vim-markdown'
+    Plug 'hail2u/vim-css3-syntax'
+    Plug 'cakebaker/scss-syntax.vim'
+    Plug 'mattn/emmet-vim'
     Plug 'jdevera/vim-stl-syntax'
     Plug 'regedarek/ZoomWin'
     Plug 'kchmck/vim-coffee-script'
     Plug 'tpope/vim-haml'
-    " Plug 'bling/vim-airline'
-    Plug 'xolox/vim-session'
+    Plug 'https://github.com/slim-template/vim-slim'
+    Plug 'curist/vim-angular-template'
+    Plug 'digitaltoad/vim-jade',
+    Plug 'othree/yajs.vim'
+    Plug 'evanmiller/nginx-vim-syntax'
+    Plug 'gkz/vim-ls'
+    " }}}
 
-    Plug 'majutsushi/tagbar' 
-    "  {{{
+    " Tags {{{
+    Plug 'majutsushi/tagbar'
+    " {{{
     " Ctrl+] - go to definition
     " Ctrl+T - Jump back from the definition.
     " Ctrl+W Ctrl+] - Open the definition in a horizontal split
       nmap <F3> :TagbarToggle<CR>
     " }}}
+    "
+    "
+    Plug 'xolox/vim-easytags'
+    Plug 'ludovicchabant/vim-gutentags'
+    " {{{ Gutentags
+    let g:gutentags_tagfile='.tags'
 
-    Plug 'tejr/vim-tmux'
-    Plug 'xolox/vim-lua-ftplugin'
-    Plug 'gkz/vim-ls'
-    Plug 'digitaltoad/vim-jade',
-    Plug 'curist/vim-angular-template'
-    Plug 'othree/yajs.vim'
-    Plug 'trapd00r/neverland-vim-theme'
-    Plug 'plasticboy/vim-markdown'
-    Plug 'godlygeek/tabular'
+    " Use ripper-tags to generate tags for Ruby.
+    let g:gutentags_ctags_executable_ruby='ripper-tags'
+    let g:gutentags_exclude = [
+        \ '*.min.js',
+        \ '*html*',
+        \ 'jquery*.js',
+        \ '*/vendor/*',
+        \ '*/node_modules/*',
+        \ '*/python2.7/*',
+        \ '*/migrate/*.rb'
+        \ ]
+    let g:gutentags_generate_on_missing = 1
+    let g:gutentags_generate_on_write = 1
+    let g:gutentags_generate_on_new = 1
+    " }}}
+    " }}}
+
+
+    " Snippets
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    Plug 'Shougo/neosnippet'
+    Plug 'Shougo/neosnippet-snippets'
+    " Enable snipMate compatibility feature.
+    let g:neosnippet#enable_snipmate_compatibility = 1
+
+    " Tell Neosnippet about the other snippets
+    let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+    " Ruby plugins
+    Plug 'skalnik/vim-vroom'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'tpope/vim-rails'
+    Plug 'bruno-/vim-ruby-fold'
+
+    " Tpope utility plugins {{{
+    Plug 'tpope/vim-dispatch'
+    Plug 'tpope/vim-endwise'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-fugitive'
+    " Plug 'tpope/vim-env'
+    " }}}
+
+    " Other utility plugins {{{
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim'
-    Plug 'tpope/vim-dispatch'
-    Plug 'cakebaker/scss-syntax.vim'
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'tpope/vim-endwise'
+    Plug 'tejr/vim-tmux'
+    Plug 'xolox/vim-lua-ftplugin'
+    Plug 'godlygeek/tabular'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'tomtom/tcomment_vim'
+    " }}}
 
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     " {{{
-      let g:goyo_margin_top=0
-      let g:goyo_margin_bottom=0
-      let g:goyo_linenr=2
+    let g:goyo_margin_top=0
+    let g:goyo_margin_bottom=0
+    let g:goyo_linenr=2
 
-      let g:limelight_conceal_ctermfg = 'black'
+    let g:limelight_conceal_ctermfg = 'black'
 
-      function! GoyoBefore()
-        silent !tmux set status off
-        normal zR
-        set nonumber
-        " Limelight
-      endfunction
+    function! GoyoBefore()
+      silent !tmux set status off
+      normal zR
+      set nonumber
+      " Limelight
+    endfunction
 
-      function! GoyoAfter()
-        silent !tmux set status on
-        set number
-        " Limelight!
-      endfunction
+    function! GoyoAfter()
+      silent !tmux set status on
+      set number
+      " Limelight!
+    endfunction
 
-      let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
+    let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
     " }}}
 
+    " Autocompletion and spellcheck stuff {{{
     Plug 'Shougo/deoplete.nvim'
+    Plug 'benekastah/neomake'
     Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-    Plug 'vim-scripts/php.vim--Hodge'
-    Plug 'evanmiller/nginx-vim-syntax'
+    Plug 'Shougo/neoinclude.vim'
+    Plug 'Shougo/neomru.vim'
+    Plug 'Shougo/neoyank.vim'
+
+    " Yes, there are vim stuff here
     Plug 'vim-scripts/SyntaxComplete'
+    Plug 'Shougo/neco-vim'
+    " }}}
+    
+    " Vim fast searching and moving around {{{
+    Plug 'Shougo/unite.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'rking/ag.vim'
+    " }}}
+    
+    " Vim stuff {{{
+    Plug 'AndrewRadev/splitjoin.vim'
+    Plug 'AndrewRadev/switch.vim'
+    Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+    Plug 'xolox/vim-misc'
     Plug 'Rykka/InstantRst'
     Plug 'tommcdo/vim-exchange'
-    Plug 'reedes/vim-thematic'
     Plug 'kana/vim-textobj-user'
     Plug 'beloglazov/vim-textobj-quotes'
     Plug 'Julian/vim-textobj-brace'
-    Plug 'arturbalabanov/vim-conceal-rst'
-    Plug 'rking/ag.vim'
-    Plug 'bruno-/vim-ruby-fold'
-    Plug 'AndrewRadev/splitjoin.vim'
-    Plug 'AndrewRadev/switch.vim'
-    Plug 'tpope/vim-rbenv'
-    Plug 'tpope/vim-rails'
-    Plug 'ludovicchabant/vim-gutentags'
-    " {{{
-      let g:gutentags_exclude = [
-          \ '*.min.js',
-          \ '*html*',
-          \ 'jquery*.js',
-          \ '*/vendor/*',
-          \ '*/node_modules/*',
-          \ '*/python2.7/*',
-          \ '*/migrate/*.rb'
-          \ ]
-      let g:gutentags_generate_on_missing = 1
-      let g:gutentags_generate_on_write = 1
-      let g:gutentags_generate_on_new = 1
-      nnoremap <leader>t! :GutentagsUpdate!<CR>
     " }}}
-    
-    " Plug 'xolox/vim-easytags'
-    Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-    Plug 'xolox/vim-misc'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'Shougo/neco-vim'
-    Plug 'skalnik/vim-vroom'
 
     call plug#end()
   " }}}
+  
   " Ruby mode {{{
     let ruby_fold = 1
     " Set async completion.
@@ -267,7 +303,7 @@
     " Use smartcase.
     let g:deoplete#enable_smart_case = 1
     " Start completion at 1 char
-    let g:deoplete#auto_completion_start_length = 1
+		let	g:deoplete#auto_complete_start_length = 2
 
     if !exists('g:deoplete#omni#input_patterns')
       let g:deoplete#omni#input_patterns = {}
@@ -366,6 +402,87 @@
   xmap <C-j> 5j
   xmap <C-j> 5k
 
+  " Unite binds {{{
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  call unite#filters#sorter_default#use(['sorter_rank'])
+  call unite#custom#profile('default', 'context', {
+        \ 'start_insert': 1
+        \ })
+
+  let g:unite_source_history_yank_enable=1
+  let g:unite_source_rec_max_cache_files=5000
+  let g:unite_prompt='» '
+
+  function! s:unite_settings()
+    nmap <buffer> Q <plug>(unite_exit)
+    nmap <buffer> <esc> <plug>(unite_exit)
+    imap <buffer> <esc> <plug>(unite_exit)
+    " Play nice with supertab
+    let b:SuperTabDisabled=1
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  endfunction
+  autocmd FileType unite call s:unite_settings()
+
+  let g:unite_source_menu_menus = {}
+  let g:unite_source_menu_menus.git = {
+  \ 'description' : 'Git commands (Fugitive)',
+  \ 'command_candidates' : [
+  \  ['tig                                                       '  , '!tig'],
+  \  ['git add current  (Fugitive)                      <space>ga'  , '<space>ga'],
+  \  ['git status       (Fugitive)                      <space>gs'  , '<space>gs'],
+  \  ['git diff         (Fugitive)                      <space>gd'  , '<space>gd'],
+  \  ['git edit         (Fugitive)                      <space>ge'  , '<space>ge'],
+  \  ['git read         (Fugitive)                      <space>gr'  , '<space>gr'],
+  \  ['git write        (Fugitive)                      <space>gw'  , '<space>gw'],
+  \  ['git commit       (Fugitive)                      <space>gc'  , '<space>gc'],
+  \  ['git commit %p    (Fugitive)                      <space>gt'  , '<space>gt'],
+  \  ['git grep         (Fugitive)                      <space>gp'  , '<space>gp'],
+  \  ['git checkout     (Fugitive)                      <space>go'  , '<space>go'],
+  \  ['git grep         (Fugitive)                      <space>gb'  , '<space>gb'],
+  \  ['git log          (Fugitive)                               '  , 'exe "silent Glog | Unite quickfix"'],
+  \  ['git blame        (Fugitive)                               '  , 'Gblame'],
+  \  ['git rm           (Fugitive)                               '  , 'Gremove'],
+  \  ['git mv           (Fugitive)                               '  , 'exe "Gmove " input("destino: ")'],
+  \  ['git push         (Fugitive)                               '  , 'Git! push'],
+  \  ['git pull         (Fugitive)                               '  , 'Git! pull'],
+  \  ['git prompt       (Fugitive)                               '  , 'exe "Git! " input("comando git: ")'],
+  \  ['git cd           (Fugitive)                               '  , 'Gcd'],
+  \]
+  \}
+
+  " fugitive git bindings
+  nnoremap <space>ga :Git add %:p<CR><CR>
+  nnoremap <space>gs :Gstatus<CR>
+  nnoremap <space>gc :Gcommit -v -q<CR>
+  nnoremap <space>gt :Gcommit -v -q %:p<CR>
+  nnoremap <space>gd :Gdiff<CR>
+  nnoremap <space>ge :Gedit<CR>
+  nnoremap <space>gr :Gread<CR>
+  nnoremap <space>gw :Gwrite<CR><CR>
+  nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <space>gp :Ggrep<Space>
+  nnoremap <space>gm :Gmove<Space>
+  nnoremap <space>gb :Git branch<Space>
+  nnoremap <space>go :Git checkout<Space>
+  nnoremap <space>gps :Dispatch! git push<CR>
+  nnoremap <space>gpl :Dispatch! git pull<CR>
+
+  nnoremap <silent> <space><space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
+  nnoremap <silent> <space>f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
+  nnoremap <space>fs :Unite file_rec/async -default-action=split
+  nnoremap <space>fv :Unite file_rec/async -default-action=vsplit
+
+  nnoremap <silent> <space>e :<C-u>Unite -buffer-name=recent file_mru<cr>
+  nnoremap <silent> <space>y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+  nnoremap <silent> <space>l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+  nnoremap <silent> <space>b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
+  nnoremap <silent> <space>/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+  nnoremap <silent> <space>m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+  nnoremap <silent> <space>s :<C-u>Unite -quick-match buffer<cr>
+  nnoremap <silent> <space>g :Unite -silent -start-insert menu:git<CR>
+  " }}}
   " FZF bind
   nnoremap <Leader>f :FZF<cr>
   " Open files in horizontal split
@@ -381,9 +498,10 @@
 " Interface {{{
     " Colors {{{
     syntax on
+
     " http://terminal.sexy/ is an awesome website to create more :)
-    let NVIM_TUI_ENABLE_TRUE_COLOR=1
     " Other cool dark 256 color colorschemes:
+    let NVIM_TUI_ENABLE_TRUE_COLOR=1
     " colorscheme neverland
     " let g:seoul256_background = 233
     " colo seoul256
@@ -393,30 +511,38 @@
       nnoremap <Leader>t :ThematicNext<CR>
 
       let g:thematic#defaults = {
-      \ 'airline-theme': 'jellybeans',
-      \ 'background': 'dark',
+      \ 'colorscheme': 'molokai',
       \ }
 
       let g:thematic#themes = {
         \ 'jellybeans': {
         \   'colorscheme': 'jellybeans',
-        \ },
-        \ 'gruvbox_dark': {
-        \   'colorscheme': 'gruvbox',
-        \   'background': 'dark',
+        \   'theme_name': 'jellybeans',
         \ },
         \ 'gruvbox_light': {
         \   'colorscheme': 'gruvbox',
         \   'background': 'light',
+        \   'theme_name': 'gruvbox_light',
         \ },
         \ 'molokai': {
         \   'colorscheme': 'molokai',
-        \   'background': 'dark',
+        \   'theme_name': 'molokai',
         \ },
-      \ }
+        \ 'gruvbox_dark': {
+        \   'colorscheme': 'gruvbox',
+        \   'background': 'dark',
+        \   'theme_name': 'gruvbox_dark',
+        \ },
+        \ 'hybrid': {
+        \   'colorscheme': 'hybrid',
+        \   'background': 'dark',
+        \   'theme_name': 'hybrid',
+        \ },
+        \}
 
-      let g:thematic#theme_name = 'jellybeans'
+        let g:thematic#theme_name='molokai'
     " }}}
+
   " }}}
   set number
   set ruler
@@ -485,11 +611,12 @@
   endf "}}}
   set foldtext=CustomFoldText()
   set foldmethod=indent
+  set foldlevelstart=20
 
   let javaScript_fold=1
 
   " It's easier to use space...
-  nnoremap <space> za
+  " nnoremap <space> za
 ,
   " Focus the current folding
   nnoremap <leader>z zMzvzz

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/niko/.oh-my-zsh
+export ZSH=/home/niko/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,11 +49,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rake rails ruby)
+plugins=(git rake rails ruby bundler rbenv gem pip)
 
 # User configuration
 
   export PATH="/home/niko/.rbenv/shims:/home/niko/.rbenv/bin:/home/niko/.rbenv/shims:/home/niko/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/niko/.fzf/bin"
+  PATH=$PATH:/home/niko/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -84,9 +85,47 @@ source $ZSH/oh-my-zsh.sh
 # --------------------------------
 # ALIASES
 # --------------------------------
+
+# Editor stuff
 alias neo="nvim"
 alias szh="source ~/.zshrc"
 
+# Prefix stuff like ag and grep
+alias -g A='| ag'
+alias -g G='| grep'
+
+# TMUX
+alias tma='tmux attach -t'
+alias tmn='tmux new-session -s'
+alias tmd='tmux detach'
+
+# Github stuff
+alias gad='git add --all .'
+alias gag='git add . && git commit --amend --no-edit && git push -f'
+alias gbc='gdc'
+alias gca='git commit -a'
+alias gcaa='git commit -a --amend -C HEAD'
+alias gcl='git clone'
+alias gcm="git commit -m"
+alias gco='git checkout'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdm='git diff master'
+alias gg='git lg'
+alias gp='git push'
+alias gpf='git push -f'
+alias gpr='git pull --rebase'
+alias grc='git rebase --continue'
+
+# Ruby stuff
+alias rials='rails'
+alias rs='rails s'
+alias rc='rails c'
+alias deploy='bundle exec cap staging deploy'
+
+# Utility
+alias audio='pulseaudio -k && sudo alsa force-reload'
+alias sound='pulseaudio -k && sudo alsa force-reload'
 
 # --------------------------------
 # FUNCTIONS 
@@ -106,3 +145,5 @@ bindkey '^Z' fancy-ctrl-z alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(jump shell zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export EDITOR="nvim"
