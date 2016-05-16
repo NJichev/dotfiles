@@ -128,6 +128,9 @@ alias deploy='bundle exec cap staging deploy'
 alias audio='pulseaudio -k && sudo alsa force-reload'
 alias sound='pulseaudio -k && sudo alsa force-reload'
 
+# XCLIP
+alias clipin="xclip -i -selection clipboard"    
+alias clipout="xclip -o -selection clipboard"
 # --------------------------------
 # FUNCTIONS 
 # --------------------------------
