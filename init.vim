@@ -35,6 +35,9 @@
   " Plug {{{
     call plug#begin()
     " Themes and interface
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'edkolev/tmuxline.vim'
     Plug 'reedes/vim-thematic'
     Plug 'tomasr/molokai'
     Plug 'morhetz/gruvbox'
@@ -483,7 +486,11 @@
   nnoremap <silent> <space>s :<C-u>Unite -quick-match buffer<cr>
   nnoremap <silent> <space>g :Unite -silent -start-insert menu:git<CR>
   " }}}
-  " FZF bind
+  " FZF setup
+
+  " Fuzzy finder: ignore stuff that can't be opened, and generated files
+  let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+
   nnoremap <Leader>f :FZF<cr>
   " Open files in horizontal split
   nnoremap <silent> <Leader>s :call fzf#run({
@@ -496,6 +503,8 @@
   \   'sink':  'vertical botright split' })<CR>
 " }}}
 " Interface {{{
+    " Highlight the status line
+    highlight StatusLine ctermfg=blue ctermbg=yellow
     " Colors {{{
     syntax on
 
@@ -505,7 +514,21 @@
     " colorscheme neverland
     " let g:seoul256_background = 233
     " colo seoul256
-   
+    let g:airline_powerline_fonts = 1
+    let g:airline_theme = 'powerlineish'
+    let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:Powerline_symbols = 'fancy'
+    let g:airline_exclude_filetypes=['netrw','diff','undotree','gundo','tagbar']
+    let g:airline_linecolumn_prefix = ' '
+    let g:airline_section_z='%3p%% '.g:airline_linecolumn_prefix.'%3l:%c'
+    let g:airline_detect_whitespace=0 " turn off the whitespace extension
+    "enable/disable showing a summary of changed hunks under source control.
+    let g:airline#extensions#hunks#enabled = 1
+    "enable/disable showing only non-zero hunks.
+    let g:airline#extensions#hunks#non_zero_only = 1
+    "set hunk count symbols.
+    let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
     " Thematic {{{
       " Cycle through thematic themes.
       nnoremap <Leader>t :ThematicNext<CR>

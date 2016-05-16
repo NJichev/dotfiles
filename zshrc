@@ -1,5 +1,6 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/home/niko/.oh-my-zsh
+#
+#Path to your oh-my-zsh installation.
+export ZSH=/home/njichev/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,8 +54,8 @@ plugins=(git rake rails ruby bundler rbenv gem pip)
 
 # User configuration
 
-  export PATH="/home/niko/.rbenv/shims:/home/niko/.rbenv/bin:/home/niko/.rbenv/shims:/home/niko/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/niko/.fzf/bin"
-  PATH=$PATH:/home/niko/bin
+export PATH="/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/njichev/.fzf/bin"
+  PATH=$PATH:/home/njichev/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -147,3 +148,5 @@ eval "$(jump shell zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EDITOR="nvim"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export TERM="xterm-256color"
