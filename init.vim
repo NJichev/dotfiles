@@ -30,6 +30,7 @@
   " set list listchars=tab:▸\ ,trail:·
   set nobackup                     " disable backups
   set noswapfile                   " it's 2015, NeoVim.
+
 " }}}
 " Plugin settings {{{
   " Plug {{{
@@ -306,7 +307,7 @@
     " Use smartcase.
     let g:deoplete#enable_smart_case = 1
     " Start completion at 1 char
-		let	g:deoplete#auto_complete_start_length = 2
+    let	g:deoplete#auto_complete_start_length = 2
 
     if !exists('g:deoplete#omni#input_patterns')
       let g:deoplete#omni#input_patterns = {}
@@ -357,6 +358,8 @@
   noremap <Leader>wq :x<CR>
   noremap <Leader>q :quit<CR>
   noremap <Leader>qq :quit!<CR>
+  noremap <Leader>ss :split<CR>
+  noremap <Leader>vv :vsplit<CR>
 
   " Paste in the next line.
   nnoremap <leader>p o<ESC>p
@@ -503,8 +506,6 @@
   \   'sink':  'vertical botright split' })<CR>
 " }}}
 " Interface {{{
-    " Highlight the status line
-    highlight StatusLine ctermfg=blue ctermbg=yellow
     " Colors {{{
     syntax on
 
@@ -514,6 +515,7 @@
     " colorscheme neverland
     " let g:seoul256_background = 233
     " colo seoul256
+    " airline
     let g:airline_powerline_fonts = 1
     let g:airline_theme = 'powerlineish'
     let g:airline_powerline_fonts = 1
@@ -544,7 +546,6 @@
         \ },
         \ 'gruvbox_light': {
         \   'colorscheme': 'gruvbox',
-        \   'background': 'light',
         \   'theme_name': 'gruvbox_light',
         \ },
         \ 'molokai': {
@@ -553,18 +554,27 @@
         \ },
         \ 'gruvbox_dark': {
         \   'colorscheme': 'gruvbox',
-        \   'background': 'dark',
         \   'theme_name': 'gruvbox_dark',
         \ },
         \ 'hybrid': {
         \   'colorscheme': 'hybrid',
-        \   'background': 'dark',
         \   'theme_name': 'hybrid',
         \ },
         \}
 
         let g:thematic#theme_name='molokai'
     " }}}
+    hi Normal ctermbg=none
+    hi NonText ctermbg=none
+
+    au ColorScheme * hi Normal ctermbg=none guibg=none
+    au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
+    " augroup MyCustomHighlights
+    "   autocmd!
+    "   autocmd colorscheme *
+    "         \ hi Normal ctermbg=none  |
+    "         \ hi NonText ctermbg=none 
+    " augroup END
 
   " }}}
   set number
@@ -880,6 +890,7 @@
     augroup END
   " }}}
 " }}}
+
 " GUI settings {{{
   if has('gui_running')
     set guifont=Monaco\ for\ Powerline\ 10
