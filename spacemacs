@@ -167,7 +167,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 11
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.15)
@@ -405,6 +405,8 @@ you should place you code here."
   (setq-default tab-width 2)
   (setq-default c-basic-offset 2)
   (setq indent-line-function 'insert-tab)
+
+  (spaceline-compile)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

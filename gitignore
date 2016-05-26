@@ -10,3 +10,17 @@ project-notes.txt
 .projectile
 .agignore
 .tags
+TAGS
+.TAGS
+!TAGS/
+tags
+.tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.outtags*

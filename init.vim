@@ -199,6 +199,7 @@
     " }}}
     
     " Vim fast searching and moving around {{{
+    Plug 'dyng/ctrlsf.vim'
     Plug 'Shougo/unite.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'rking/ag.vim'
@@ -306,8 +307,10 @@
     let g:deoplete#enable_at_startup = 1
     " Use smartcase.
     let g:deoplete#enable_smart_case = 1
+
     " Start completion at 1 char
-    let	g:deoplete#auto_complete_start_length = 2
+    " Depracated
+    " let	g:deoplete#auto_complete_start_length = 2
 
     if !exists('g:deoplete#omni#input_patterns')
       let g:deoplete#omni#input_patterns = {}
@@ -488,6 +491,9 @@
   nnoremap <silent> <space>m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
   nnoremap <silent> <space>s :<C-u>Unite -quick-match buffer<cr>
   nnoremap <silent> <space>g :Unite -silent -start-insert menu:git<CR>
+  " }}}
+  " CtrlSF setup {{{
+    nnoremap <Leader>sf :CtrlSF<Space>
   " }}}
   " FZF setup
 
