@@ -537,6 +537,19 @@
     let g:airline#extensions#hunks#non_zero_only = 1
     "set hunk count symbols.
     let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+    
+    "set tmuxline preset
+    let g:tmuxline_preset = {
+          \'a'    : '#S',
+          \'b'    : '#W',
+          \'c'    : '#H',
+          \'win'  : '#I #W',
+          \'cwin' : '#I #W',
+          \'x'    : '%a',
+          \'y'    : '#W %R',
+          \'z'    : '#H'}
+
+    
     " Thematic {{{
       " Cycle through thematic themes.
       nnoremap <Leader>t :ThematicNext<CR>
