@@ -1,5 +1,9 @@
 " Basic options {{{
-  filetype off
+  set nocompatible
+  syntax on
+  filetype on
+  filetype indent on
+  filetype plugin on
 
   set rtp+=~/.nvim/bundle/Vundle.vim
 
