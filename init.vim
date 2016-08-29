@@ -407,7 +407,8 @@
     noremap L $
     vnoremap L g_
   " }}}
-
+  " Dirty tmux integration
+  nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
   " CtrlSF setup {{{
     nnoremap <Leader>sf :CtrlSF<Space>
   " }}}
