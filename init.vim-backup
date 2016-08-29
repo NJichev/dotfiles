@@ -37,7 +37,7 @@
 " }}}
 " Plugin settings {{{
   " Plug {{{
-    call plug#begin('~/.vim/plugged')
+    call plug#begin()
     " Themes and interface
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -153,7 +153,6 @@
     Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim'
     Plug 'tejr/vim-tmux'
-    Plug 'christoomey/vim-tmux-navigator'
     Plug 'xolox/vim-lua-ftplugin'
     Plug 'godlygeek/tabular'
     Plug 'easymotion/vim-easymotion'
@@ -204,6 +203,7 @@
     
     " Vim fast searching and moving around {{{
     Plug 'dyng/ctrlsf.vim'
+    Plug 'Shougo/unite.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'rking/ag.vim'
     " }}}
@@ -407,7 +407,94 @@
     noremap L $
     vnoremap L g_
   " }}}
+  
+  " Faster movement in file
+  nmap <C-j> 5j
+  nmap <C-k> 5k
+  xmap <C-j> 5j
+  xmap <C-j> 5k
 
+  " Unite binds {{{
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  call unite#filters#sorter_default#use(['sorter_rank'])
+  call unite#custom#profile('default', 'context', {
+        \ 'start_insert': 1
+        \ })
+
+  let g:unite_source_history_yank_enable=1
+  let g:unite_source_rec_max_cache_files=5000
+  let g:unite_prompt='» '
+
+  function! s:unite_settings()
+    nmap <buffer> Q <plug>(unite_exit)
+    nmap <buffer> <esc> <plug>(unite_exit)
+    imap <buffer> <esc> <plug>(unite_exit)
+    " Play nice with supertab
+    let b:SuperTabDisabled=1
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  endfunction
+  autocmd FileType unite call s:unite_settings()
+
+  let g:unite_source_menu_menus = {}
+  let g:unite_source_menu_menus.git = {
+  \ 'description' : 'Git commands (Fugitive)',
+  \ 'command_candidates' : [
+  \  ['tig                                                       '  , '!tig'],
+  \  ['git add current  (Fugitive)                      <space>ga'  , '<space>ga'],
+  \  ['git status       (Fugitive)                      <space>gs'  , '<space>gs'],
+  \  ['git diff         (Fugitive)                      <space>gd'  , '<space>gd'],
+  \  ['git edit         (Fugitive)                      <space>ge'  , '<space>ge'],
+  \  ['git read         (Fugitive)                      <space>gr'  , '<space>gr'],
+  \  ['git write        (Fugitive)                      <space>gw'  , '<space>gw'],
+  \  ['git commit       (Fugitive)                      <space>gc'  , '<space>gc'],
+  \  ['git commit %p    (Fugitive)                      <space>gt'  , '<space>gt'],
+  \  ['git grep         (Fugitive)                      <space>gp'  , '<space>gp'],
+  \  ['git checkout     (Fugitive)                      <space>go'  , '<space>go'],
+  \  ['git grep         (Fugitive)                      <space>gb'  , '<space>gb'],
+  \  ['git log          (Fugitive)                               '  , 'exe "silent Glog | Unite quickfix"'],
+  \  ['git blame        (Fugitive)                               '  , 'Gblame'],
+  \  ['git rm           (Fugitive)                               '  , 'Gremove'],
+  \  ['git mv           (Fugitive)                               '  , 'exe "Gmove " input("destino: ")'],
+  \  ['git push         (Fugitive)                               '  , 'Git! push'],
+  \  ['git pull         (Fugitive)                               '  , 'Git! pull'],
+  \  ['git prompt       (Fugitive)                               '  , 'exe "Git! " input("comando git: ")'],
+  \  ['git cd           (Fugitive)                               '  , 'Gcd'],
+  \]
+  \}
+
+  " fugitive git bindings
+  nnoremap <space>ga :Git add %:p<CR><CR>
+  nnoremap <space>gs :Gstatus<CR>
+  nnoremap <space>gc :Gcommit -v -q<CR>
+  nnoremap <space>gt :Gcommit -v -q %:p<CR>
+  nnoremap <space>gd :Gdiff<CR>
+  nnoremap <space>ge :Gedit<CR>
+  nnoremap <space>gr :Gread<CR>
+  nnoremap <space>gw :Gwrite<CR><CR>
+  nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <space>gp :Ggrep<Space>
+  nnoremap <space>gm :Gmove<Space>
+  nnoremap <space>gb :Git branch<Space>
+  nnoremap <space>go :Git checkout<Space>
+  nnoremap <space>gps :Dispatch! git push<CR>
+  nnoremap <space>gpl :Dispatch! git pull<CR>
+
+  nnoremap <silent> <space><space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async:! buffer file_mru bookmark<cr><c-u>
+  nnoremap <silent> <space>f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
+  nnoremap <space>fs :Unite file_rec/async -default-action=split
+  nnoremap <space>fv :Unite file_rec/async -default-action=vsplit
+
+  nnoremap <silent> <space>e :<C-u>Unite -buffer-name=recent file_mru<cr>
+  nnoremap <silent> <space>y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+  nnoremap <silent> <space>l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+  nnoremap <silent> <space>b :<C-u>Unite -auto-resize -buffer-name=buffers buffer file_mru<cr>
+  nnoremap <silent> <space>/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+  nnoremap <silent> <space>m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+  nnoremap <silent> <space>s :<C-u>Unite -quick-match buffer<cr>
+  nnoremap <silent> <space>g :Unite -silent -start-insert menu:git<CR>
+  " }}}
   " CtrlSF setup {{{
     nnoremap <Leader>sf :CtrlSF<Space>
   " }}}
@@ -433,7 +520,7 @@
 
     " http://terminal.sexy/ is an awesome website to create more :)
     " Other cool dark 256 color colorschemes:
-    "
+    let NVIM_TUI_ENABLE_TRUE_COLOR=1
     " colorscheme neverland
     " let g:seoul256_background = 233
     " colo seoul256
@@ -499,6 +586,17 @@
 
         let g:thematic#theme_name='molokai'
     " }}}
+    hi Normal ctermbg=none
+    hi NonText ctermbg=none
+
+    au ColorScheme * hi Normal ctermbg=none guibg=none
+    au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
+    " augroup MyCustomHighlights
+    "   autocmd!
+    "   autocmd colorscheme *
+    "         \ hi Normal ctermbg=none  |
+    "         \ hi NonText ctermbg=none 
+    " augroup END
 
   " }}}
   set number
@@ -603,12 +701,12 @@
     nnoremap <up>    <c-w>-
     nnoremap <down>  <c-w>+
   " }}}
-  "  Splits navigation {{{
-  "  nnoremap gh <C-w>h
-  "  nnoremap gj <C-w>j
-  "  nnoremap gk <C-w>k
-  "  nnoremap gl <C-w>l
-  "" }}}
+  " Splits navigation {{{
+    nnoremap gh <C-w>h
+    nnoremap gj <C-w>j
+    nnoremap gk <C-w>k
+    nnoremap gl <C-w>l
+  " }}}
 " }}}
 " Filetype specific settings {{{
   " Automaticlly set filetypes {{{

@@ -62,7 +62,9 @@ values."
      go
 
      ;; Ruby
-     ruby
+     (ruby :variables
+           ruby-version-manager 'rbenv
+           ruby-enable-ruby-on-rails-support t)
      ruby-on-rails
 
      ;; Python
@@ -352,6 +354,36 @@ you should place you code here."
     (interactive)
     (dotimes (n 5)
       (evil-previous-visual-line)))
+  ;; Indentation from
+  ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
+  (defun my-setup-indent (n)
+    ;; web development
+    (setq coffee-tab-width n) ; coffeescript
+    (setq javascript-indent-level n) ; javascript-mode
+    (setq js-indent-level n) ; js-mode
+    (setq js2-basic-offset n) ; js2-mode
+    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+    (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+    (setq css-indent-offset n) ; css-mode
+    )
+
+  (defun my-office-code-style ()
+    (interactive)
+    (message "Office code style!")
+    (setq indent-tabs-mode t) ; use tab instead of space
+    (my-setup-indent 4) ; indent 4 spaces width
+    )
+
+  (defun my-personal-code-style ()
+    (interactive)
+    (message "Indentation set to two")
+    (setq indent-tabs-mode nil) ; use space instead of tab
+    (my-setup-indent 2) ; indent 2 spaces width
+    )
+
+  ;; call indentation
+  (my-personal-code-style)
 
   ;; Some mappings
 
@@ -376,15 +408,6 @@ you should place you code here."
 
   (setq-default evil-escape-key-sequence "jk")
   (setq-default evil-escape-key-sequence "Esc")
-
-  ;; Set eyebrowse mappings
-  (setq eyebrowse-new-workspace nil)
-  (global-set-key (kbd "s-0") 'eyebrowse-switch-to-window-config-0)
-  (global-set-key (kbd "s-1") 'eyebrowse-switch-to-window-config-1)
-  (global-set-key (kbd "s-2") 'eyebrowse-switch-to-window-config-2)
-  (global-set-key (kbd "s-3") 'eyebrowse-switch-to-window-config-3)
-  (global-set-key (kbd "s-4") 'eyebrowse-switch-to-window-config-4)
-  (global-set-key (kbd "s-5") 'eyebrowse-switch-to-window-config-5)
 
   ;; Set some UI stuff
 

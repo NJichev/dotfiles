@@ -144,7 +144,8 @@ fancy-ctrl-z () {
   fi
 }
 zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z alias ohmyzsh="mate ~/.oh-my-zsh"
+bindkey '^Z' fancy-ctrl-z
+alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(jump shell zsh)"
 
