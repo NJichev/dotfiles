@@ -13,7 +13,7 @@
   " Set ctags lookup
   " set tags+=tags;$HOME
   set tags+=.tags,.git/tags
-  
+
   " Use the backspace key as expected
   set backspace=2
 
@@ -31,6 +31,8 @@
   set omnifunc=syntaxcomplete#Complete
   " set list
   " set list listchars=tab:▸\ ,trail:·
+  " set list listchars=tab:»·,trail:·
+  set list listchars=tab:»\ ,trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
   set nobackup                     " disable backups
   set noswapfile                   " it's 2015, NeoVim.
 
@@ -345,10 +347,6 @@
   inoremap <C-u> <esc>viwUea
   nnoremap <c-u> viwUe
 
-  " Quickly move lines up and down
-  nnoremap <C-f> ddp
-  nnoremap <C-b> ddkP
-
   " Format current paragraph (Ex-mode sucks...)
   nnoremap <silent> Q gwip
   
@@ -454,7 +452,7 @@
     let g:airline#extensions#hunks#non_zero_only = 1
     "set hunk count symbols.
     let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
-    
+
     "set tmuxline preset
     let g:tmuxline_preset = {
           \'a'    : '#S',
@@ -622,16 +620,16 @@
       au FileType cpp setlocal foldmethod=syntax
     augroup END
   "}}}
-  " Ruby {{{
-  "
-    augroup ft_rb
-      au!
-      au FileType rb setlocal foldmethod=syntax
-      au FileType rb setlocal expandtab
-      au FileType rb setlocal tabstop=2 shiftwidth=2 softtabstop=2
-      au FileType rb setlocal autoindent
-    augroup END
-  "}}}
+  " " Ruby {{{
+  " "
+  "   augroup ft_rb
+  "     au!
+  "     au FileType rb setlocal foldmethod=syntax
+  "     au FileType rb setlocal expandtab
+  "     au FileType rb setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  "     au FileType rb setlocal autoindent
+  "   augroup END
+  " "}}}
   " C {{{
   "
     augroup ft_c

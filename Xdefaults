@@ -69,8 +69,8 @@ Xft.hintstyle:  hintfull
 ! -- Fonts -- !
 ! URxvt.font:xft:Dejavu Sans Mono:pixelsize=13
 ! URxvt.boldfont:xft:Dejavu Sans Mono:pixelsize=13
-URxvt.font:xft:Source Code Pro Medium:pixelsize=13
-URxvt.boldfont:xft:Source Code Pro Heavy:pixelsize=13
+URxvt.font:xft:Source Code Pro Medium:pixelsize=16
+URxvt.boldfont:xft:Source Code Pro Heavy:pixelsize=16
 ! URxvt.font: xft:Source Code Pro:size=10  
 ! URxvt.boldFont: xft:Source Code Pro:bold:size=10 
 URxvt.letterSpace: -1

@@ -53,7 +53,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git rake rails ruby bundler rbenv gem pip)
 
 # User configuration
-
+export FZF_DEFAULT_COMMAND='ag -g ""'
 export PATH="/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/njichev/.fzf/bin"
   PATH=$PATH:/home/njichev/bin
 # export MANPATH="/usr/local/man:$MANPATH"
