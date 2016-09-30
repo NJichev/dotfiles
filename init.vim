@@ -143,6 +143,9 @@
     Plug 'tpope/vim-rails'
     Plug 'bruno-/vim-ruby-fold'
 
+    " Elixir
+    Plug 'elixir-lang/vim-elixir'
+
     " Tpope utility plugins {{{
     Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-endwise'
@@ -220,6 +223,7 @@
     Plug 'kana/vim-textobj-user'
     Plug 'beloglazov/vim-textobj-quotes'
     Plug 'Julian/vim-textobj-brace'
+    Plug 'vim-scripts/bulgarian.vim'
     " }}}
 
     call plug#end()
@@ -412,6 +416,7 @@
   " }}}
   " FZF setup
 
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
   " Fuzzy finder: ignore stuff that can't be opened, and generated files
   let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
 
@@ -464,7 +469,7 @@
           \'y'    : '#W %R',
           \'z'    : '#H'}
 
-    
+
     " Thematic {{{
       " Cycle through thematic themes.
       nnoremap <Leader>t :ThematicNext<CR>
