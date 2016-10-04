@@ -41,35 +41,29 @@
   " Plug {{{
     call plug#begin('~/.vim/plugged')
     " Themes and interface
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'edkolev/tmuxline.vim'
     Plug 'reedes/vim-thematic'
     Plug 'tomasr/molokai'
     Plug 'morhetz/gruvbox'
     Plug 'goatslacker/mango.vim'
-    Plug 'altercation/vim-colors-solarized'
     Plug 'w0ng/vim-hybrid'
     Plug 'tomasr/molokai'
     Plug 'trapd00r/neverland-vim-theme'
-    " Plug 'ryanoasis/vim-devicons'
     Plug 'nanotech/jellybeans.vim'
     " {{{
       let g:jellybeans_use_term_background_color = 1
     " }}}
 
     Plug 'scrooloose/nerdtree'
+    Plug 'jistr/vim-nerdtree-tabs'
     " {{{
       map <F2> :NERDTreeTabsToggle<CR>
     " }}}
 
-    Plug 'groenewege/vim-less'
-    Plug 'klen/python-mode'
     Plug 'jiangmiao/auto-pairs'
     " {{{
       let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-    " }}}
-
+    " }}}-1
+    "
     Plug 'xuhdev/SingleCompile'
     " {{{
       nnoremap <F8> :SCCompile<cr>
@@ -77,17 +71,16 @@
     " }}}
 
     " Web and template syntax and more {{{
+    Plug 'groenewege/vim-less'
     Plug 'plasticboy/vim-markdown'
     Plug 'hail2u/vim-css3-syntax'
     Plug 'cakebaker/scss-syntax.vim'
     Plug 'mattn/emmet-vim'
     Plug 'jdevera/vim-stl-syntax'
-    Plug 'regedarek/ZoomWin'
     Plug 'kchmck/vim-coffee-script'
     Plug 'tpope/vim-haml'
-    Plug 'https://github.com/slim-template/vim-slim'
+    Plug 'slim-template/vim-slim'
     Plug 'curist/vim-angular-template'
-    Plug 'digitaltoad/vim-jade',
     Plug 'othree/yajs.vim'
     Plug 'evanmiller/nginx-vim-syntax'
     Plug 'gkz/vim-ls'
@@ -129,8 +122,6 @@
     " Snippets
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    Plug 'Shougo/neosnippet'
-    Plug 'Shougo/neosnippet-snippets'
     " Enable snipMate compatibility feature.
     let g:neosnippet#enable_snipmate_compatibility = 1
 
@@ -155,14 +146,9 @@
     " }}}
 
     " Other utility plugins {{{
-    Plug 'mattn/webapi-vim'
     Plug 'mattn/gist-vim'
-    Plug 'tejr/vim-tmux'
     Plug 'christoomey/vim-tmux-navigator'
-    Plug 'xolox/vim-lua-ftplugin'
-    Plug 'godlygeek/tabular'
     Plug 'easymotion/vim-easymotion'
-    Plug 'jistr/vim-nerdtree-tabs'
     Plug 'MarcWeber/vim-addon-mw-utils'
     Plug 'tomtom/tlib_vim'
     Plug 'terryma/vim-multiple-cursors'
@@ -196,23 +182,20 @@
 
     " Autocompletion and spellcheck stuff {{{
     Plug 'Shougo/deoplete.nvim'
-    Plug 'benekastah/neomake'
-    Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
     Plug 'Shougo/neoinclude.vim'
-    Plug 'Shougo/neomru.vim'
-    Plug 'Shougo/neoyank.vim'
+    Plug 'neomake/neomake'
 
     " Yes, there are vim stuff here
     Plug 'vim-scripts/SyntaxComplete'
     Plug 'Shougo/neco-vim'
     " }}}
-    
+
     " Vim fast searching and moving around {{{
     Plug 'dyng/ctrlsf.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'rking/ag.vim'
     " }}}
-    
+
     " Vim stuff {{{
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'AndrewRadev/switch.vim'
@@ -228,37 +211,14 @@
 
     call plug#end()
   " }}}
-  
+
   " Ruby mode {{{
     let ruby_fold = 1
-    " Set async completion.
-    let g:monster#completion#rcodetools#backend = "async_rct_complete"
 
     " Set up ruby source for deoplete
     let g:deoplete#sources#omni#input_patterns = {
             \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
             \}
-  " }}}
-  " Python mode {{{
-    " Rope AutoComplete
-    let g:pymode_rope_completion = 0
-
-    " Code checking
-    let g:pymode_lint = 1
-    let g:pymode_lint_unmodified = 1
-    let g:pymode_lint_message = 1
-    let g:pymode_lint_cwindow = 0
-    let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-    let g:pymode_lint_ignore = "W0612"
-
-    " Rope Menu
-    menu Python.Create\ Package :RopeCreatePackage<CR>
-    menu Python.Create\ Module :RopeCreateModule<CR>
-
-    let g:pymode_syntax_print_as_function = 1
-    let g:pymode_syntax_space_errors = 0
-
-    let g:pymode_doc_bind = 'M'
   " }}}
   " Nerdcommenter {{{
     let NERDSpaceDelims=1
@@ -267,17 +227,13 @@
     let g:user_emmet_install_global = 0
     autocmd FileType html,css,erb EmmetInstall
   " }}}
-  " Session {{{
-    let g:session_autosave = 'no'
-  " }}}
+"}}}
   " UltiSnips {{{
-    let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnipsExpandTrigger = "<C-j>"
-    let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-  " }}}
-  " Session {{{
-    let g:session_autoload = 'no'
+    inoremap <C-x><C-k> <NOP>
+    let g:UltiSnipsExpandTrigger='<C-j>'
+    let g:UltiSnipsListSnippets='<C-s>'
+    let g:UltiSnipsJumpForwardTrigger='<C-j>'
+    let g:UltiSnipsJumpBackwardTrigger='<C-k>'
   " }}}
   " Surround {{{
     autocmd FileType htmldjango let b:surround_{char2nr("v")} = "{{ \r }}"
@@ -305,43 +261,58 @@
     let g:riv_i_tab_user_cmd = "\<c-g>u\<c-r>=UltiSnips#ExpandSnippet()\<cr>"
     " }}}
   " Neomake {{{
-    autocmd! BufWritePost * Neomake       
+    autocmd! BufWritePost * Neomake
     let g:neomake_ruby_enabled_makers = ['rubocop']
   " }}}
   " Deoplete {{{
     let g:python_host_prog = '/usr/bin/python2.7'
-    let g:python3_host_prog = '/usr/bin/python3' 
-    "
-    " Use deoplete.
-    let g:deoplete#enable_at_startup = 1
-    " Use smartcase.
-    let g:deoplete#enable_smart_case = 1
+    let g:python3_host_prog = '/usr/bin/python3'
 
-    " Start completion at 1 char
-    " Depracated
-    " let	g:deoplete#auto_complete_start_length = 2
+    " 4.11 Deoplete autocomplete settings {{{
+    " -----------------------------------------------------
+    let g:deoplete#enable_at_startup=1
+    let g:deoplete#enable_refresh_always=0
+    let g:deoplete#file#enable_buffer_path=1
 
-    if !exists('g:deoplete#omni#input_patterns')
-      let g:deoplete#omni#input_patterns = {}
-    endif
+    let g:deoplete#sources={}
+    let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
+    let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
+    let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
+    let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
+    let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+    let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+    let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+"}}}
 
-    inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+    " Tab wrapper
+    function! g:utils#tabComplete() abort
+      let l:col = col('.') - 1
+
+      if pumvisible()
+        return "\<C-n>"
+      else
+        if !l:col || getline('.')[l:col - 1] !~# '\k'
+          return "\<TAB>"
+        else
+          return "\<C-n>"
+        endif
+      endif
+    endfunction
+
+    " Insert <TAB> or select next match
+    inoremap <silent> <expr> <Tab> utils#tabComplete()
 
     " <C-h>, <BS>: close popup and delete backword char.
     inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
     inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
-
-    " <CR>: close popup and save indent.
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function()
-      return deoplete#mappings#close_popup() . "\<CR>"
-    endfunction
   " }}}
   " }}}
 " Mappings {{{
   " Easily scroll up/down in insert mode
   inoremap <C-b> <C-x><C-y>
   inoremap <C-f> <C-x><C-e>
+  " Insert a hash rocket with <c-l>
+  imap <c-l> <space>=><space>
 
   " Because the Esc key is too far...
   inoremap jk <Esc>
@@ -353,7 +324,7 @@
 
   " Format current paragraph (Ex-mode sucks...)
   nnoremap <silent> Q gwip
-  
+
   " Change keyboard layouts
   inoremap <C-z> <C-^>
   cnoremap <C-z> <C-^>
@@ -433,7 +404,6 @@
 " }}}
 " Interface {{{
     " Colors {{{
-    syntax on
 
     " http://terminal.sexy/ is an awesome website to create more :)
     " Other cool dark 256 color colorschemes:
@@ -441,34 +411,34 @@
     " colorscheme neverland
     " let g:seoul256_background = 233
     " colo seoul256
-    " airline
-    let g:airline_powerline_fonts = 1
-    let g:airline_theme = 'powerlineish'
-    let g:airline_powerline_fonts = 1
-    let g:airline#extensions#tabline#enabled = 1
-    let g:Powerline_symbols = 'fancy'
-    let g:airline_exclude_filetypes=['netrw','diff','undotree','gundo','tagbar']
-    let g:airline_linecolumn_prefix = ' '
-    let g:airline_section_z='%3p%% '.g:airline_linecolumn_prefix.'%3l:%c'
-    let g:airline_detect_whitespace=0 " turn off the whitespace extension
-    "enable/disable showing a summary of changed hunks under source control.
-    let g:airline#extensions#hunks#enabled = 1
-    "enable/disable showing only non-zero hunks.
-    let g:airline#extensions#hunks#non_zero_only = 1
-    "set hunk count symbols.
-    let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
-
-    "set tmuxline preset
-    let g:tmuxline_preset = {
-          \'a'    : '#S',
-          \'b'    : '#W',
-          \'c'    : '#H',
-          \'win'  : '#I #W',
-          \'cwin' : '#I #W',
-          \'x'    : '%a',
-          \'y'    : '#W %R',
-          \'z'    : '#H'}
-
+    " " airline
+    " let g:airline_powerline_fonts = 1
+    " let g:airline_theme = 'powerlineish'
+    " let g:airline_powerline_fonts = 1
+    " let g:airline#extensions#tabline#enabled = 1
+    " let g:Powerline_symbols = 'fancy'
+    " let g:airline_exclude_filetypes=['netrw','diff','undotree','gundo','tagbar']
+    " let g:airline_linecolumn_prefix = ' '
+    " let g:airline_section_z='%3p%% '.g:airline_linecolumn_prefix.'%3l:%c'
+    " let g:airline_detect_whitespace=0 " turn off the whitespace extension
+    " "enable/disable showing a summary of changed hunks under source control.
+    " let g:airline#extensions#hunks#enabled = 1
+    " "enable/disable showing only non-zero hunks.
+    " let g:airline#extensions#hunks#non_zero_only = 1
+    " "set hunk count symbols.
+    " let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+    "
+    " "set tmuxline preset
+    " let g:tmuxline_preset = {
+    "       \'a'    : '#S',
+    "       \'b'    : '#W',
+    "       \'c'    : '#H',
+    "       \'win'  : '#I #W',
+    "       \'cwin' : '#I #W',
+    "       \'x'    : '%a',
+    "       \'y'    : '#W %R',
+    "       \'z'    : '#H'}
+    "
 
     " Thematic {{{
       " Cycle through thematic themes.
@@ -607,12 +577,6 @@
     nnoremap <up>    <c-w>-
     nnoremap <down>  <c-w>+
   " }}}
-  "  Splits navigation {{{
-  "  nnoremap gh <C-w>h
-  "  nnoremap gj <C-w>j
-  "  nnoremap gk <C-w>k
-  "  nnoremap gl <C-w>l
-  "" }}}
 " }}}
 " Filetype specific settings {{{
   " Automaticlly set filetypes {{{
@@ -625,16 +589,6 @@
       au FileType cpp setlocal foldmethod=syntax
     augroup END
   "}}}
-  " " Ruby {{{
-  " "
-  "   augroup ft_rb
-  "     au!
-  "     au FileType rb setlocal foldmethod=syntax
-  "     au FileType rb setlocal expandtab
-  "     au FileType rb setlocal tabstop=2 shiftwidth=2 softtabstop=2
-  "     au FileType rb setlocal autoindent
-  "   augroup END
-  " "}}}
   " C {{{
   "
     augroup ft_c
@@ -653,64 +607,64 @@
       au FileType coffee setlocal shiftround
     augroup END
   " }}}
-  " Django {{{
-    augroup ft_django
-      au!
-      au BufNewFile,BufRead urls.py           setlocal nowrap
-      au BufNewFile,BufRead urls.py           normal! zR
-      au BufNewFile,BufRead dashboard.py      normal! zR
-      au BufNewFile,BufRead local_settings.py normal! zR
-
-      au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-      au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-      au BufNewFile,BufRead models.py    setlocal filetype=python.django
-      au BufNewFile,BufRead views.py     setlocal filetype=python.django
-      au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-      au BufNewFile,BufRead settings.py  setlocal foldmethod=marker
-      au BufNewFile,BufRead forms.py     setlocal filetype=python.django
-      au BufNewFile,BufRead common_settings.py  setlocal filetype=python.django
-      au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
-    augroup END
-  " }}}
+  " " Django {{{
+  "   augroup ft_django
+  "     au!
+  "     au BufNewFile,BufRead urls.py           setlocal nowrap
+  "     au BufNewFile,BufRead urls.py           normal! zR
+  "     au BufNewFile,BufRead dashboard.py      normal! zR
+  "     au BufNewFile,BufRead local_settings.py normal! zR
+  "
+  "     au BufNewFile,BufRead admin.py     setlocal filetype=python.django
+  "     au BufNewFile,BufRead urls.py      setlocal filetype=python.django
+  "     au BufNewFile,BufRead models.py    setlocal filetype=python.django
+  "     au BufNewFile,BufRead views.py     setlocal filetype=python.django
+  "     au BufNewFile,BufRead settings.py  setlocal filetype=python.django
+  "     au BufNewFile,BufRead settings.py  setlocal foldmethod=marker
+  "     au BufNewFile,BufRead forms.py     setlocal filetype=python.django
+  "     au BufNewFile,BufRead common_settings.py  setlocal filetype=python.django
+  "     au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
+  "   augroup END
+  " " }}}
   " Vimscript {{{
     augroup ft_viml
       au!
       au FileType vim setlocal foldmethod=marker
     augroup END
   " }}}
-  " Python {{{
-    augroup ft_python
-      au!
-      au FileType python setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
-      au FileType python setlocal tabstop=4     " an hard TAB displays as 4 columns
-      au FileType python setlocal expandtab     " insert spaces when hitting TABs
-      au FileType python setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-      au FileType python setlocal shiftround    " round indent to multiple of 'shiftwidth'
-      au FileType python setlocal autoindent    " align the new line indent with the previous line
-    augroup END
-  " }}}
-  " PHP {{{
-    augroup ft_php
-      au!
-      au FileType php setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
-      au FileType php setlocal tabstop=4     " an hard TAB displays as 4 columns
-      au FileType php setlocal expandtab     " insert spaces when hitting TABs
-      au FileType php setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-      au FileType php setlocal shiftround    " round indent to multiple of 'shiftwidth'
-      au FileType php setlocal autoindent    " align the new line indent with the previous line
-    augroup END
-  " }}}
-  " CTP {{{
-    augroup ft_ctp
-      au!
-      au FileType ctp setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
-      au FileType ctp setlocal tabstop=4     " an hard TAB displays as 4 columns
-      au FileType ctp setlocal expandtab     " insert spaces when hitting TABs
-      au FileType ctp setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-      au FileType ctp setlocal shiftround    " round indent to multiple of 'shiftwidth'
-      au FileType ctp setlocal autoindent    " align the new line indent with the previous line
-    augroup END
-  " }}}
+  " " Python {{{
+  "   augroup ft_python
+  "     au!
+  "     au FileType python setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
+  "     au FileType python setlocal tabstop=4     " an hard TAB displays as 4 columns
+  "     au FileType python setlocal expandtab     " insert spaces when hitting TABs
+  "     au FileType python setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+  "     au FileType python setlocal shiftround    " round indent to multiple of 'shiftwidth'
+  "     au FileType python setlocal autoindent    " align the new line indent with the previous line
+  "   augroup END
+  " " }}}
+  " " PHP {{{
+  "   augroup ft_php
+  "     au!
+  "     au FileType php setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
+  "     au FileType php setlocal tabstop=4     " an hard TAB displays as 4 columns
+  "     au FileType php setlocal expandtab     " insert spaces when hitting TABs
+  "     au FileType php setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+  "     au FileType php setlocal shiftround    " round indent to multiple of 'shiftwidth'
+  "     au FileType php setlocal autoindent    " align the new line indent with the previous line
+  "   augroup END
+  " " }}}
+  " " CTP {{{
+  "   augroup ft_ctp
+  "     au!
+  "     au FileType ctp setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
+  "     au FileType ctp setlocal tabstop=4     " an hard TAB displays as 4 columns
+  "     au FileType ctp setlocal expandtab     " insert spaces when hitting TABs
+  "     au FileType ctp setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+  "     au FileType ctp setlocal shiftround    " round indent to multiple of 'shiftwidth'
+  "     au FileType ctp setlocal autoindent    " align the new line indent with the previous line
+  "   augroup END
+  " " }}}
   " JavaScript {{{
     augroup ft_js
       au!
@@ -738,17 +692,17 @@
       au FileType htmldjango.html setlocal shiftround
     augroup END
   " }}}
-  " Jade {{{
-    augroup ft_jade
-      au!
-      au FileType jade setlocal nofoldenable
-      au FileType jade setlocal shiftwidth=2
-      au FileType jade setlocal tabstop=2
-      au FileType jade setlocal expandtab
-      au FileType jade setlocal softtabstop=2
-      au FileType jade setlocal shiftround
-    augroup END
-  " }}}
+  " " Jade {{{
+  "   augroup ft_jade
+  "     au!
+  "     au FileType jade setlocal nofoldenable
+  "     au FileType jade setlocal shiftwidth=2
+  "     au FileType jade setlocal tabstop=2
+  "     au FileType jade setlocal expandtab
+  "     au FileType jade setlocal softtabstop=2
+  "     au FileType jade setlocal shiftround
+  "   augroup END
+  " " }}}
   " Markdown {{{
     augroup ft_mkd
       au!
@@ -756,21 +710,21 @@
       au FileType mkd nnoremap <buffer> <leader><space> :Goyo<CR>
     augroup END
   " }}}
-  " reStructuredText {{{
-    augroup ft_rst
-      au!
-      au FileType rst setlocal textwidth=79
-      au FileType rst setlocal colorcolumn=80
-      au FileType rst nnoremap <buffer> <leader><space> :Goyo<CR>
-    augroup END
-  " }}}
-  " LaTeX {{{
-    augroup ft_tex
-      au!
-      au FileType tex setlocal textwidth=80
-      au FileType tex setlocal foldmethod=manual
-    augroup END
-  " }}}
+  " " reStructuredText {{{
+  "   augroup ft_rst
+  "     au!
+  "     au FileType rst setlocal textwidth=79
+  "     au FileType rst setlocal colorcolumn=80
+  "     au FileType rst nnoremap <buffer> <leader><space> :Goyo<CR>
+  "   augroup END
+  " " }}}
+  " " LaTeX {{{
+  "   augroup ft_tex
+  "     au!
+  "     au FileType tex setlocal textwidth=80
+  "     au FileType tex setlocal foldmethod=manual
+  "   augroup END
+  " " }}}
   " CSS {{{
     augroup ft_css
       au!
@@ -819,17 +773,4 @@
   " }}}
 " }}}
 
-" GUI settings {{{
-  if has('gui_running')
-    set guifont=Monaco\ for\ Powerline\ 10
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=r
-    set guioptions-=R
-  else
-    set mouse=a
-  endif
-" }}}
 filetype plugin indent on
