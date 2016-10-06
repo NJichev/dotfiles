@@ -147,6 +147,7 @@
 
     " Other utility plugins {{{
     Plug 'mattn/gist-vim'
+    Plug 'vim-racket'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'easymotion/vim-easymotion'
     Plug 'MarcWeber/vim-addon-mw-utils'
