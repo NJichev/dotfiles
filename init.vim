@@ -11,15 +11,21 @@
   let maplocalleader="\\"
 
   " Set ctags lookup
-  " set tags+=tags;$HOME
-  set tags+=.tags,.git/tags
-
+  set tags+=.tags,.git/tags;$HOME
+  " set tags+=.tags,.git/tags
   " Use the backspace key as expected
   set backspace=2
 
   " Copy/paste from the clipboard. For Windows/Mac use: set clipboard=unnamed
   set clipboard+=unnamedplus
 
+  " Make you keyboard actually do something while you are switched to Cyrillic
+  " layout. Ripped off @StanAngeloff.
+  set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM,ю\\,Ю\|,
+
+  " Get rid of the annoying |,= characters on vertical split bar separator and
+  " the filling characters of the folded lines.
+  set fillchars=vert:\ ,fold:\ 
   " Don't try to highlight lines longer than 800 characters.
   set synmaxcol=800
 
@@ -29,9 +35,6 @@
   " Set 5 lines to the cursor - when moving vertically using j/k
   set so=5
   set omnifunc=syntaxcomplete#Complete
-  " set list
-  " set list listchars=tab:▸\ ,trail:·
-  " set list listchars=tab:»·,trail:·
   set list listchars=tab:»\ ,trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
   set nobackup                     " disable backups
   set noswapfile                   " it's 2015, NeoVim.
@@ -44,14 +47,6 @@
     Plug 'reedes/vim-thematic'
     Plug 'tomasr/molokai'
     Plug 'morhetz/gruvbox'
-    Plug 'goatslacker/mango.vim'
-    Plug 'w0ng/vim-hybrid'
-    Plug 'tomasr/molokai'
-    Plug 'trapd00r/neverland-vim-theme'
-    Plug 'nanotech/jellybeans.vim'
-    " {{{
-      let g:jellybeans_use_term_background_color = 1
-    " }}}
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
@@ -87,16 +82,6 @@
     " }}}
 
     " Tags {{{
-    Plug 'majutsushi/tagbar'
-    " {{{
-    " Ctrl+] - go to definition
-    " Ctrl+T - Jump back from the definition.
-    " Ctrl+W Ctrl+] - Open the definition in a horizontal split
-      nmap <F3> :TagbarToggle<CR>
-    " }}}
-    "
-    "
-    Plug 'xolox/vim-easytags'
     Plug 'ludovicchabant/vim-gutentags'
     " {{{ Gutentags
     let g:gutentags_tagfile='.tags'
@@ -122,37 +107,33 @@
     " Snippets
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
-    " Enable snipMate compatibility feature.
-    let g:neosnippet#enable_snipmate_compatibility = 1
-
-    " Tell Neosnippet about the other snippets
-    let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
     " Ruby plugins
-    Plug 'skalnik/vim-vroom'
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'tpope/vim-rails'
-    Plug 'bruno-/vim-ruby-fold'
+    Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
+    Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+    Plug 'tpope/vim-rails', { 'for': 'ruby' }
+    Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
+    Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 
     " Elixir
-    Plug 'elixir-lang/vim-elixir'
+    Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
     " Tpope utility plugins {{{
     Plug 'tpope/vim-dispatch'
-    Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sleuth'
+    Plug 'tpope/vim-unimpaired'
     " Plug 'tpope/vim-env'
     " }}}
 
     " Other utility plugins {{{
     Plug 'mattn/gist-vim'
-    Plug 'vim-racket'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'easymotion/vim-easymotion'
     Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'tomtom/tlib_vim'
     Plug 'tomtom/tcomment_vim'
     " }}}
 
@@ -204,10 +185,9 @@
     Plug 'xolox/vim-misc'
     Plug 'Rykka/InstantRst'
     Plug 'tommcdo/vim-exchange'
-    Plug 'kana/vim-textobj-user'
+    Plug 'kana/vim-textobj-user' | Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
     Plug 'beloglazov/vim-textobj-quotes'
     Plug 'Julian/vim-textobj-brace'
-    Plug 'vim-scripts/bulgarian.vim'
     " }}}
 
     call plug#end()
@@ -315,6 +295,7 @@
   " Insert a hash rocket with <c-l>
   imap <c-l> <space>=><space>
 
+  nnoremap <cr> :VroomRunTestFile<cr>
   " Because the Esc key is too far...
   inoremap jk <Esc>
 
@@ -443,38 +424,32 @@
 
     " Thematic {{{
       " Cycle through thematic themes.
-      nnoremap <Leader>t :ThematicNext<CR>
+      nnoremap <Leader>tt :ThematicNext<CR>
 
-      let g:thematic#defaults = {
-      \ 'colorscheme': 'molokai',
+      " let g:thematic#defaults = {
+      " \ 'colorscheme': 'molokai',
+      " \ }
+
+      let g:thematic#themes={
+          \ 'gruvbox_light': {
+          \   'colorscheme': 'gruvbox',
+          \   'background': 'light',
+          \  },
+          \ 'gruvbox_dark': {
+          \   'colorscheme': 'gruvbox',
+          \   'background': 'dark',
+          \ },
+          \ 'molokai': {
+          \   'colorscheme': 'molokai',
+          \   'theme_name': 'molokai',
+          \ }
       \ }
-
-      let g:thematic#themes = {
-        \ 'jellybeans': {
-        \   'colorscheme': 'jellybeans',
-        \   'theme_name': 'jellybeans',
-        \ },
-        \ 'gruvbox_light': {
-        \   'colorscheme': 'gruvbox',
-        \   'theme_name': 'gruvbox_light',
-        \ },
-        \ 'molokai': {
-        \   'colorscheme': 'molokai',
-        \   'theme_name': 'molokai',
-        \ },
-        \ 'gruvbox_dark': {
-        \   'colorscheme': 'gruvbox',
-        \   'theme_name': 'gruvbox_dark',
-        \ },
-        \ 'hybrid': {
-        \   'colorscheme': 'hybrid',
-        \   'theme_name': 'hybrid',
-        \ },
-        \}
-
-        let g:thematic#theme_name='molokai'
+        let g:thematic#theme_name='gruvbox_light'
     " }}}
 
+    " Blend the sign column background.
+    let g:gruvbox_sign_column='dark0'
+    let g:gruvbox_contrast_dark='soft'
   " }}}
   set number
   set ruler
@@ -608,53 +583,12 @@
       au FileType coffee setlocal shiftround
     augroup END
   " }}}
-  " " Django {{{
-  "   augroup ft_django
-  "     au!
-  "     au BufNewFile,BufRead urls.py           setlocal nowrap
-  "     au BufNewFile,BufRead urls.py           normal! zR
-  "     au BufNewFile,BufRead dashboard.py      normal! zR
-  "     au BufNewFile,BufRead local_settings.py normal! zR
-  "
-  "     au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-  "     au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-  "     au BufNewFile,BufRead models.py    setlocal filetype=python.django
-  "     au BufNewFile,BufRead views.py     setlocal filetype=python.django
-  "     au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-  "     au BufNewFile,BufRead settings.py  setlocal foldmethod=marker
-  "     au BufNewFile,BufRead forms.py     setlocal filetype=python.django
-  "     au BufNewFile,BufRead common_settings.py  setlocal filetype=python.django
-  "     au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
-  "   augroup END
-  " " }}}
   " Vimscript {{{
     augroup ft_viml
       au!
       au FileType vim setlocal foldmethod=marker
     augroup END
   " }}}
-  " " Python {{{
-  "   augroup ft_python
-  "     au!
-  "     au FileType python setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
-  "     au FileType python setlocal tabstop=4     " an hard TAB displays as 4 columns
-  "     au FileType python setlocal expandtab     " insert spaces when hitting TABs
-  "     au FileType python setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-  "     au FileType python setlocal shiftround    " round indent to multiple of 'shiftwidth'
-  "     au FileType python setlocal autoindent    " align the new line indent with the previous line
-  "   augroup END
-  " " }}}
-  " " PHP {{{
-  "   augroup ft_php
-  "     au!
-  "     au FileType php setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
-  "     au FileType php setlocal tabstop=4     " an hard TAB displays as 4 columns
-  "     au FileType php setlocal expandtab     " insert spaces when hitting TABs
-  "     au FileType php setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-  "     au FileType php setlocal shiftround    " round indent to multiple of 'shiftwidth'
-  "     au FileType php setlocal autoindent    " align the new line indent with the previous line
-  "   augroup END
-  " " }}}
   " " CTP {{{
   "   augroup ft_ctp
   "     au!
@@ -693,17 +627,6 @@
       au FileType htmldjango.html setlocal shiftround
     augroup END
   " }}}
-  " " Jade {{{
-  "   augroup ft_jade
-  "     au!
-  "     au FileType jade setlocal nofoldenable
-  "     au FileType jade setlocal shiftwidth=2
-  "     au FileType jade setlocal tabstop=2
-  "     au FileType jade setlocal expandtab
-  "     au FileType jade setlocal softtabstop=2
-  "     au FileType jade setlocal shiftround
-  "   augroup END
-  " " }}}
   " Markdown {{{
     augroup ft_mkd
       au!
@@ -753,18 +676,6 @@
       au FileType sass setlocal expandtab
       au FileType sass setlocal softtabstop=2
       au FileType sass setlocal shiftround
-    augroup END
-  " }}}
-  " Lua {{{
-    augroup ft_lua
-      au!
-      au FileType lua setlocal foldmethod=marker
-      au FileType lua setlocal shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
-      au FileType lua setlocal tabstop=4     " an hard TAB displays as 4 columns
-      au FileType lua setlocal expandtab     " insert spaces when hitting TABs
-      au FileType lua setlocal softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-      au FileType lua setlocal shiftround    " round indent to multiple of 'shiftwidth'
-      au FileType lua setlocal autoindent    " align the new line indent with the previous line
     augroup END
   " }}}
   " Nonvim {{{

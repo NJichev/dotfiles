@@ -3,6 +3,7 @@
 --format=2
 --excmd=pattern
 --exclude="\.git"
+--exclude="\.#*.rb"
 --exclude="\.hg"
 --exclude="\.svn"
 --exclude="\.sass-cache"
