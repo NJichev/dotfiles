@@ -101,6 +101,7 @@ Plug 'honza/vim-snippets'
 
 " Ruby plugins
 Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
+
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
@@ -127,9 +128,11 @@ Plug 'tomtom/tlib_vim'
 Plug 'tomtom/tcomment_vim'
 
 " Autocompletion and spellcheck stuff
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neoinclude.vim'
-Plug 'neomake/neomake'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/neoinclude.vim'
+  Plug 'neomake/neomake'
+endif
 
 " Yes, there are vim stuff here
 Plug 'vim-scripts/SyntaxComplete'
@@ -156,10 +159,6 @@ call plug#end()
 " Ruby mode
 let ruby_fold = 1
 
-" Set up ruby source for deoplete
-let g:deoplete#sources#omni#input_patterns = {
-        \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-        \}
 " Nerdcommenter
 let NERDSpaceDelims=1
 
@@ -170,26 +169,37 @@ let g:UltiSnipsListSnippets='<C-s>'
 let g:UltiSnipsJumpForwardTrigger='<C-j>'
 let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 
-" Neomake
-let g:neomake_ruby_enabled_makers = ['rubocop']
+if has('nvim')
+  " Set up ruby source for deoplete
+  let g:deoplete#sources#omni#input_patterns = {
+          \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+          \}
+  " Neomake
+  let g:neomake_ruby_enabled_makers = ['rubocop']
 
-" Deoplete
-let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3'
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
-let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_refresh_always=0
-let g:deoplete#file#enable_buffer_path=1
-let g:deoplete#auto_complete_start_length=1
 
-let g:deoplete#sources={}
-let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
-let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
-let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
-let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
-let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+  " Deoplete
+  let g:python_host_prog = '/usr/bin/python2.7'
+  let g:python3_host_prog = '/usr/bin/python3'
+
+  let g:deoplete#enable_at_startup=1
+  let g:deoplete#enable_refresh_always=0
+  let g:deoplete#file#enable_buffer_path=1
+  let g:deoplete#auto_complete_start_length=1
+
+  let g:deoplete#sources={}
+  let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
+  let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
+  let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
+  let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
+  let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+  let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+  let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+endif
 
 " Tab wrapper
 function! g:utils#tabComplete() abort
@@ -208,10 +218,6 @@ endfunction
 
 " Insert <TAB> or select next match
 inoremap <silent> <expr> <Tab> utils#tabComplete()
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
 " Mappings
 " Easily scroll up/down in insert mode
@@ -329,14 +335,14 @@ let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;
 
 nnoremap <Leader>f :FZF<cr>
 " Open files in horizontal split
-nnoremap <silent> <Leader>fs :call fzf#run({
-\   'down': '40%',
-\   'sink': 'botright split' })<CR>
-
-" Open files in vertical horizontal split
-nnoremap <silent> <Leader>fv :call fzf#run({
-\   'right': winwidth('.') / 2,
-\   'sink':  'vertical botright split' })<CR>
+" nnoremap <silent> <Leader>fs :call fzf#run({
+" \   'down': '40%',
+" \   'sink': 'botright split' })<CR>
+"
+" " Open files in vertical horizontal split
+" nnoremap <silent> <Leader>fv :call fzf#run({
+" \   'right': winwidth('.') / 2,
+" \   'sink':  'vertical botright split' })<CR>
 
 " Interface
 " Thematic
