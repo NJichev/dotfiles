@@ -96,8 +96,8 @@ let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " Ruby plugins
 Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
@@ -105,16 +105,16 @@ Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
-Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'elixir-lang/vim-elixir'
 
 " Tpope utility plugins
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 " Plug 'tpope/vim-env'
 
@@ -162,12 +162,12 @@ let ruby_fold = 1
 " Nerdcommenter
 let NERDSpaceDelims=1
 
-" UltiSnips
-inoremap <C-x><C-k> <NOP>
-let g:UltiSnipsExpandTrigger='<C-j>'
-let g:UltiSnipsListSnippets='<C-s>'
-let g:UltiSnipsJumpForwardTrigger='<C-j>'
-let g:UltiSnipsJumpBackwardTrigger='<C-k>'
+" " UltiSnips
+" inoremap <C-x><C-k> <NOP>
+" let g:UltiSnipsExpandTrigger='<C-j>'
+" let g:UltiSnipsListSnippets='<C-s>'
+" let g:UltiSnipsJumpForwardTrigger='<C-j>'
+" let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 
 if has('nvim')
   " Set up ruby source for deoplete
@@ -258,11 +258,14 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
 
+" Call dispatch
+nnoremap <leader>d :Dispatch<space>
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
 " Run tests with enter /<cr>
-nnoremap <cr> :VroomRunTestFile<cr>
+" nnoremap <cr> :VroomRunTestFile<cr>
+nnoremap <leader>t :VroomRunTestFile<cr>
 
 " Because the Esc key is too far...
 inoremap jk <Esc>
@@ -328,7 +331,7 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 nnoremap <Leader>sf :CtrlSF<Space>
 
 " FZF setup
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+" let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
@@ -434,7 +437,7 @@ nnoremap <down>  <c-w>+
 
 if has("autocmd")
   "Reload vimrc on change
-  autocmd! BufWritePost * Neomake
+  " autocmd! BufWritePost * Neomake
   autocmd bufwritepost init.vim source $MYVIMRC
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |

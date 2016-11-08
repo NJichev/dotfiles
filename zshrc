@@ -125,7 +125,7 @@ alias rc='rails c'
 alias deploy='bundle exec cap staging deploy'
 
 # Racket
-alias rktrepl='rackert -il xrepl'
+alias rktrepl='racket -il xrepl'
 
 # Utility
 alias audio='pulseaudio -k && sudo alsa force-reload'
