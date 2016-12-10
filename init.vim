@@ -4,15 +4,16 @@ filetype on
 filetype indent on
 filetype plugin on
 
-set rtp+=~/.nvim/bundle/Vundle.vim
+set runtimepath+=~/dotfiles/nvim/plugins/
 
 " Map the leader keys
 let mapleader=","
 let maplocalleader="\\"
 
 " Set ctags lookup
-set tags+=.tags,.git/tags;$HOME
+set tags+=.tags,.git/tags
 " set tags+=.tags,.git/tags
+
 " Use the backspace key as expected
 set backspace=2
 
@@ -42,7 +43,7 @@ set nobackup                     " disable backups
 set noswapfile                   " it's 2015, NeoVim.
 
 " Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/dotfiles/config/nvim/bundle')
 " Themes and interface
 Plug 'reedes/vim-thematic'
 Plug 'tomasr/molokai'
@@ -59,6 +60,9 @@ Plug 'xuhdev/SingleCompile'
 nnoremap <F8> :SCCompile<cr>
 nnoremap <F9> :SCCompileRun<cr>
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+
 " Web and template syntax and more
 Plug 'groenewege/vim-less'
 Plug 'plasticboy/vim-markdown'
@@ -70,7 +74,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 Plug 'curist/vim-angular-template'
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 Plug 'evanmiller/nginx-vim-syntax'
 Plug 'gkz/vim-ls'
 
@@ -99,10 +103,13 @@ let g:gutentags_generate_on_new = 1
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
 
-" Ruby plugins
-Plug 'skalnik/vim-vroom', { 'for': 'ruby' }
+" Testing for different languages
+Plug 'janko-m/vim-test'
 
+" Ruby plugins
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+Plug 'tpope/vim-rake', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise'
@@ -127,12 +134,10 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
 Plug 'tomtom/tcomment_vim'
 
-" Autocompletion and spellcheck stuff
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'Shougo/neoinclude.vim'
-  Plug 'neomake/neomake'
-endif
+" Nvim plugins
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neoinclude.vim'
+Plug 'neomake/neomake'
 
 " Yes, there are vim stuff here
 Plug 'vim-scripts/SyntaxComplete'
@@ -156,20 +161,21 @@ Plug 'Julian/vim-textobj-brace'
 
 call plug#end()
 
+" Haskell
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+
 " Ruby mode
 let ruby_fold = 1
 
 " Nerdcommenter
 let NERDSpaceDelims=1
 
-" " UltiSnips
-" inoremap <C-x><C-k> <NOP>
-" let g:UltiSnipsExpandTrigger='<C-j>'
-" let g:UltiSnipsListSnippets='<C-s>'
-" let g:UltiSnipsJumpForwardTrigger='<C-j>'
-" let g:UltiSnipsJumpBackwardTrigger='<C-k>'
-
-if has('nvim')
+  let g:deoplete#enable_at_startup = 1
   " Set up ruby source for deoplete
   let g:deoplete#sources#omni#input_patterns = {
           \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
@@ -183,10 +189,10 @@ if has('nvim')
 
 
   " Deoplete
-  let g:python_host_prog = '/usr/bin/python2.7'
-  let g:python3_host_prog = '/usr/bin/python3'
+  let g:python2_host_prog = "/usr/bin/python2.7"
+  let g:python3_host_prog = "/usr/sbin/python"
 
-  let g:deoplete#enable_at_startup=1
+
   let g:deoplete#enable_refresh_always=0
   let g:deoplete#file#enable_buffer_path=1
   let g:deoplete#auto_complete_start_length=1
@@ -198,8 +204,6 @@ if has('nvim')
   let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
   let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
   let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-  let g:deoplete#sources.html = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-endif
 
 " Tab wrapper
 function! g:utils#tabComplete() abort
@@ -263,9 +267,21 @@ nnoremap <leader>d :Dispatch<space>
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
-" Run tests with enter /<cr>
-" nnoremap <cr> :VroomRunTestFile<cr>
-nnoremap <leader>t :VroomRunTestFile<cr>
+" Run tests
+let test#strategy = {
+  \ 'nearest': 'basic',
+  \ 'file':    'basic',
+  \ 'suite':   'dispatch',
+\}
+nmap <silent> <leader>T :TestNearest<CR>
+nmap <silent> <leader>t :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+" make test commands execute using dispatch.vim
+" let test#strategy = "dispatch"
+let test#strategy = 'basic'
 
 " Because the Esc key is too far...
 inoremap jk <Esc>
@@ -350,6 +366,8 @@ nnoremap <Leader>f :FZF<cr>
 " Interface
 " Thematic
 " Cycle through thematic themes.
+set termguicolors
+
 nnoremap <Leader>tt :ThematicNext<CR>
 
 " let g:thematic#defaults = {
