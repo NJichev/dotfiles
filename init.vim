@@ -12,7 +12,6 @@ let maplocalleader="\\"
 
 " Set ctags lookup
 set tags+=.tags,.git/tags
-" set tags+=.tags,.git/tags
 
 " Use the backspace key as expected
 set backspace=2
@@ -42,6 +41,8 @@ set list listchars=tab:»\ ,trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
 set nobackup                     " disable backups
 set noswapfile                   " it's 2015, NeoVim.
 
+
+
 " Plugins
 call plug#begin('~/dotfiles/config/nvim/bundle')
 " Themes and interface
@@ -62,6 +63,7 @@ nnoremap <F9> :SCCompileRun<cr>
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
+Plug 'itchyny/vim-haskell-indent'
 
 " Web and template syntax and more
 Plug 'groenewege/vim-less'
@@ -116,6 +118,7 @@ Plug 'tpope/vim-endwise'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Tpope utility plugins
 Plug 'tpope/vim-dispatch'
@@ -396,13 +399,13 @@ set cursorline
 
 " Tabs and spaces
 set smartindent
-set shiftwidth=2  " operation >> indents 4 columns; << unindents 4 columns
+set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
 set tabstop=2     " an hard TAB displays as 2 columns
 set shiftround    " round indent to multiple of 'shiftwidth'
 set expandtab
 
 " Searching
-" Use sane regexes.
+" Use perl regexes.
 nnoremap / /\v
 vnoremap / /\v
 
