@@ -44,8 +44,8 @@ URxvt*color14: cyan
 URxvt*color15: white
 
 ! transperency
-urxvt*transparent: true
-urxvt*shading: 15
+! urxvt*transparent: true
+! urxvt*shading: 15
 
 ! clipboard
 ! Set xclip
@@ -58,11 +58,6 @@ URxvt.keysym.C-Down:   font-size:decrease
 URxvt.keysym.C-S-Up:   font-size:incglobal
 URxvt.keysym.C-S-Down: font-size:decglobal
 
-! URxvt.iso14755: False
-! URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
-! URxvt.keysym.Shift-Control-V:   perl:clipboard:paste_escaped
-! URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
-
 ! DPI 118
 !-- Xft settings -- !
 Xft.dpi:        118
@@ -74,8 +69,8 @@ Xft.hintstyle:  hintfull
 ! -- Fonts -- !
 ! URxvt.font:xft:Dejavu Sans Mono:pixelsize=16
 ! URxvt.boldfont:xft:Dejavu Sans Mono:pixelsize=16
-URxvt.font:xft:Source Code Pro Medium:pixelsize=16
-URxvt.boldfont:xft:Source Code Pro Heavy:pixelsize=16
+URxvt.font:xft:Source Code Pro Medium:pixelsize=18
+URxvt.boldfont:xft:Source Code Pro Heavy:pixelsize=18
 ! URxvt.font:xft:Fira Sans Heavy:pixelsize=13
 ! URxvt.boldfont:xft:Fira Sans Heavy:pixelsize=13
 ! URxvt.font: xft:Source Code Pro:size=10
