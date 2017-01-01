@@ -54,35 +54,17 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 map <F2> :NERDTreeTabsToggle<CR>
 
-Plug 'jiangmiao/auto-pairs'
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+Plug 'rstacruz/vim-closer'
 
 Plug 'xuhdev/SingleCompile'
 nnoremap <F8> :SCCompile<cr>
 nnoremap <F9> :SCCompileRun<cr>
 
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
-Plug 'itchyny/vim-haskell-indent'
+" Syntax for many languages
+Plug 'sheerun/vim-polyglot'
 
-" Web and template syntax and more
-Plug 'groenewege/vim-less'
-Plug 'plasticboy/vim-markdown'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'mattn/emmet-vim'
-Plug 'jdevera/vim-stl-syntax'
-Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-haml'
-Plug 'slim-template/vim-slim'
-Plug 'curist/vim-angular-template'
-" Plug 'othree/yajs.vim'
-Plug 'evanmiller/nginx-vim-syntax'
-Plug 'gkz/vim-ls'
-
-" Tags
-Plug 'ludovicchabant/vim-gutentags'
 " Gutentags
+Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_tagfile='.tags'
 
 " Use ripper-tags to generate tags for Ruby.
@@ -101,10 +83,6 @@ let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
 
-" Snippets
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-
 " Testing for different languages
 Plug 'janko-m/vim-test'
 
@@ -117,7 +95,6 @@ Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
 " Tpope utility plugins
@@ -136,6 +113,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
 Plug 'tomtom/tcomment_vim'
+Plug 'bogado/file-line'
 
 " Nvim plugins
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -144,6 +122,7 @@ Plug 'neomake/neomake'
 
 " Yes, there are vim stuff here
 Plug 'vim-scripts/SyntaxComplete'
+" Autocompletion source for vim.
 Plug 'Shougo/neco-vim'
 
 " Vim fast searching and moving around
@@ -163,17 +142,6 @@ Plug 'beloglazov/vim-textobj-quotes'
 Plug 'Julian/vim-textobj-brace'
 
 call plug#end()
-
-" Haskell
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-
-" Ruby mode
-let ruby_fold = 1
 
 " Nerdcommenter
 let NERDSpaceDelims=1
@@ -376,6 +344,7 @@ nnoremap <Leader>tt :ThematicNext<CR>
 " let g:thematic#defaults = {
 " \ 'colorscheme': 'molokai',
 " \ }
+let g:gruvbox_contrast_light='hard'
 
 let g:thematic#themes={
     \ 'gruvbox_light': {
