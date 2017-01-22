@@ -250,5 +250,5 @@ exec_always --no-startup-id redshift -l 43:25
 
 # exec --no-startup-id spotify
 # exec --no-startup-id slack
-# exec --no-startup-id emacs --daemon
+exec --no-startup-id emacs --daemon
 exec --no-startup-id compton -f

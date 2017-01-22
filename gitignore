@@ -30,3 +30,5 @@ sprockets/
 cache/
 .rubocop*
 .tags*
+config/database.yml
+database.yml

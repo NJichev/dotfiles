@@ -61,6 +61,9 @@ values."
      rust
      go
 
+     ;; Hype
+     elixir
+
      ;; Ruby
      (ruby :variables
            ruby-version-manager 'rbenv

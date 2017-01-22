@@ -46,6 +46,7 @@ set noswapfile                   " it's 2015, NeoVim.
 " Plugins
 call plug#begin('~/dotfiles/config/nvim/bundle')
 " Themes and interface
+Plug 'dracula/vim'
 Plug 'reedes/vim-thematic'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
@@ -239,11 +240,11 @@ nnoremap <leader>d :Dispatch<space>
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
 " Run tests
-let test#strategy = {
-  \ 'nearest': 'basic',
-  \ 'file':    'basic',
-  \ 'suite':   'dispatch',
-\}
+" let test#strategy = {
+"   \ 'nearest': 'basic',
+"   \ 'file':    'basic',
+"   \ 'suite':   'dispatch',
+" \}
 nmap <silent> <leader>T :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
@@ -337,7 +338,7 @@ nnoremap <Leader>f :FZF<cr>
 " Interface
 " Thematic
 " Cycle through thematic themes.
-set termguicolors
+" set termguicolors
 
 nnoremap <Leader>tt :ThematicNext<CR>
 
@@ -358,9 +359,14 @@ let g:thematic#themes={
     \ 'molokai': {
     \   'colorscheme': 'molokai',
     \   'theme_name': 'molokai',
-    \ }
+    \ },
+    \ 'dracula': {
+    \   'colorscheme': 'dracula',
+    \   'theme_name': 'dracula',
+    \ },
 \ }
 let g:thematic#theme_name='gruvbox_light'
+" let g:thematic#theme_name='dracula'
 
 set number
 set ruler

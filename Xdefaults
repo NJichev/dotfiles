@@ -22,6 +22,7 @@ URxvt*scrollBar: false
 ! *color13: #AD7FA8
 ! *color14: #fcaf3e
 ! *color15: #EEEEEC
+! Old colorscheme:
 URxvt*color0: black
 !URxvt*color1: red3
 URxvt*color1: #CD0000
@@ -67,12 +68,6 @@ Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
 ! -- Fonts -- !
-! URxvt.font:xft:Dejavu Sans Mono:pixelsize=16
-! URxvt.boldfont:xft:Dejavu Sans Mono:pixelsize=16
-URxvt.font:xft:Source Code Pro Medium:pixelsize=18
-URxvt.boldfont:xft:Source Code Pro Heavy:pixelsize=18
-! URxvt.font:xft:Fira Sans Heavy:pixelsize=13
-! URxvt.boldfont:xft:Fira Sans Heavy:pixelsize=13
-! URxvt.font: xft:Source Code Pro:size=10
-! URxvt.boldFont: xft:Source Code Pro:bold:size=10 
+URxvt.font:xft:Source Code Pro Medium:pixelsize=16
+URxvt.boldfont:xft:Source Code Pro Heavy:pixelsize=16
 URxvt.letterSpace: -1
