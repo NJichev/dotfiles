@@ -1,4 +1,4 @@
-setxkbmap -option 'caps:ctrl_modifier' && xcape -e 'Caps_Lock=Escape' &
+setxkbmap -option 'caps:ctrl_modifier'; and xcape -e 'Caps_Lock=Escape' &
 source ~/.fehbg
 
 # Set toggle between bulgarian phonetic and us.

@@ -1,4 +1,3 @@
-#
 #Path to your oh-my-zsh installation.
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -47,7 +46,8 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rake rails ruby bundler rbenv gem web-search)
+plugins=(git rake ruby bundler rbenv gem web-search mix)
+# rake ruby bundler rbenv gem rails
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -128,6 +128,10 @@ alias sound='pulseaudio -k && sudo alsa force-reload'
 # XCLIP
 alias clipin="xclip -i -selection clipboard"
 alias clipout="xclip -o -selection clipboard"
+
+
+# Browser
+alias chrome="google-chrome-stable"
 # --------------------------------
 # FUNCTIONS 
 # --------------------------------
@@ -145,9 +149,13 @@ bindkey '^Z' fancy-ctrl-z
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-export PATH="/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/njichev/.fzf/bin"
-  PATH=$PATH:/home/njichev/bin
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="/usr/bin:/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin:/usr/games:/home/njichev/.fzf/bin"
+PATH="/home/njichev/bin:$PATH"
+export PATH="$PATH:$HOME/.rbenv/plugins/ruby-build/bin"
+
 eval "$(jump shell zsh)"
 
+# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --color "always"'
+
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

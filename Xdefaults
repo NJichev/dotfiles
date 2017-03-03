@@ -61,13 +61,20 @@ URxvt.keysym.C-S-Down: font-size:decglobal
 
 ! DPI 118
 !-- Xft settings -- !
-Xft.dpi:        118
+Xft.dpi:        125
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
 ! -- Fonts -- !
-URxvt.font:xft:Source Code Pro Medium:pixelsize=16
-URxvt.boldfont:xft:Source Code Pro Heavy:pixelsize=16
+! URxvt.font:xft:Source Code Pro:pixelsize=16:antialias=true
+! URxvt.boldfont:xft:Source Code Pro:pixelsize=16
+! URxvt.letterSpace: -1
+! URxvt.font:xft:Inconsolata for Powerline:style=Bold:pixelsize=17:antialias=true
+! URxvt.font:xft:Inconsolata for Powerline:pixelsize=17:antialias=true
+! URxvt.boldfont:xft:Inconsolata for Powerline:pixelsize=17:antialias=true
+! URxvt.letterSpace: -1
+URxvt.font:xft:Monaco for Powerline:pixelsize=16:antialias=true:style=Bold
+! URxvt.boldfont:xft:Monaco:pixelsize=14:antialias=true
 URxvt.letterSpace: -1

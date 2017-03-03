@@ -1,9 +1,105 @@
-" Basic options
-syntax on
-filetype on
-filetype indent on
-filetype plugin on
+set runtimepath+=/home/njichev/dotfiles/config/nvim/plugins/repos/github.com/Shougo/dein.vim
 
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+
+if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
+  call dein#begin('/home/njichev/dotfiles/config/nvim/plugins/')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/njichev/dotfiles/config/nvim/plugins/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove plugins here:
+
+  " Colorschemes
+  call dein#add('dracula/vim')
+  call dein#add('reedes/vim-thematic')
+  call dein#add('tomasr/molokai')
+  call dein#add('morhetz/gruvbox')
+
+  " Syntax for many languages
+  call dein#add('sheerun/vim-polyglot')
+
+
+  call dein#add('rstacruz/vim-closer')
+
+  " Gutentags
+  call dein#add('ludovicchabant/vim-gutentags')
+
+" Testing for different languages
+call dein#add('janko-m/vim-test')
+
+" Ruby plugins
+call dein#add('vim-ruby/vim-ruby')
+call dein#add('tpope/vim-bundler')
+call dein#add('tpope/vim-rake')
+call dein#add('tpope/vim-rails')
+call dein#add('bruno-/vim-ruby-fold')
+call dein#add('tpope/vim-endwise')
+
+" Elixir
+call dein#add('slashmili/alchemist.vim')
+
+" Tpope utility plugins
+call dein#add('tpope/vim-dispatch')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-fugitive')
+" call dein#add('tpope/vim-sleuth')
+call dein#add('tpope/vim-unimpaired')
+" call dein#add('tpope/vim-env')
+
+" Other utility plugins
+call dein#add('mattn/gist-vim')
+call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('MarcWeber/vim-addon-mw-utils')
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('tomtom/tlib_vim')
+call dein#add('tomtom/tcomment_vim')
+
+" Nvim plugins
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/neoinclude.vim')
+call dein#add('neomake/neomake')
+
+" Yes, there are vim stuff here
+call dein#add('vim-scripts/SyntaxComplete')
+" Autocompletion source for vim.
+call dein#add('Shougo/neco-vim')
+
+" Vim fast searching and moving around
+call dein#add('dyng/ctrlsf.vim')
+call dein#add('junegunn/fzf')
+call dein#add('junegunn/fzf.vim')
+
+" Vim stuff
+call dein#add('AndrewRadev/splitjoin.vim')
+call dein#add('AndrewRadev/switch.vim')
+call dein#add('Shougo/vimproc.vim')
+call dein#add('xolox/vim-misc')
+call dein#add('Rykka/InstantRst')
+call dein#add('tommcdo/vim-exchange')
+call dein#add('kana/vim-textobj-user')
+call dein#add('beloglazov/vim-textobj-quotes')
+call dein#add('Julian/vim-textobj-brace')
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+" if dein#check_install()
+"  call dein#install()
+" endif
+
+"End dein Scripts-------------------------
+"
 set runtimepath+=~/dotfiles/nvim/plugins/
 
 " Map the leader keys
@@ -36,41 +132,24 @@ set lazyredraw
 
 " Set 5 lines to the cursor - when moving vertically using j/k
 set so=5
-set omnifunc=syntaxcomplete#Complete
-set list listchars=tab:»\ ,trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
+" set omnifunc=syntaxcomplete#Complete
+" set list listchars=trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
 set nobackup                     " disable backups
 set noswapfile                   " it's 2015, NeoVim.
 
 
 
-" Plugins
-call plug#begin('~/dotfiles/config/nvim/bundle')
 " Themes and interface
-Plug 'dracula/vim'
-Plug 'reedes/vim-thematic'
-Plug 'tomasr/molokai'
-Plug 'morhetz/gruvbox'
-
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 map <F2> :NERDTreeTabsToggle<CR>
 
-Plug 'rstacruz/vim-closer'
 
-Plug 'xuhdev/SingleCompile'
-nnoremap <F8> :SCCompile<cr>
-nnoremap <F9> :SCCompileRun<cr>
-
-" Syntax for many languages
-Plug 'sheerun/vim-polyglot'
 
 " Gutentags
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_tagfile='.tags'
-
+let g:gutentags_ctags_tagfile='.tags'
+"
 " Use ripper-tags to generate tags for Ruby.
 let g:gutentags_ctags_executable_ruby='ripper-tags'
-let g:gutentags_exclude = [
+let g:gutentags_ctags_exclude = [
     \ '*.min.js',
     \ '*html*',
     \ 'jquery*.js',
@@ -84,65 +163,6 @@ let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
 
-" Testing for different languages
-Plug 'janko-m/vim-test'
-
-" Ruby plugins
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-Plug 'tpope/vim-rake', { 'for': 'ruby' }
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
-Plug 'tpope/vim-endwise'
-
-" Elixir
-Plug 'slashmili/alchemist.vim'
-
-" Tpope utility plugins
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-unimpaired'
-" Plug 'tpope/vim-env'
-
-" Other utility plugins
-Plug 'mattn/gist-vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'easymotion/vim-easymotion'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tomtom/tlib_vim'
-Plug 'tomtom/tcomment_vim'
-Plug 'bogado/file-line'
-
-" Nvim plugins
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neoinclude.vim'
-Plug 'neomake/neomake'
-
-" Yes, there are vim stuff here
-Plug 'vim-scripts/SyntaxComplete'
-" Autocompletion source for vim.
-Plug 'Shougo/neco-vim'
-
-" Vim fast searching and moving around
-Plug 'dyng/ctrlsf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'rking/ag.vim'
-
-" Vim stuff
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'AndrewRadev/switch.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'xolox/vim-misc'
-Plug 'Rykka/InstantRst'
-Plug 'tommcdo/vim-exchange'
-Plug 'kana/vim-textobj-user' | Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
-Plug 'beloglazov/vim-textobj-quotes'
-Plug 'Julian/vim-textobj-brace'
-
-call plug#end()
 
 " Nerdcommenter
 let NERDSpaceDelims=1
@@ -252,8 +272,8 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 " make test commands execute using dispatch.vim
-" let test#strategy = "dispatch"
-let test#strategy = 'basic'
+let test#strategy = "dispatch"
+" let test#strategy = 'basic'
 
 " Because the Esc key is too far...
 inoremap jk <Esc>
@@ -319,34 +339,21 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 nnoremap <Leader>sf :CtrlSF<Space>
 
 " FZF setup
-" let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
-
-" Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
-
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 nnoremap <Leader>f :FZF<cr>
-" Open files in horizontal split
-" nnoremap <silent> <Leader>fs :call fzf#run({
-" \   'down': '40%',
-" \   'sink': 'botright split' })<CR>
-"
-" " Open files in vertical horizontal split
-" nnoremap <silent> <Leader>fv :call fzf#run({
-" \   'right': winwidth('.') / 2,
-" \   'sink':  'vertical botright split' })<CR>
 
 " Interface
 " Thematic
 " Cycle through thematic themes.
 " set termguicolors
-
 nnoremap <Leader>tt :ThematicNext<CR>
 
 " let g:thematic#defaults = {
 " \ 'colorscheme': 'molokai',
 " \ }
 let g:gruvbox_contrast_light='hard'
-
+"
 let g:thematic#themes={
     \ 'gruvbox_light': {
     \   'colorscheme': 'gruvbox',
@@ -434,7 +441,7 @@ nnoremap <down>  <c-w>+
 if has("autocmd")
   "Reload vimrc on change
   " autocmd! BufWritePost * Neomake
-  autocmd bufwritepost init.vim source $MYVIMRC
+  " autocmd bufwritepost init.vim source $MYVIMRC
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |

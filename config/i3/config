@@ -60,6 +60,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
+# bindsym $mod+Return exec st -f "Monaco for Powerline:pixelsize=16:antialias=true:style"
 bindsym $mod+Return exec urxvt
 
 # kill focused window
@@ -100,10 +101,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+dash split h
+bindsym $mod+Control+h split h
 
 # split in vertical orientation
-bindsym $mod+bar split v
+bindsym $mod+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -231,10 +232,16 @@ bar {
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
+set $sink `pactl list short sinks | grep RUNNING | cut -f1`
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink -- +10%
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -- -10%
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $sink toggle
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
 # Media player controls
 # bindsym XF86Search  exec playerctl play-pause
 # bindsym XF86LaunchA exec playerctl next
@@ -248,7 +255,7 @@ exec_always --no-startup-id xrandr --dpi 200
 exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
 exec_always --no-startup-id redshift -l 43:25
 
+# exec_always --no-startup-id emacs --daemon
+exec_always --no-startup-id compton -f
+exec_always--no-startup-id slack
 # exec --no-startup-id spotify
-# exec --no-startup-id slack
-exec --no-startup-id emacs --daemon
-exec --no-startup-id compton -f
