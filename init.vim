@@ -379,7 +379,7 @@ set cursorline
 " set shiftround    " round indent to multiple of 'shiftwidth'
 " set expandtab
 " It seems that polyglot doesn't handle this well.
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 
 " Searching
 " Use perl regexes.
