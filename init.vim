@@ -47,9 +47,7 @@ call dein#add('slashmili/alchemist.vim')
 call dein#add('tpope/vim-dispatch')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-fugitive')
-" call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-unimpaired')
-" call dein#add('tpope/vim-env')
 
 " Other utility plugins
 call dein#add('mattn/gist-vim')
@@ -136,11 +134,6 @@ set so=5
 " set list listchars=trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
 set nobackup                     " disable backups
 set noswapfile                   " it's 2015, NeoVim.
-
-
-
-" Themes and interface
-map <F2> :NERDTreeTabsToggle<CR>
 
 
 
@@ -379,12 +372,14 @@ set number
 set ruler
 set cursorline
 
-" Tabs and spaces
-set smartindent
-set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
-set tabstop=2     " an hard TAB displays as 2 columns
-set shiftround    " round indent to multiple of 'shiftwidth'
-set expandtab
+" " Tabs and spaces
+" set smartindent
+" set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
+" set tabstop=2     " an hard TAB displays as 2 columns
+" set shiftround    " round indent to multiple of 'shiftwidth'
+" set expandtab
+" It seems that polyglot doesn't handle this well.
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " Searching
 " Use perl regexes.
