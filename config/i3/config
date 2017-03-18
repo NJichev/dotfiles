@@ -233,12 +233,6 @@ bar {
 
 # Pulse Audio controls
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink -- +10%
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -- -10%
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $sink toggle
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
@@ -248,8 +242,8 @@ bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
 # bindsym XF86Tools   exec playerctl previous
 
 ## Screen brightness controls
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 # Startup
 exec_always --no-startup-id xrandr --dpi 200
 exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
@@ -257,5 +251,5 @@ exec_always --no-startup-id redshift -l 43:25
 
 # exec_always --no-startup-id emacs --daemon
 exec_always --no-startup-id compton -f
-exec_always--no-startup-id slack
+# exec_always--no-startup-id slack
 # exec --no-startup-id spotify

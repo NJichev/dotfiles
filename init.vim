@@ -3,6 +3,7 @@ set runtimepath+=/home/njichev/dotfiles/config/nvim/plugins/repos/github.com/Sho
 if &compatible
   set nocompatible               " Be iMproved
 endif
+set shell=/bin/bash
 
 
 if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
@@ -15,10 +16,7 @@ if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
   " Add or remove plugins here:
 
   " Colorschemes
-  call dein#add('dracula/vim')
-  call dein#add('reedes/vim-thematic')
   call dein#add('tomasr/molokai')
-  call dein#add('morhetz/gruvbox')
 
   " Syntax for many languages
   call dein#add('sheerun/vim-polyglot')
@@ -29,59 +27,62 @@ if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
   " Gutentags
   call dein#add('ludovicchabant/vim-gutentags')
 
-" Testing for different languages
-call dein#add('janko-m/vim-test')
+  " Testing for different languages
+  call dein#add('janko-m/vim-test')
 
-" Ruby plugins
-call dein#add('vim-ruby/vim-ruby')
-call dein#add('tpope/vim-bundler')
-call dein#add('tpope/vim-rake')
-call dein#add('tpope/vim-rails')
-call dein#add('bruno-/vim-ruby-fold')
-call dein#add('tpope/vim-endwise')
-
-" Elixir
-call dein#add('slashmili/alchemist.vim')
-
-" Tpope utility plugins
-call dein#add('tpope/vim-dispatch')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-unimpaired')
-
-" Other utility plugins
-call dein#add('mattn/gist-vim')
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('MarcWeber/vim-addon-mw-utils')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('tomtom/tlib_vim')
-call dein#add('tomtom/tcomment_vim')
-
-" Nvim plugins
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neoinclude.vim')
-call dein#add('neomake/neomake')
-
-" Yes, there are vim stuff here
-call dein#add('vim-scripts/SyntaxComplete')
-" Autocompletion source for vim.
-call dein#add('Shougo/neco-vim')
-
-" Vim fast searching and moving around
-call dein#add('dyng/ctrlsf.vim')
-call dein#add('junegunn/fzf')
-call dein#add('junegunn/fzf.vim')
-
-" Vim stuff
-call dein#add('AndrewRadev/splitjoin.vim')
-call dein#add('AndrewRadev/switch.vim')
-call dein#add('Shougo/vimproc.vim')
-call dein#add('xolox/vim-misc')
-call dein#add('Rykka/InstantRst')
-call dein#add('tommcdo/vim-exchange')
-call dein#add('kana/vim-textobj-user')
-call dein#add('beloglazov/vim-textobj-quotes')
-call dein#add('Julian/vim-textobj-brace')
+  " Ruby plugins
+  call dein#add('fishbullet/deoplete-ruby')
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('tpope/vim-bundler')
+  call dein#add('tpope/vim-rake')
+  call dein#add('tpope/vim-rails')
+  call dein#add('bruno-/vim-ruby-fold')
+  call dein#add('tpope/vim-endwise')
+  
+  " Elixir
+  call dein#add('slashmili/alchemist.vim')
+  
+  " Tpope utility plugins
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-unimpaired')
+  
+  " Other utility plugins
+  call dein#add('mattn/gist-vim')
+  call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('MarcWeber/vim-addon-mw-utils')
+  call dein#add('terryma/vim-multiple-cursors')
+  call dein#add('tomtom/tlib_vim')
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('godlygeek/tabular')
+  
+  " Nvim plugins
+  " lazy load on insert mode
+  call dein#add('Shougo/deoplete.nvim',
+        \{'on_i': 1})
+  call dein#add('benekastah/neomake')
+  
+  call dein#add('Shougo/neoinclude.vim')
+  " call dein#add('neomake/neomake')
+  
+  " Yes, there are vim stuff here
+  call dein#add('vim-scripts/SyntaxComplete')
+  
+  " Vim fast searching and moving around
+  call dein#add('dyng/ctrlsf.vim')
+  call dein#add('Shougo/denite.nvim')
+  
+  " Vim stuff
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  call dein#add('AndrewRadev/splitjoin.vim')
+  call dein#add('AndrewRadev/switch.vim')
+  call dein#add('xolox/vim-misc')
+  call dein#add('Rykka/InstantRst')
+  call dein#add('tommcdo/vim-exchange')
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('beloglazov/vim-textobj-quotes')
+  call dein#add('Julian/vim-textobj-brace')
 
   call dein#end()
   call dein#save_state()
@@ -153,42 +154,42 @@ let g:gutentags_ctags_exclude = [
     \ ]
 
 let g:gutentags_generate_on_missing = 1
-let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_write = 1
 
 
 " Nerdcommenter
 let NERDSpaceDelims=1
 
-  let g:deoplete#enable_at_startup = 1
-  " Set up ruby source for deoplete
-  let g:deoplete#sources#omni#input_patterns = {
-          \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-          \}
-  " Neomake
-  let g:neomake_ruby_enabled_makers = ['rubocop']
+" Neomake
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
+let g:deoplete#enable_at_startup = 1
+" Set up ruby source for deoplete
+let g:deoplete#sources#omni#input_patterns = {
+  \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+  \}
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
+
+" Deoplete
+let g:python2_host_prog = "/usr/bin/python2.7"
+let g:python3_host_prog = "/usr/sbin/python"
 
 
-  " Deoplete
-  let g:python2_host_prog = "/usr/bin/python2.7"
-  let g:python3_host_prog = "/usr/sbin/python"
+let g:deoplete#enable_refresh_always=0
+let g:deoplete#file#enable_buffer_path=1
+let g:deoplete#auto_complete_start_length=1
 
-
-  let g:deoplete#enable_refresh_always=0
-  let g:deoplete#file#enable_buffer_path=1
-  let g:deoplete#auto_complete_start_length=1
-
-  let g:deoplete#sources={}
-  let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
-  let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
-  let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
-  let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
-  let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
-  let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+let g:deoplete#sources={}
+let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
+let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
+let g:deoplete#sources.vim  = ['buffer', 'member', 'file', 'ultisnips']
+let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'ternjs']
+let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
+let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
 
 " Tab wrapper
 function! g:utils#tabComplete() abort
@@ -331,46 +332,22 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 " CtrlSF setup
 nnoremap <Leader>sf :CtrlSF<Space>
 
-" FZF setup
-let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-nnoremap <Leader>f :FZF<cr>
+nnoremap <Leader>f :Denite file_rec<CR>
+
+" Tabularize Aligh
+vnoremap <Leader>a :Tabularize /
 
 " Interface
-" Thematic
 " Cycle through thematic themes.
 " set termguicolors
-nnoremap <Leader>tt :ThematicNext<CR>
 
-" let g:thematic#defaults = {
-" \ 'colorscheme': 'molokai',
-" \ }
-let g:gruvbox_contrast_light='hard'
-"
-let g:thematic#themes={
-    \ 'gruvbox_light': {
-    \   'colorscheme': 'gruvbox',
-    \   'background': 'light',
-    \  },
-    \ 'gruvbox_dark': {
-    \   'colorscheme': 'gruvbox',
-    \   'background': 'dark',
-    \ },
-    \ 'molokai': {
-    \   'colorscheme': 'molokai',
-    \   'theme_name': 'molokai',
-    \ },
-    \ 'dracula': {
-    \   'colorscheme': 'dracula',
-    \   'theme_name': 'dracula',
-    \ },
-\ }
-let g:thematic#theme_name='gruvbox_light'
-" let g:thematic#theme_name='dracula'
 
+" set relativenumber
 set number
 set ruler
 set cursorline
+
+colorscheme molokai
 
 " " Tabs and spaces
 " set smartindent
@@ -379,7 +356,6 @@ set cursorline
 " set shiftround    " round indent to multiple of 'shiftwidth'
 " set expandtab
 " It seems that polyglot doesn't handle this well.
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 
 " Searching
 " Use perl regexes.
@@ -434,6 +410,7 @@ nnoremap <down>  <c-w>+
 " Open files with last place of cursour.
 
 if has("autocmd")
+  autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
   "Reload vimrc on change
   " autocmd! BufWritePost * Neomake
   " autocmd bufwritepost init.vim source $MYVIMRC
