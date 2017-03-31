@@ -60,7 +60,6 @@ Execute (neomake#Make uses &verbose):
   2verb call neomake#Make(1, [maker])
   let make_id = neomake#GetStatus().last_make_id
   NeomakeTestsWaitForFinishedJobs
-  AssertNeomakeMessage 'Adding &verbose (2) to verbosity level: 3', 3, {'make_id': make_id}
   AssertNeomakeMessage 'Running makers: unnamed_maker', 3, {'make_id': make_id}
 
   NeomakeTestsResetMessages
@@ -72,7 +71,7 @@ Execute (neomake#Make uses &verbose):
     \ [[2, "Starting async job: ['echo', '1']", {'make_id': make_id}]]
   else
     AssertEqual g:neomake_test_messages,
-    \ [[2, "Starting: echo 1", {'make_id': make_id}]]
+    \ [[2, "Starting: echo '1'", {'make_id': make_id}]]
   endif
   AssertEqual len(g:neomake_test_messages), 1
 

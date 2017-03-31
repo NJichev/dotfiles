@@ -1,10 +1,5 @@
 " vim: ts=4 sw=4 et
 
-if !exists('s:compile_script')
-    let s:slash = neomake#utils#Slash()
-    let s:compile_script = expand('<sfile>:p:h', 1).s:slash.'python'.s:slash.'compile.py'
-endif
-
 function! neomake#makers#ft#python#EnabledMakers() abort
     if exists('s:python_makers')
         return s:python_makers
@@ -18,7 +13,7 @@ function! neomake#makers#ft#python#EnabledMakers() abort
         if executable('flake8')
             call add(makers, 'flake8')
         else
-            call extend(makers, ['pyflakes', 'pycodestyle', 'pydocstyle'])
+            call extend(makers, ['pyflakes', 'pep8', 'pydocstyle'])
         endif
 
         call add(makers, 'pylint')  " Last because it is the slowest
@@ -167,21 +162,11 @@ function! neomake#makers#ft#python#pyflakes() abort
         \ }
 endfunction
 
-function! neomake#makers#ft#python#pycodestyle() abort
-  if !exists('s:_pycodestyle_exe')
-    " Use the preferred exe to avoid deprecation warnings.
-    let s:_pycodestyle_exe = executable('pycodestyle') ? 'pycodestyle' : 'pep8'
-  endif
+function! neomake#makers#ft#python#pep8() abort
     return {
-        \ 'exe': s:_pycodestyle_exe,
         \ 'errorformat': '%f:%l:%c: %m',
         \ 'postprocess': function('neomake#makers#ft#python#Pep8EntryProcess')
         \ }
-endfunction
-
-" Note: pep8 has been renamed to pycodestyle, but is kept also as alias.
-function! neomake#makers#ft#python#pep8() abort
-    return neomake#makers#ft#python#pycodestyle()
 endfunction
 
 function! neomake#makers#ft#python#Pep8EntryProcess(entry) abort
@@ -242,7 +227,17 @@ endfunction
 
 function! neomake#makers#ft#python#python() abort
     return {
-        \ 'args': [s:compile_script],
+        \ 'args': [ '-c',
+            \ "from __future__ import print_function\r" .
+            \ "from sys import argv, exit\r" .
+            \ "if len(argv) != 2:\r" .
+            \ "    exit(64)\r" .
+            \ "try:\r" .
+            \ "    compile(open(argv[1]).read(), argv[1], 'exec', 0, 1)\r" .
+            \ "except SyntaxError as err:\r" .
+            \ "    print('%s:%s:%s: %s' %% (err.filename, err.lineno, err.offset, err.msg))\r" .
+            \ '    exit(1)'
+        \ ],
         \ 'errorformat': '%E%f:%l:%c: %m',
         \ 'serialize': 1,
         \ 'serialize_abort_on_error': 1,

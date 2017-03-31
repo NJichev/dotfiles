@@ -1,5 +1,3 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'ruby') == -1
-  
 " Vim indent file
 " Language:		eRuby
 " Maintainer:		Tim Pope <vimNOSPAM@tpope.org>
@@ -97,6 +95,7 @@ function! GetErubyIndent(...)
     let ind = ind + sw
   endif
   if line !~# '^\s*<%' && line =~# '%>\s*$' && line !~# '^\s*end\>'
+	\ && synID(v:lnum, match(cline, '\S') + 1, 1) != hlID('htmlEndTag')
     let ind = ind - sw
   endif
   if cline =~# '^\s*[-=]\=%>\s*$'
@@ -109,5 +108,3 @@ let &cpo = s:cpo_sav
 unlet! s:cpo_sav
 
 " vim:set sw=2 sts=2 ts=8 noet:
-
-endif

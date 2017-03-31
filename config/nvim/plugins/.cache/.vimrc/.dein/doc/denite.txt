@@ -356,6 +356,34 @@ are on the neovim-prompt's builtin actions/mappings.
 		Delete an entire text.
 		Note this is a neovim-prompt's builtin action.
 
+				*denite-map-caret_to_next_word*
+<denite:move_caret_to_next_word>
+		Move caret to beginning of next word, like |w| in normal mode in vim buffer.
+
+				*denite-map-caret_to_end_of_word*
+<denite:move_caret_to_end_of_word>
+		Move caret to end of word, like |e| in normal mode in vim buffer.
+
+				*denite-map-change_word*
+<denite:change_word>
+		Change word, like |cw| in normal mode in vim buffer.
+
+				*denite-map-change_line*
+<denite:change_line>
+		Change line, like |cc| in normal mode in vim buffer.
+
+				*denite-map-append*
+<denite:append>
+		Append, like |a| in normal mode in vim buffer.
+
+				*denite-map-append_to_line*
+<denite:append_to_line>
+		Append to line, like |A| in normal mode in vim buffer.
+
+				*denite-map-insert_to_head*
+<denite:insert_to_head>
+		Insert at head of line, like |I| in normal mode in vim buffer.
+
 				*denite-map-do_action*
 <denite:do_action:{action}>
 		Close current Denite buffer and fire {action} action.
@@ -610,8 +638,22 @@ All mode mappings (override by mode mappings).
 {key}		{mapping}
 --------	-----------------------------
 i		<denite:enter_mode:insert>
+I		<denite:insert_to_head>
+a		<denite:append>
+A		<denite:append_to_line>
 j		<denite:move_to_next_line>
+h		<denite:move_caret_to_left>
+l		<denite:move_caret_to_right>
 k		<denite:move_to_previous_line>
+b		<denite:move_caret_to_one_word_left>
+w		<denite:move_caret_to_next_word>
+e		<denite:move_caret_to_end_of_word>
+0		<denite:move_caret_to_head>
+$		<denite:move_caret_to_tail>
+c		<denite:change_word>
+cc		<denite:change_line>
+cw		<denite:change_word>
+dd		<denite:delete_entire_text>
 gg		<denite:move_to_first_line>
 G		<denite:move_to_last_line>
 <C-U>		<denite:scroll_window_upwards>
@@ -1058,6 +1100,10 @@ file_rec	Gather files recursive and nominates all file names under the
 					\ "-path", "*/.svn/*", "-prune", "-o",
 					\ '-type', 'l', '-print', '-o',
 					\ '-type', 'f', '-print'])
+					
+				In windows if no command is specified file_rec
+				uses a python script scantree.py to get the list
+				of files using scandir or os.walk.
 <
 		min_cache_files	the minimum number of files that
 				it saves the caches.
@@ -1523,11 +1569,21 @@ redraw_actions (List) 				(Optional)
 					*denite-kind-attribute-action_*
 action_{name} (Function) 			(Optional)
 		Custom action logic with {name} as action name. The function
-		is passed with {self} and {context}. To get the seleted
-		candidate list, you could use "targets" attribute: >
+		is passed with {self} and {context}.
+		
+		To get the seleted candidate list, you could use "targets"
+		attribute in {context}: >
 
                     targets = context['targets']
+<
 
+		To get the source context, you could use "source" attribute in
+		{context}: >
+
+		    source_context = context['source']
+<
+		Note: If the candidates source is not single, the "source"
+		attribute is empty.
 
 ==============================================================================
 CREATE FILTER						*denite-create-filter*
@@ -1580,7 +1636,9 @@ A: Yes.
 Q: I want to change the cursor line color in Denite buffer.
 
 A: denite uses 'cursorline' feature.
-So you can change the color by |hl-CursorLine| highlight.
+So you can change the color by |hl-CursorLine| highlight or
+|denite-options-highlight-mode-{mode}|. >
+	Denite file_rec -highlight-mode-insert=Search
 
 Q: I want to use unite source in denite.
 

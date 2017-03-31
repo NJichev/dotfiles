@@ -19,7 +19,7 @@ Execute (neomake#GetEnabledMakers without make_id):
   Save g:neomake_myft_enabled_makers
   let g:neomake_myft_enabled_makers = ['nonexisting_custom']
   let makers = neomake#GetEnabledMakers('myft')
-  AssertNeomakeMessage "Maker not found (for filetypes ['myft']): nonexisting_custom", 0, {}
+  AssertNeomakeMessage 'Maker not found: nonexisting_custom', 0, {}
 
 Execute (Neomake with non-existing maker (configured)):
   Save &filetype
@@ -31,42 +31,20 @@ Execute (Neomake with non-existing maker (configured)):
   let make_id_before = neomake#GetStatus().last_make_id
   RunNeomake
   let make_id = neomake#GetStatus().last_make_id
-  AssertNeomakeMessage "Maker not found (for filetypes ['myft']): nonexisting_custom", 0, {'make_id': make_id}
-  AssertNeomakeMessage 'Nothing to make: no enabled file mode makers.', 3, {'make_id': make_id}
+  AssertNeomakeMessage 'Maker not found: nonexisting_custom', 0, {'make_id': make_id}
+  AssertNeomakeMessage 'Nothing to make: no enabled makers.', 3, {'make_id': make_id}
   AssertEqual len(g:neomake_test_messages), 2
-  AssertEqual make_id_before + 1, neomake#GetStatus().last_make_id
+  AssertEqua make_id_before + 1, neomake#GetStatus().last_make_id
 
 Execute (Neomake with non-existing default makers):
-  call g:NeomakeSetupAutocmdWrappers()
-
-  new
+  Save &filetype
   set filetype=neomake_tests
-  Save g:neomake_test_enabledmakers
-  let g:neomake_test_enabledmakers = ['maker_without_exe', 'nonexisting']
-  RunNeomake
-  AssertNeomakeMessage "Maker not found (for filetypes ['neomake_tests']): nonexisting", 3
-  AssertNeomakeMessage "Exe (maker_without_exe) of auto-configured maker maker_without_exe is not executable, skipping.", 3
-  AssertNeomakeMessage 'Nothing to make: no valid makers.', 3
-  AssertEqual 0, len(g:neomake_test_jobfinished)
-  AssertEqual 0, len(g:neomake_test_finished)
-  bwipe
-
-Execute (Neomake with non-existing default maker handles following makers):
-  call g:NeomakeSetupAutocmdWrappers()
-
-  new
-  set filetype=neomake_tests
-  Save g:neomake_test_enabledmakers
-  let g:neomake_test_enabledmakers = ['maker_without_exe', 'echo_maker']
-  RunNeomake
-  AssertNeomakeMessage "Exe (maker_without_exe) of auto-configured maker maker_without_exe is not executable, skipping.", 3
-  AssertNeomakeMessage 'Running makers: echo_maker (auto)'
-  AssertEqual 1, len(g:neomake_test_jobfinished), 'echo_maker should have run'
-  AssertEqual 1, len(g:neomake_test_finished)
 
   RunNeomake
   AssertNeomakeMessage "Exe (maker_without_exe) of auto-configured maker maker_without_exe is not executable, skipping.", 3
-  bwipe
+
+  RunNeomake
+  AssertNeomakeMessage "Exe (maker_without_exe) of auto-configured maker maker_without_exe is not executable, skipping.", 3
 
 Execute (Neomake with non-existing default makers, explicitly called):
   Save &filetype
@@ -83,8 +61,7 @@ Execute (neomake#GetEnabledMakers with defaults):
   set filetype=neomake_tests
   let makers = neomake#GetEnabledMakers(&ft)
   AssertEqual map(copy(makers), 'v:val.auto_enabled'), [1]
-  AssertNeomakeMessage "Maker not found (for filetypes ['neomake_tests']): nonexisting", 3
-  AssertEqual len(g:neomake_test_messages), 1
+  AssertEqual len(g:neomake_test_messages), 0
 
 Execute (neomake#GetEnabledMakers with configuration):
   Save &filetype
@@ -126,18 +103,6 @@ Execute (neomake#GetEnabledMakers without filetype):
 
   AssertEqual len(g:neomake_test_messages), 0
 
-Execute (neomake#GetMaker errors):
-  AssertThrows call neomake#GetMaker('cargo', 'foo')
-  AssertEqual g:vader_exception, "Neomake: Maker not found (for filetypes ['foo']): cargo"
-
-Execute (neomake#GetMaker for project maker):
-  Save g:neomake_enabled_makers
-  let g:neomake_enabled_makers = ['cargo']
-  set ft=myft
-
-  AssertThrows call neomake#GetMaker('cargo', 'foo')
-  AssertEqual g:vader_exception, "Neomake: Maker not found (for filetypes ['foo']): cargo"
-
 Execute (maker.fn can set env var):
   let maker = {
   \ 'exe': 'sh',
@@ -171,11 +136,3 @@ Execute (Set env from maker config):
 
   let makers = neomake#GetEnabledMakers('rust')
   AssertEqual makers[0], extend(maker, {'auto_enabled': 1})
-
-Execute (Correct function binding from base maker):
-  let maker = neomake#GetMaker({'name': 'maker1'})
-  AssertEqual maker.exe, 'maker1'
-  " Not sure about this one, but it asserts that there is no dict in the string
-  " representation of the object's function, when dumping the object.  This was
-  " different before, when assigning the function from the base maker dict.
-  Assert string(maker) =~# '\v''_get_argv'': function\(''\d+''\),', 'Simple _get_argv'

@@ -1,4 +1,9 @@
 set runtimepath+=/home/njichev/dotfiles/config/nvim/plugins/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/dotfiles/nvim/plugins/
+
+if has("VIM")
+  set runtimepath+=~/.vim/
+endif
 
 if &compatible
   set nocompatible               " Be iMproved
@@ -20,6 +25,7 @@ if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
 
   " Syntax for many languages
   call dein#add('sheerun/vim-polyglot')
+  call dein#add('mattn/emmet-vim')
 
 
   call dein#add('rstacruz/vim-closer')
@@ -38,16 +44,16 @@ if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
   call dein#add('tpope/vim-rails')
   call dein#add('bruno-/vim-ruby-fold')
   call dein#add('tpope/vim-endwise')
-  
+
   " Elixir
   call dein#add('slashmili/alchemist.vim')
-  
+
   " Tpope utility plugins
   call dein#add('tpope/vim-dispatch')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-unimpaired')
-  
+
   " Other utility plugins
   call dein#add('mattn/gist-vim')
   call dein#add('christoomey/vim-tmux-navigator')
@@ -56,23 +62,23 @@ if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
   call dein#add('tomtom/tlib_vim')
   call dein#add('tomtom/tcomment_vim')
   call dein#add('godlygeek/tabular')
-  
+
   " Nvim plugins
   " lazy load on insert mode
   call dein#add('Shougo/deoplete.nvim',
         \{'on_i': 1})
-  call dein#add('benekastah/neomake')
-  
+  " call dein#add('benekastah/neomake')
+
   call dein#add('Shougo/neoinclude.vim')
-  " call dein#add('neomake/neomake')
-  
+  call dein#add('neomake/neomake')
+
   " Yes, there are vim stuff here
   call dein#add('vim-scripts/SyntaxComplete')
-  
+
   " Vim fast searching and moving around
   call dein#add('dyng/ctrlsf.vim')
   call dein#add('Shougo/denite.nvim')
-  
+
   " Vim stuff
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('AndrewRadev/splitjoin.vim')
@@ -99,7 +105,6 @@ syntax enable
 
 "End dein Scripts-------------------------
 "
-set runtimepath+=~/dotfiles/nvim/plugins/
 
 " Map the leader keys
 let mapleader=","
@@ -120,7 +125,7 @@ set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕ�
 
 " Get rid of the annoying |,= characters on vertical split bar separator and
 " the filling characters of the folded lines.
-set fillchars=vert:\ ,fold:\ 
+" set fillchars=vert:\ ,fold:\ 
 " Don't try to highlight lines longer than 800 characters.
 set synmaxcol=800
 " Set window width
@@ -132,11 +137,12 @@ set lazyredraw
 " Set 5 lines to the cursor - when moving vertically using j/k
 set so=5
 " set omnifunc=syntaxcomplete#Complete
-" set list listchars=trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
+set list listchars+=trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
 set nobackup                     " disable backups
 set noswapfile                   " it's 2015, NeoVim.
 
-
+" powerline
+let g:powerline_loaded = 1
 
 " Gutentags
 let g:gutentags_ctags_tagfile='.tags'
@@ -250,6 +256,11 @@ imap <c-l> <space>=><space>
 
 " Call dispatch
 nnoremap <leader>d :Dispatch<space>
+nnoremap <leader>ds :Start<space>
+
+" Close quickfix
+nnoremap <leader>cc :cclose<cr>
+
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
@@ -332,7 +343,32 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 " CtrlSF setup
 nnoremap <Leader>sf :CtrlSF<Space>
 
+" Denite setup
 nnoremap <Leader>f :Denite file_rec<CR>
+
+call denite#custom#var('file_rec', 'command',
+  \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+let s:denite_options = {'default' : {
+  \ 'winheight' : 10,
+  \ 'mode' : 'insert',
+  \ 'quit' : 'true',
+  \ 'highlight-matched-char' : 'Function',
+  \ 'highlight-matched-range' : 'Function',
+  \ 'direction': 'rightbelow',
+  \ 'statusline' : 'false',
+  \ 'prompt' : '➭',
+  \ }}
+
+function! s:profile(opts) abort
+  for fname in keys(a:opts)
+    for dopt in keys(a:opts[fname])
+      call denite#custom#option(fname, dopt, a:opts[fname][dopt])
+    endfor
+  endfor
+endfunction
+
+call s:profile(s:denite_options)
 
 " Tabularize Aligh
 vnoremap <Leader>a :Tabularize /
@@ -411,6 +447,7 @@ nnoremap <down>  <c-w>+
 
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+  autocmd Filetype exs set ft=elixir
   "Reload vimrc on change
   " autocmd! BufWritePost * Neomake
   " autocmd bufwritepost init.vim source $MYVIMRC
