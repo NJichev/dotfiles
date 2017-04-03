@@ -1,112 +1,12 @@
 set runtimepath+=/home/njichev/.vim/bundle/repos/github.com/Shougo/dein.vim
 set runtimepath+=~/.vim/
 
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+runtime plugins.vim
+runtime config/keybinds.vim
+runtime config/functions.vim
+
+" Let vim know that I use fish
 set shell=/bin/bash
-
-
-if dein#load_state('~/.vim/bundle/')
-  call dein#begin('~/.vim/bundle/')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.vim/bundle/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove plugins here:
-
-  " Colorschemes
-  call dein#add('tomasr/molokai')
-  call dein#add('chriskempson/vim-tomorrow-theme')
-
-  " Syntax for many languages
-  call dein#add('sheerun/vim-polyglot')
-  call dein#add('mattn/emmet-vim')
-
-
-  call dein#add('rstacruz/vim-closer')
-
-  " Gutentags
-  call dein#add('ludovicchabant/vim-gutentags')
-
-  " Testing for different languages
-  call dein#add('janko-m/vim-test')
-
-  " Ruby plugins
-  call dein#add('fishbullet/deoplete-ruby')
-  call dein#add('vim-ruby/vim-ruby')
-  call dein#add('tpope/vim-bundler')
-  call dein#add('tpope/vim-rake')
-  call dein#add('tpope/vim-rails')
-  call dein#add('bruno-/vim-ruby-fold')
-  call dein#add('tpope/vim-endwise')
-
-  " Elixir
-  call dein#add('elixir-lang/vim-elixir')
-  call dein#add('slashmili/alchemist.vim')
-
-  " Tpope utility plugins
-  call dein#add('tpope/vim-dispatch')
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-unimpaired')
-
-  " Other utility plugins
-  call dein#add('mattn/gist-vim')
-  call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('MarcWeber/vim-addon-mw-utils')
-  call dein#add('terryma/vim-multiple-cursors')
-  call dein#add('tomtom/tlib_vim')
-  call dein#add('tomtom/tcomment_vim')
-  call dein#add('godlygeek/tabular')
-
-  " Nvim plugins
-  " lazy load on insert mode
-  call dein#add('Shougo/deoplete.nvim',
-        \{'on_i': 1})
-  " call dein#add('benekastah/neomake')
-
-  call dein#add('Shougo/neoinclude.vim')
-  call dein#add('neomake/neomake')
-
-  " Yes, there are vim stuff here
-  call dein#add('vim-scripts/SyntaxComplete')
-
-  " Vim fast searching and moving around
-  call dein#add('dyng/ctrlsf.vim')
-  call dein#add('Shougo/denite.nvim')
-
-  " Vim stuff
-  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-  call dein#add('AndrewRadev/splitjoin.vim')
-  call dein#add('AndrewRadev/switch.vim')
-  call dein#add('xolox/vim-misc')
-  call dein#add('Rykka/InstantRst')
-  call dein#add('tommcdo/vim-exchange')
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('beloglazov/vim-textobj-quotes')
-  call dein#add('Julian/vim-textobj-brace')
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-" if dein#check_install()
-"  call dein#install()
-" endif
-
-"End dein Scripts-------------------------
-"
-
-" Map the leader keys
-let mapleader=","
-let maplocalleader="\\"
 
 " Set ctags lookup
 set tags+=.tags,.git/tags
@@ -117,13 +17,6 @@ set backspace=2
 " Copy/paste from the clipboard. For Windows/Mac use: set clipboard=unnamed
 set clipboard+=unnamedplus
 
-" Make you keyboard actually do something while you are switched to Cyrillic
-" layout. Ripped off @StanAngeloff.
-set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM,ю\\,Ю\|,
-
-" Get rid of the annoying |,= characters on vertical split bar separator and
-" the filling characters of the folded lines.
-" set fillchars=vert:\ ,fold:\ 
 " Don't try to highlight lines longer than 800 characters.
 set synmaxcol=800
 " Set window width
@@ -133,14 +26,17 @@ set winwidth=80
 set lazyredraw
 
 " Set 5 lines to the cursor - when moving vertically using j/k
-set so=5
+set so=7
+
 " set omnifunc=syntaxcomplete#Complete
 set list listchars+=trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
+
+" remove backups and swapfiles
 set nobackup                     " disable backups
 set noswapfile                   " it's 2015, NeoVim.
 
-" powerline
-let g:powerline_loaded = 1
+" " powerline
+" let g:powerline_loaded = 1
 
 " Gutentags
 let g:gutentags_ctags_tagfile='.tags'
@@ -196,169 +92,8 @@ let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
 let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
 
 " Tab wrapper
-function! g:utils#tabComplete() abort
-  let l:col = col('.') - 1
-
-  if pumvisible()
-    return "\<C-n>"
-  else
-    if !l:col || getline('.')[l:col - 1] !~# '\k'
-      return "\<TAB>"
-    else
-      return "\<C-n>"
-    endif
-  endif
-endfunction
-
-" Insert <TAB> or select next match
-inoremap <silent> <expr> <Tab> utils#tabComplete()
-
-" Mappings
-" Easily scroll up/down in insert mode
-inoremap <C-b> <C-x><C-y>
-inoremap <C-f> <C-x><C-e>
-
-" Expand current path with %%
-cnoremap <expr> %% expand('%:h').'/'
-
-" Switch between test and poroduction code
-function! OpenTestAlternate()
-  let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
-function! AlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1
-  let going_to_spec = !in_spec
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
-  if going_to_spec
-    if in_app
-      let new_file = substitute(new_file, '^app/', '', '')
-    end
-    let new_file = substitute(new_file, '\.e\?rb$', '_spec.rb', '')
-    let new_file = 'spec/' . new_file
-  else
-    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    let new_file = substitute(new_file, '^spec/', '', '')
-    if in_app
-      let new_file = 'app/' . new_file
-    end
-  endif
-  return new_file
-endfunction
-nnoremap <leader>. :call OpenTestAlternate()<cr>
-
-" Insert a hash rocket with <c-l>
-imap <c-l> <space>=><space>
-
-" Insert a triangle with <c-.>
-" Apparently vim cant map c-. since . and c-l is the same thing for it
-" I  guess we will use something else like <c-k>
-imap <c-k> <bar>><space>
-
-" Call dispatch
-nnoremap <leader>d :Dispatch<space>
-nnoremap <leader>ds :Start<space>
-
-" Close quickfix
-nnoremap <leader>cc :cclose<cr>
-
-" puts the caller
-nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
-
-" Run tests
-" let test#strategy = {
-"   \ 'nearest': 'basic',
-"   \ 'file':    'basic',
-"   \ 'suite':   'dispatch',
-" \}
-nmap <silent> <leader>T :TestNearest<CR>
-nmap <silent> <leader>t :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
-
-if has("nvim")
-  " Terminal mode maps
-  tnoremap <Esc> <C-\><C-n>
-endif
-
-function! SplitStrategy(cmd)
-  botright new | resize 15 | call termopen(a:cmd) | startinsert
-endfunction
-let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
-let g:test#strategy = 'terminal_split'
-
-" make test commands execute using dispatch.vim
-" let test#strategy = "neovim"
-" let test#strategy = "dispatch"
-
-" Because the Esc key is too far...
-inoremap jk <Esc>
-
-" Format current paragraph (Ex-mode sucks...)
-nnoremap <silent> Q gwip
-
-" Change keyboard layouts
-inoremap <C-z> <C-^>
-cnoremap <C-z> <C-^>
-
-" Select the whole line without the identation. Useful for python code...
-nnoremap vv ^vg_
-
-"leader commands
-noremap <Leader>w :update<CR>
-noremap <Leader>wq :x<CR>
-noremap <Leader>q :quit<CR>
-noremap <Leader>qq :quit!<CR>
-noremap <Leader>ss :split<CR>
-noremap <Leader>vv :vsplit<CR>
-
-" Paste in the next line.
-nnoremap <leader>p o<ESC>p
-
-" Promote to let
-function! PromoteToLet()
-  :normal! dd
-  " :exec '?^\s*it\>'
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
-endfunction
 :command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>
 
-" Sudo to write
-cnoremap w!! w !sudo tee % >/dev/null
-
-" Switching between tabs
-nnoremap K :tabn<CR>
-nnoremap J :tabp<CR>
-
-" Improve up/down movement on wrapped lines
-nnoremap j gj
-nnoremap k gk
-xnoremap j gj
-xnoremap k gk
-
-" Reselect visual block after indent/outdent
-  vnoremap < <gv
-  vnoremap > >gv
-
-" Eazily go to the beginning/end of the line
-noremap H ^
-noremap L $
-vnoremap L g_
-
-" Dirty tmux integration
-nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
-
-" CtrlSF setup
-nnoremap <Leader>sf :CtrlSF<Space>
-
-" Denite setup
-nnoremap <Leader>f :Denite file_rec<CR>
 
 call denite#custom#var('file_rec', 'command',
   \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
@@ -383,9 +118,6 @@ function! s:profile(opts) abort
 endfunction
 
 call s:profile(s:denite_options)
-
-" Tabularize Aligh
-vnoremap <Leader>a :Tabularize /
 
 " Interface
 " Cycle through thematic themes.
@@ -437,33 +169,19 @@ nnoremap N Nzzzv
 set foldmethod=manual
 set nofoldenable
 
-" Quick editing
-nnoremap <leader>ev :tabedit $MYVIMRC<cr>
-
-nnoremap <leader>eb :tabedit ~/.bashrc<cr>
-nnoremap <leader>et :tabedit ~/.tmux.conf<cr>
-" zsh
-nnoremap <leader>ez :tabedit ~/.zshrc<cr>
-
 " Splits
 " Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
+" au VimResized * exe "normal! \<c-w>="
 
 set splitbelow
 set splitright
-
-" Resizing splits with arrows
-nnoremap <left>  <c-w><
-nnoremap <right> <c-w>>
-nnoremap <up>    <c-w>-
-nnoremap <down>  <c-w>+
 
 " Open files with last place of cursour.
 
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
   autocmd Filetype .exs set ft=elixir
-  autocmd BufReadPost *.exs set ft=elixir
+  autocmd BufReadPost .exs set ft=elixir
   "Reload vimrc on change
   " autocmd! BufWritePost * Neomake
   " autocmd bufwritepost init.vim source $MYVIMRC
