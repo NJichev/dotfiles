@@ -29,6 +29,8 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 endif
 
 " Open pictures and other stuff with other programms

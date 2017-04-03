@@ -14,6 +14,9 @@ call denite#custom#map('insert', '<C-h>', '<denite:move_to_first_line>', 'norema
 call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', '<C-l>', '<denite:move_to_last_line>', 'noremap')
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:do_action:preview>', 'noremap')
 
 let s:denite_options = {'default' : {
   \ 'winheight' : 10,
