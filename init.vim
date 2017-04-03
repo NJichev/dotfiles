@@ -1,9 +1,5 @@
-set runtimepath+=/home/njichev/dotfiles/config/nvim/plugins/repos/github.com/Shougo/dein.vim
-set runtimepath+=~/dotfiles/nvim/plugins/
-
-if has("VIM")
-  set runtimepath+=~/.vim/
-endif
+set runtimepath+=/home/njichev/.vim/bundle/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/
 
 if &compatible
   set nocompatible               " Be iMproved
@@ -11,17 +7,18 @@ endif
 set shell=/bin/bash
 
 
-if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
-  call dein#begin('/home/njichev/dotfiles/config/nvim/plugins/')
+if dein#load_state('~/.vim/bundle/')
+  call dein#begin('~/.vim/bundle/')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/njichev/dotfiles/config/nvim/plugins/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.vim/bundle/repos/github.com/Shougo/dein.vim')
 
   " Add or remove plugins here:
 
   " Colorschemes
   call dein#add('tomasr/molokai')
+  call dein#add('chriskempson/vim-tomorrow-theme')
 
   " Syntax for many languages
   call dein#add('sheerun/vim-polyglot')
@@ -46,6 +43,7 @@ if dein#load_state('/home/njichev/dotfiles/config/nvim/plugins/')
   call dein#add('tpope/vim-endwise')
 
   " Elixir
+  call dein#add('elixir-lang/vim-elixir')
   call dein#add('slashmili/alchemist.vim')
 
   " Tpope utility plugins
@@ -254,6 +252,11 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
 
+" Insert a triangle with <c-.>
+" Apparently vim cant map c-. since . and c-l is the same thing for it
+" I  guess we will use something else like <c-k>
+imap <c-k> <bar>><space>
+
 " Call dispatch
 nnoremap <leader>d :Dispatch<space>
 nnoremap <leader>ds :Start<space>
@@ -276,9 +279,20 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
+if has("nvim")
+  " Terminal mode maps
+  tnoremap <Esc> <C-\><C-n>
+endif
+
+function! SplitStrategy(cmd)
+  botright new | resize 15 | call termopen(a:cmd) | startinsert
+endfunction
+let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
+let g:test#strategy = 'terminal_split'
+
 " make test commands execute using dispatch.vim
-let test#strategy = "dispatch"
-" let test#strategy = 'basic'
+" let test#strategy = "neovim"
+" let test#strategy = "dispatch"
 
 " Because the Esc key is too far...
 inoremap jk <Esc>
@@ -329,8 +343,8 @@ xnoremap j gj
 xnoremap k gk
 
 " Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
+  vnoremap < <gv
+  vnoremap > >gv
 
 " Eazily go to the beginning/end of the line
 noremap H ^
@@ -383,14 +397,15 @@ set number
 set ruler
 set cursorline
 
-colorscheme molokai
+" colorscheme molokai
+colorscheme Tomorrow-Night-Bright
 
 " " Tabs and spaces
-" set smartindent
-" set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
-" set tabstop=2     " an hard TAB displays as 2 columns
-" set shiftround    " round indent to multiple of 'shiftwidth'
-" set expandtab
+set smartindent
+set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
+set tabstop=2     " an hard TAB displays as 2 columns
+set shiftround    " round indent to multiple of 'shiftwidth'
+set expandtab
 " It seems that polyglot doesn't handle this well.
 
 " Searching
@@ -447,7 +462,8 @@ nnoremap <down>  <c-w>+
 
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-  autocmd Filetype exs set ft=elixir
+  autocmd Filetype .exs set ft=elixir
+  autocmd BufReadPost *.exs set ft=elixir
   "Reload vimrc on change
   " autocmd! BufWritePost * Neomake
   " autocmd bufwritepost init.vim source $MYVIMRC
