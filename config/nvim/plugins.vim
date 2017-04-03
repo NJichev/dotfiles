@@ -61,10 +61,10 @@ if dein#load_state('~/.vim/bundle/')
   " lazy load on insert mode
   call dein#add('Shougo/deoplete.nvim',
         \{'on_i': 1})
-  " call dein#add('benekastah/neomake')
 
   call dein#add('Shougo/neoinclude.vim')
   call dein#add('neomake/neomake')
+  call dein#add('kassio/neoterm')
 
   " Yes, there are vim stuff here
   call dein#add('vim-scripts/SyntaxComplete')
@@ -72,6 +72,8 @@ if dein#load_state('~/.vim/bundle/')
   " Vim fast searching and moving around
   call dein#add('dyng/ctrlsf.vim')
   call dein#add('Shougo/denite.nvim')
+  call dein#add('honza/vim-snippets')
+  call dein#add('SirVer/ultisnips')
 
   " Vim stuff
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})

@@ -1,4 +1,4 @@
-" More like defaults.
+" More like default settings.
 " Let vim know that I use fish
 set shell=/bin/bash
 
@@ -47,3 +47,9 @@ set splitright
 
 " Tab wrapper
 :command! PromoteToLet :call PromoteToLet()
+
+" Statusline
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=
+
+" let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
+let g:test#strategy = 'neoterm'

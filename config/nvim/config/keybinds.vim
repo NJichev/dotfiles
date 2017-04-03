@@ -28,12 +28,14 @@ imap <c-l> <space>=><space>
 " I guess we will use something else like <c-k>
 imap <c-k> <bar>><space>
 
-" Call dispatch
+"call Dispatch
 nnoremap <leader>d :Dispatch<space>
+
+"call Dispatch Start
 nnoremap <leader>ds :Start<space>
 
-" Close quickfix
-nnoremap <leader>cc :cclose<cr>
+" Close  but Current
+nnoremap <leader>cc :only<cr>
 
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>

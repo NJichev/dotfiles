@@ -45,8 +45,6 @@ endfunction
 function! SplitStrategy(cmd)
   botright new | resize 15 | call termopen(a:cmd) | startinsert
 endfunction
-let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
-let g:test#strategy = 'terminal_split'
 
 " Promote to let
 function! PromoteToLet()
