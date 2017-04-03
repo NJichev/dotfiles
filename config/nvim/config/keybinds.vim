@@ -124,3 +124,18 @@ nnoremap <leader>et :tabedit ~/.tmux.conf<cr>
 
 " Edit fish config
 nnoremap <leader>ef :tabedit ~/.config/fish/config.fish<cr>
+
+" Clear search highlights
+noremap <silent><Leader>/ :nohls<CR>
+
+" Don't jump to the next match when * is pressed
+nnoremap * *``
+
+" Centers the screen on searching
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Searching
+" Use perl regexes.
+nnoremap / /\v
+vnoremap / /\v
