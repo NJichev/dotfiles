@@ -21,8 +21,7 @@ let g:neomake_ruby_enabled_makers = ['rubocop']
 
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-  autocmd Filetype .exs set ft=elixir
-  autocmd BufReadPost .exs set ft=elixir
+  autocmd BufReadPost .exs setf elixir
 
   " Open vim from where it last was
   autocmd BufReadPost *

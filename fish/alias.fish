@@ -8,9 +8,6 @@ alias ...... "cd ../../../../.."
 
 alias mkdir "mkdir -p"
 
-# Let there be colors in cat!
-alias cat ccat
-
 # Shortcuts for rails, grunt, make, docker and git.
 abbr -a r rails
 abbr -a m make
