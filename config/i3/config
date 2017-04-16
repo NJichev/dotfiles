@@ -61,7 +61,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec st -f "Monaco for Powerline:pixelsize=16:antialias=true:style"
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -248,6 +248,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 exec_always --no-startup-id xrandr --dpi 200
 exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
 exec_always --no-startup-id redshift -l 43:25
+exec_always --no-startup-id urxvtd
 
 # exec_always --no-startup-id emacs --daemon
 exec_always --no-startup-id compton -f

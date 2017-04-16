@@ -43,8 +43,3 @@ abbr -a gd git diff
 abbr -a gl git log
 abbr -a gs git status
 abbr -a ga git commit --amend
-
-
-function vim
-  command vim -p $argv 2>/dev/null
-end

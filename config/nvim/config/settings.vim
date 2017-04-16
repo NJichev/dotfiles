@@ -49,7 +49,10 @@ set splitright
 :command! PromoteToLet :call PromoteToLet()
 
 " Statusline
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=
+set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=
 
 " let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
 let g:test#strategy = 'neoterm'
+
+" Auto Pairs
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}

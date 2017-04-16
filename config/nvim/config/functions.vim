@@ -13,7 +13,7 @@ function! g:utils#tabComplete() abort
 endfunction
 
 
-" Switch between test and poroduction code
+" Switch between test and producion code
 function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file

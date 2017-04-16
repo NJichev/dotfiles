@@ -26,4 +26,3 @@ set cursorline
 
 " colorscheme molokai
 colorscheme Tomorrow-Night-Bright
-
