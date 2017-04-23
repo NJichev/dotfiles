@@ -6,7 +6,6 @@ runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
-runtime config/plugins/denite.vim
 runtime config/plugins/deoplete.vim
 runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim

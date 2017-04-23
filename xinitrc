@@ -9,3 +9,4 @@ xset -b
 
 # Lemonbar
 # ~/Downloads/czaugk.sh | lemonbar -p -F "#FFB5B2AF" -B "#FF282522" -g "1366x20+0+0" -f "Droid Sans-10" -f "FontAwesome-10" &
+i3

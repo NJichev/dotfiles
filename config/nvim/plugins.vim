@@ -27,6 +27,7 @@ if dein#load_state('~/.vim/bundle/')
 
   " Testing for different languages
   call dein#add('janko-m/vim-test')
+  call dein#add('NJichev/alter-vim')
 
   " Autopairs
   call dein#add('jiangmiao/auto-pairs', {'on_i' : 1})
@@ -92,7 +93,7 @@ if dein#load_state('~/.vim/bundle/')
         \{'on_cmd' : 'CtrlSF'})
 
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  " call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
   call dein#add('honza/vim-snippets')
   call dein#add('SirVer/ultisnips',

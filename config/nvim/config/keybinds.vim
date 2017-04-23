@@ -18,7 +18,7 @@ inoremap <C-f> <C-x><C-e>
 cnoremap <expr> %% expand('%:h').'/'
 
 " Try to open spec file for current file
-nnoremap <leader>. :call OpenTestAlternate()<cr>
+nnoremap <leader>. :OpenTestAlternate<cr>
 
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
