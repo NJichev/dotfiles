@@ -218,6 +218,9 @@ bar {
   # font pango: FontAwesome 5
   font pango:DejaVu Sans Mono 5, FontAwesome 5
   position top
+  # mode invisible
+  hidden_state hide
+  modifier Mod1
   status_command i3blocks -c ~/.config/i3/.i3blocks.conf
   colors {
     separator $base03
@@ -235,7 +238,7 @@ bar {
 set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 # Media player controls
 # bindsym XF86Search  exec playerctl play-pause
 # bindsym XF86LaunchA exec playerctl next
@@ -246,11 +249,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 # Startup
 exec_always --no-startup-id xrandr --dpi 200
-exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/.wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpaper.jpg
 exec_always --no-startup-id redshift -l 43:25
 exec_always --no-startup-id urxvtd
 
 # exec_always --no-startup-id emacs --daemon
-exec_always --no-startup-id compton -f
+# exec_always --no-startup-id compton -f
 # exec_always--no-startup-id slack
 # exec --no-startup-id spotify

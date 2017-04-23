@@ -105,8 +105,9 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 " CtrlSF setup
 nnoremap <Leader>sf :CtrlSF<Space>
 
-" Denite setup
-nnoremap <Leader>f :Denite file_rec<CR>
+" FZF
+nnoremap <space>f :Files<cr>
+nnoremap <space>b :Buffers<cr>
 
 " Tabularize Aligh
 vnoremap <Leader>a :Tabularize /

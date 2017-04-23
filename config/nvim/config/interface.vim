@@ -25,4 +25,4 @@ set ruler
 set cursorline
 
 " colorscheme molokai
-colorscheme Tomorrow-Night-Bright
+colorscheme grb256

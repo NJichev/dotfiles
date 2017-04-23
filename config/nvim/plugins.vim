@@ -12,6 +12,7 @@ if dein#load_state('~/.vim/bundle/')
   " Add or remove plugins here:
 
   " Colorschemes
+  call dein#add('quanganhdo/grb256')
   call dein#add('tomasr/molokai')
   call dein#add('chriskempson/vim-tomorrow-theme')
 
@@ -89,7 +90,9 @@ if dein#load_state('~/.vim/bundle/')
   " Vim fast searching and moving around
   call dein#add('dyng/ctrlsf.vim',
         \{'on_cmd' : 'CtrlSF'})
-  call dein#add('Shougo/denite.nvim')
+
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+  " call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
   call dein#add('honza/vim-snippets')
   call dein#add('SirVer/ultisnips',
