@@ -3,6 +3,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+ZSH_THEME=lambda
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -46,7 +47,7 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rake ruby bundler rbenv gem web-search mix)
+plugins=(git rake ruby bundler rbenv gem web-search mix zsh-autosuggestions)
 # rake ruby bundler rbenv gem rails
 
 # User configuration
@@ -80,9 +81,14 @@ source $ZSH/oh-my-zsh.sh
 # --------------------------------
 # ALIASES
 # --------------------------------
+alias rg="/usr/bin/rg"
 
 # Editor stuff
-alias neo="nvim"
+alias v="/usr/bin/nvim"
+alias neo="/usr/bin/nvim"
+# alias nvim="emacsclient -t"
+# alias vim="emacsclient -t"
+alias e="emacsclient -c"
 alias szh="source ~/.zshrc"
 
 # Prefix stuff like ag and grep
@@ -95,6 +101,7 @@ alias tmn='tmux new-session -s'
 alias tmd='tmux detach'
 
 # Github stuff
+alias gs='git status'
 alias gad='git add --all .'
 alias gag='git add . && git commit --amend --no-edit && git push -f'
 alias gbc='gdc'
@@ -148,14 +155,14 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
+eval "$(rbenv init -)"
 
-export PATH="/usr/bin:/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/home/njichev/.rbenv/shims:/home/njichev/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin:/bin:/usr/games:/home/njichev/.fzf/bin"
 PATH="/home/njichev/bin:$PATH"
-export PATH="$PATH:$HOME/.rbenv/plugins/ruby-build/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(jump shell zsh)"
 
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --color "always"'
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
