@@ -51,8 +51,12 @@ set splitright
 " Statusline
 set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
-" let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
-let g:test#strategy = 'neoterm'
-
+" Neoterm broke in latest build /cry
+" let g:test#strategy = 'neoterm'
+function! SplitStrategy(cmd)
+  botright new | resize 20 | call termopen(a:cmd) | startinsert
+endfunction
+let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
+let g:test#strategy = 'terminal_split'
 " Auto Pairs
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}

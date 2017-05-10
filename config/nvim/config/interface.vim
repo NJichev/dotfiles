@@ -26,3 +26,4 @@ set cursorline
 
 " colorscheme molokai
 colorscheme grb256
+
