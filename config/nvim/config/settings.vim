@@ -56,6 +56,7 @@ set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 function! SplitStrategy(cmd)
   botright new | resize 20 | call termopen(a:cmd) | startinsert
 endfunction
+
 let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
 let g:test#strategy = 'terminal_split'
 " Auto Pairs

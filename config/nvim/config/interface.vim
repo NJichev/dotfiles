@@ -24,6 +24,7 @@ set number
 set ruler
 set cursorline
 
+" set termguicolors
 " colorscheme molokai
+" set termguicolors
 colorscheme grb256
-

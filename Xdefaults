@@ -22,27 +22,27 @@ URxvt*scrollBar: false
 ! *color13: #AD7FA8
 ! *color14: #fcaf3e
 ! *color15: #EEEEEC
-! Old colorscheme:
-! URxvt*color0: black
-! !URxvt*color1: red3
-! URxvt*color1: #CD0000
-! URxvt*color2: green3
-! !URxvt*color3: yellow3
-! URxvt*color3: #C4A000
-! URxvt*color4: blue2
-! !URxvt*color4: #3465A4
-! URxvt*color5: magenta3
-! URxvt*color6: cyan3
-! URxvt*color7: gray90
-! URxvt*color8: grey50
-! URxvt*color9: red
-! URxvt*color10: green
-! URxvt*color11: yellow
-! !URxvt*color12: blue
-! URxvt*color12: #3465A4
-! URxvt*color13: magenta
-! URxvt*color14: cyan
-! URxvt*color15: white
+Old colorscheme:
+URxvt*color0: black
+!URxvt*color1: red3
+URxvt*color1: #CD0000
+URxvt*color2: green3
+!URxvt*color3: yellow3
+URxvt*color3: #C4A000
+URxvt*color4: blue2
+!URxvt*color4: #3465A4
+URxvt*color5: magenta3
+URxvt*color6: cyan3
+URxvt*color7: gray90
+URxvt*color8: grey50
+URxvt*color9: red
+URxvt*color10: green
+URxvt*color11: yellow
+!URxvt*color12: blue
+URxvt*color12: #3465A4
+URxvt*color13: magenta
+URxvt*color14: cyan
+URxvt*color15: white
 
 
 ! Dark pastel theme
@@ -62,25 +62,25 @@ URxvt*scrollBar: false
 ! *color13: #ff55ff
 ! *color14: #55ffff
 ! *color15: #ffffff
-urxvt.background: #000000
-urxvt.foreground: #D3D2D3
-urxvt.color0: #000000
-urxvt.color1: #FF7768
-urxvt.color2: #ABFA68
-urxvt.color3: #FFFD88
-urxvt.color4: #98D0FE
-urxvt.color5: #FF85FD
-urxvt.color6: #CACBFE
-urxvt.color7: #EFEFEF
-urxvt.color8: #848484
-urxvt.color9: #FFBCB5
-urxvt.color10: #D1FCB1
-urxvt.color11: #FFFDD0
-urxvt.color12: #BADFFF
-urxvt.color13: #FFA9FE
-urxvt.color14: #E2E3FE
-urxvt.color15: #FFFFFF
-urxvt.scrollBar: false
+! urxvt.background: #000000
+! urxvt.foreground: #D3D2D3
+! urxvt.color0: #000000
+! urxvt.color1: #FF7768
+! urxvt.color2: #ABFA68
+! urxvt.color3: #FFFD88
+! urxvt.color4: #98D0FE
+! urxvt.color5: #FF85FD
+! urxvt.color6: #CACBFE
+! urxvt.color7: #EFEFEF
+! urxvt.color8: #848484
+! urxvt.color9: #FFBCB5
+! urxvt.color10: #D1FCB1
+! urxvt.color11: #FFFDD0
+! urxvt.color12: #BADFFF
+! urxvt.color13: #FFA9FE
+! urxvt.color14: #E2E3FE
+! urxvt.color15: #FFFFFF
+! urxvt.scrollBar: false
 
 ! transperency
 ! urxvt*transparent: true
@@ -113,6 +113,6 @@ Xft.hintstyle:  hintfull
 ! URxvt.font:xft:Inconsolata for Powerline:pixelsize=17:antialias=true
 ! URxvt.boldfont:xft:Inconsolata for Powerline:pixelsize=17:antialias=true
 ! URxvt.letterSpace: -1
-URxvt.font:xft:Monaco for Powerline:pixelsize=13:antialias=true:style=Bold
+URxvt.font:xft:Monaco for Powerline:pixelsize=15:antialias=true:style=Bold
 ! URxvt.boldfont:xft:Monaco:pixelsize=14:antialias=true
 URxvt.letterSpace: -1
