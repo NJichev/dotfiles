@@ -30,3 +30,4 @@ endif
 augroup nonvim
   au BufRead *.png,*.jpg,*.pdf,*.gif,*.xls*,*.scpt sil exe "!xdg-open " . shellescape(expand("%:p")) | bd | let &ft=&ft | redraw!
 augroup END
+autocmd Filetype gitcommit setlocal spell textwidth=72

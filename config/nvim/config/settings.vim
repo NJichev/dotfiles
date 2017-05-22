@@ -38,6 +38,15 @@ set incsearch
 set foldmethod=manual
 set nofoldenable
 
+" Better? completion on command line
+set wildmenu
+" What to do when I press 'wildchar'. Worth tweaking to see what feels right.
+set wildmode=list:full
+
+" Some options
+set history=500		" keep 500 lines of command line history
+set ruler		" show the cursor position all the time
+
 " Splits
 " Resize splits when the window is resized
 " au VimResized * exe "normal! \<c-w>="

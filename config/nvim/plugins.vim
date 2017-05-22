@@ -13,11 +13,14 @@ if dein#load_state('~/.vim/bundle/')
 
   " Colorschemes
   call dein#add('quanganhdo/grb256')
-  call dein#add('tomasr/molokai')
+  call dein#add('tamelion/neovim-molokai')
+  call dein#add('morhetz/gruvbox')
 
+  " Tab completion
+  call dein#add('ervandew/supertab')
   " Syntax for many languages
   call dein#add('sheerun/vim-polyglot')
-
+ 
   " Html snippets, thank god.
   call dein#add('mattn/emmet-vim')
 
@@ -76,6 +79,8 @@ if dein#load_state('~/.vim/bundle/')
   call dein#add('honza/vim-snippets')
   call dein#add('SirVer/ultisnips',
         \{'on_map' : { 'i' : ['<TAB>'] }})
+
+  call dein#add('godlygeek/tabular')
 
   " Vim stuff
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})

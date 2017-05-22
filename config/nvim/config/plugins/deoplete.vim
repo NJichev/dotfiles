@@ -15,7 +15,6 @@ let g:deoplete#sources#omni#input_patterns = {
 inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
-
 let g:deoplete#enable_refresh_always=0
 let g:deoplete#file#enable_buffer_path=1
 let g:deoplete#auto_complete_start_length=1

@@ -19,12 +19,17 @@ set list listchars+=trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
 " Tell vim that powerline is loaded
 let g:powerline_loaded = 1
 
-" set relativenumber
 set number
+set relativenumber
 set ruler
 set cursorline
+set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
+set autoindent " always set autoindenting on
+set lazyredraw " Don't redraw screen when running macros.
 
-" set termguicolors
-" colorscheme molokai
-" set termguicolors
-colorscheme grb256
+set termguicolors
+set background=light
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='hard'
+
+colorscheme gruvbox
