@@ -1,3 +1,5 @@
+alias rg "/usr/bin/rg"
+
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
