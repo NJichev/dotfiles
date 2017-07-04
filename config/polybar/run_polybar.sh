@@ -1,5 +1,5 @@
 #!/bin/sh
 
 killall polybar
-polybar bot &
+# polybar bot &
 polybar top &

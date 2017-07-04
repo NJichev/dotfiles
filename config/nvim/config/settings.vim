@@ -44,8 +44,8 @@ set wildmenu
 set wildmode=list:full
 
 " Some options
-set history=500		" keep 500 lines of command line history
-set ruler		" show the cursor position all the time
+set history=500   " keep 500 lines of command line history
+set ruler   " show the cursor position all the time
 
 " Splits
 " Resize splits when the window is resized
@@ -70,3 +70,7 @@ let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
 let g:test#strategy = 'terminal_split'
 " Auto Pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+
+if has("nvim")
+  set inccommand=split
+endif

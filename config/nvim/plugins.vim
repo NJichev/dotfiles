@@ -2,92 +2,76 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-if dein#load_state('~/.vim/bundle/')
-  call dein#begin('~/.vim/bundle/')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.vim/bundle/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove plugins here:
-
+call plug#begin('~/.vim/plugged')
   " Colorschemes
-  call dein#add('quanganhdo/grb256')
-  call dein#add('tamelion/neovim-molokai')
-  call dein#add('morhetz/gruvbox')
+  Plug 'quanganhdo/grb256'
+  Plug 'tamelion/neovim-molokai'
+  Plug 'morhetz/gruvbox'
 
-  " Tab completion
-  call dein#add('ervandew/supertab')
+  " Go back to deoplete
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete-rct'
+  Plug 'fishbullet/deoplete-ruby'
+  Plug 'wellle/tmux-complete.vim'
+
+  "Ale linter
+  Plug 'w0rp/ale'
+
   " Syntax for many languages
-  call dein#add('sheerun/vim-polyglot')
- 
+  Plug 'sheerun/vim-polyglot'
+
   " Html snippets, thank god.
-  call dein#add('mattn/emmet-vim')
+  Plug 'mattn/emmet-vim'
 
   " Testing for different languages
-  call dein#add('janko-m/vim-test')
-  call dein#add('njichev/alter-vim')
+  Plug 'janko-m/vim-test'
+  Plug 'njichev/alter-vim'
 
   " Autopairs
-  call dein#add('jiangmiao/auto-pairs', {'on_i' : 1})
+  Plug 'jiangmiao/auto-pairs'
 
   " Ruby plugins
-  call dein#add('vim-ruby/vim-ruby', {'on_ft': 'ruby'})
-  call dein#add('tpope/vim-rails', {'on_ft': 'ruby'})
-  call dein#add('bruno-/vim-ruby-fold', {'on_ft': 'ruby'})
-  call dein#add('tpope/vim-endwise')
-
+  Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+  Plug 'tpope/vim-rails', { 'for': 'ruby' }
+  Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
+  Plug 'tpope/vim-endwise'
 
   " Elixir
-  call dein#add('slashmili/alchemist.vim', {'on_ft' : 'elixir'})
+  Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
 
   " Tpope utility plugins
-  call dein#add('tpope/vim-repeat',
-        \{'on_map' : '.'})
+  Plug 'tpope/vim-repeat'
 
-  call dein#add('tpope/vim-dispatch')
-  call dein#add('tpope/vim-surround',
-        \{'on_map' : {'n' : ['cs', 'ds', 'ys', ]}})
+  Plug 'tpope/vim-dispatch'
+  Plug 'tpope/vim-surround'
 
-  call dein#add('tpope/vim-fugitive',
-        \{ 'on_cmd' : [ 'Git', 'Gstatus', 'Gwrite', 'Glog', 'Gcommit', 'Gblame', 'Ggrep', 'Gdiff' ] })
+  Plug 'tpope/vim-fugitive'
 
-  call dein#add('tpope/vim-unimpaired')
+  Plug 'tpope/vim-unimpaired'
 
   " Other utility plugins
-  call dein#add('christoomey/vim-tmux-navigator')
+  Plug 'christoomey/vim-tmux-navigator'
 
-  call dein#add('terryma/vim-multiple-cursors',
-        \{ 'on_map' : { 'n' : ['<C-n>', '<C-p>'], 'x' : '<C-n>'}})
+  Plug 'terryma/vim-multiple-cursors'
 
-  call dein#add('tomtom/tcomment_vim',
-        \{'on_map': 'gc', 'on_cmd' : 'TComment'})
-
-  " lazy load on insert mode
-  call dein#add('Shougo/deoplete.nvim',
-        \{'on_i': 1})
-
-  " call dein#add('kassio/neoterm')
-  "
+  Plug 'tomtom/tcomment_vim'
   " Vim fast searching and moving around
-  call dein#add('dyng/ctrlsf.vim',
-        \{'on_cmd' : 'CtrlSF'})
+  Plug 'dyng/ctrlsf.vim'
 
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim')
+  Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+  Plug 'junegunn/fzf.vim'
 
-  call dein#add('honza/vim-snippets')
-  call dein#add('SirVer/ultisnips',
-        \{'on_map' : { 'i' : ['<TAB>'] }})
+  Plug 'honza/vim-snippets'
+  Plug 'SirVer/ultisnips'
 
-  call dein#add('godlygeek/tabular')
+  Plug 'godlygeek/tabular'
 
   " Vim stuff
-  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
-  call dein#end()
-  call dein#save_state()
-endif
+  Plug 'AndrewRadev/switch.vim'
+  Plug 'AndrewRadev/splitjoin.vim'
+call plug#end()
 
 filetype plugin indent on
 syntax enable

@@ -1,4 +1,3 @@
-set runtimepath+=/home/njichev/.vim/bundle/repos/github.com/Shougo/dein.vim
 set runtimepath+=~/.vim/
 
 source $HOME/.config/nvim/plugins.vim

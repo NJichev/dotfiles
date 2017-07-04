@@ -204,8 +204,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # i3 gaps
-gaps outer 1
-gaps inner 2
+gaps outer 5
+gaps inner 20
 smart_gaps on
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -251,7 +251,6 @@ exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
 exec_always --no-startup-id xrandr --dpi 200
 exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpaper.jpg
 exec_always --no-startup-id redshift -l 43:25
-
-exec_always --no-startup-id compton -f
+exec_always --no-startup-id compton --config $HOME/dotfiles/config/i3/.compton.conf
 # exec_always--no-startup-id slack
 # exec --no-startup-id spotify

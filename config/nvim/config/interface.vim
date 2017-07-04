@@ -1,4 +1,3 @@
-"
 " Interface
 "
 " Don't try to highlight lines longer than 800 characters.
@@ -28,7 +27,7 @@ set autoindent " always set autoindenting on
 set lazyredraw " Don't redraw screen when running macros.
 
 set termguicolors
-set background=light
+set background=dark
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 

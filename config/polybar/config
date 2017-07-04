@@ -37,6 +37,7 @@ modules-center = i3
 modules-right =
 
 override-redirect = true
+wm-restack = i3
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -56,9 +57,9 @@ font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 font-3 = FontAwesome:pixelsize=14;0
 
-modules-left = battery
+modules-left = i3
 modules-center = date
-modules-right = wireless-network cpu memory volume
+modules-right = wireless-network cpu battery memory volume
 
 override-redirect = true
 wm-restack = i3

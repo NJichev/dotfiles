@@ -40,8 +40,8 @@ nnoremap <leader>cc :only<cr>
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
-nmap <silent> <leader>T :TestNearest<CR>
-nmap <silent> <leader>t :TestFile<CR>
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
@@ -108,6 +108,15 @@ nnoremap <Leader>sf :CtrlSF<Space>
 " FZF
 nnoremap <space>f :Files<cr>
 nnoremap <space>b :Buffers<cr>
+
+nnoremap <space>m :FZF app/models<cr>
+nnoremap <space>c :FZF app/controllers<cr>
+nnoremap <space>h :FZF app/helpers<CR>
+nnoremap <space>s :FZF spec<CR>
+nnoremap <space>t :FZF test<CR>
+nnoremap <space>v :FZF app/views<CR>
+nnoremap <space>l :FZF lib/<cr>
+
 
 " Tabularize Aligh
 vnoremap <Leader>a :Tabularize /
