@@ -1,5 +1,5 @@
-" Make you keyboard actually do something while you are switched to Cyrillic
-" layout. Basically map bulgarian keychords to english ones in vim.
+" Make your keyboard actually do something when you switch to Cyrillic layout. 
+" Basically map Bulgarian keychords to English ones in vim.
 set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM,ю\\,Ю\|,
 
 " Map the leader keys
@@ -84,17 +84,17 @@ cnoremap w!! w !sudo tee % >/dev/null
 nnoremap K :tabn<CR>
 nnoremap J :tabp<CR>
 
-" Improve up/down movement on wrapped lines
+" Enable up/down movement on wrapped lines
 nnoremap j gj
 nnoremap k gk
 xnoremap j gj
 xnoremap k gk
 
 " Reselect visual block after indent/outdent
-  vnoremap < <gv
-  vnoremap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
-" Eazily go to the beginning/end of the line
+" Easily go to the beginning/end of the line
 noremap H ^
 noremap L $
 vnoremap L g_
@@ -118,7 +118,7 @@ nnoremap <space>v :FZF app/views<CR>
 nnoremap <space>l :FZF lib/<cr>
 
 
-" Tabularize Aligh
+" Tabularize Align
 vnoremap <Leader>a :Tabularize /
 
 
