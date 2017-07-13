@@ -151,3 +151,5 @@ nnoremap N Nzzzv
 " Use perl regexes.
 nnoremap / /\v
 vnoremap / /\v
+
+map <F2> :NERDTreeToggle<CR>

@@ -42,6 +42,7 @@ set nofoldenable
 set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
 set wildmode=list:full
+set completeopt=longest,menuone,preview
 
 " Some options
 set history=500   " keep 500 lines of command line history

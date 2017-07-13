@@ -24,9 +24,10 @@ set ruler
 set cursorline
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
-set lazyredraw " Don't redraw screen when running macros.
 
-set termguicolors
+if has("nvim")
+  set termguicolors
+endif
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'

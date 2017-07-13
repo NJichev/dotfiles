@@ -1,13 +1,14 @@
 set runtimepath+=~/.vim/
+set runtimepath+=~/dotfiles/config/nvim/
 
-source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/config/functions.vim
-source $HOME/.config/nvim/config/keybinds.vim
-source $HOME/.config/nvim/config/interface.vim
-source $HOME/.config/nvim/config/settings.vim
-source $HOME/.config/nvim/config/plugins/deoplete.vim
-source $HOME/.config/nvim/config/plugins/gutentags.vim
-source $HOME/.config/nvim/config/plugins/ultisnips.vim
+runtime plugins.vim
+runtime config/functions.vim
+runtime config/keybinds.vim
+runtime config/interface.vim
+runtime config/settings.vim
+runtime config/plugins/deoplete.vim
+runtime config/plugins/gutentags.vim
+runtime config/plugins/ultisnips.vim
 
 " Nerdcommenter
 let NERDSpaceDelims=1

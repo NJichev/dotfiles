@@ -1,6 +1,12 @@
 let g:python2_host_prog = "/usr/bin/python2.7"
 let g:python3_host_prog = "/usr/sbin/python"
 
+"some ruby stuff
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+let g:rubycomplete_load_gemfile = 1
+
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 " Deoplete

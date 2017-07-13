@@ -12,9 +12,12 @@ alias mkdir "mkdir -p"
 
 # Shortcuts for rails, grunt, make, docker and git.
 abbr -a r rails
-abbr -a m make
 abbr -a d docker
 abbr -a g git
+abbr -a m mix
+abbr -a mr mix run --no-halt
+abbr -a ie iex -S mix
+abbr -a i iex
 
 # Bundler abbrs
 abbr -a b bundle

@@ -1,0 +1,434 @@
+commit 8990eba3380ed7bafd1d608bbfdb98bb61cca43c
+Merge: f4d049a 605d037
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Tue Jul 4 21:20:06 2017 +0300
+
+    Merge branch 'master' of github.com:NJichev/dotfiles
+
+commit f4d049a407ef00d1eb8937def7ff23ddab0608fc
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Tue Jul 4 17:40:45 2017 +0300
+
+    Revert back to deoplete and plug.
+    
+    Point compton to config file, I guess that's why it didn't work.
+    
+    This fixes the screen flicker I had when in fullscreen mode.
+    (A quick fix was just starting a new terminal and closing it)
+    ¯\_(ツ)_/¯
+
+commit 605d037f9cc2b342107535bc5f0e146e0356eb1a
+Merge: f7ba41a e12487f
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sat Jun 10 08:44:03 2017 +0300
+
+    Merge pull request #1 from googleson78/master
+    
+    fix typos
+
+commit e12487f2738298b5c6bec25ac9238bb4d6a4869b
+Author: Georgi Lyubenov <godzbanebane@gmail.com>
+Date:   Fri Jun 9 13:22:18 2017 +0300
+
+    fix typos
+
+commit 07d75ae836fb7f1ba0ef87ca30abc6693175ab25
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Tue May 30 20:43:08 2017 +0300
+
+    Changes to fish
+
+commit f7ba41ae930a8828157da5bda3b925efbd3fe613
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon May 22 10:45:27 2017 +0300
+
+    Add Tabular back
+
+commit 0aa00b62b25bb5559a2372042e7a13d73435f41b
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 17 22:23:49 2017 +0300
+
+    Added default git message.
+    
+    This would force me to write better commit messages.
+    Slowly turning it into a habbit
+    
+    This change addresses the need by:
+    
+    Adding a gitmessage file to the dotfiles, that you
+    symlink to ~/.gitmessage. And make ~/.gitconfig point
+    in that direction.
+
+commit 633a66c7f91db0eaea7c5567762954cccf6ff880
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 10 14:07:44 2017 +0300
+
+    Go back to zsh since it's more convenient to be posix compliant.
+    
+    Have an operating systems course, rather write in zsh some small
+    scripts. Not having to change shell at start every time.
+
+commit e90f036434fc80eb0407020d5423bd1258a059e9
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 10 14:07:26 2017 +0300
+
+    Add polybar.
+    
+    Remove usage of i3bar
+
+commit eaedcdce54fa73141208f1c03c29e8a7f996f849
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 10 14:06:22 2017 +0300
+
+    Remove denite and other useless plugins.
+    
+    Go back to FZF, remove neoterm since it broke in build 0.2.1.
+    Change test strategy to `terminal_split` once more.
+
+commit 44ad30a7cfe59b9d6a1f3855958396da7c331727
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Apr 30 16:15:48 2017 +0300
+
+    Add polybar in dotfiles.
+
+commit 4451c045d49e0ceebe48ac376aa25b749c9f8d16
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Apr 23 19:44:35 2017 +0300
+
+    Change i3 lock and some plugins
+
+commit 46478b2e5e982d13ede96ddb062d4714aa2a6af6
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Apr 23 12:34:25 2017 +0300
+
+    Add wallpaper to dotfiles.
+
+commit 783de641f044d91f9c6a1e065ea0f82a46e4a560
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Apr 23 12:34:13 2017 +0300
+
+    Go back to FZF, simpler and faster. Change colorscheme to grb256.
+
+commit 44754de756444525d0ae1f81b6d67b14e03602b0
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Apr 16 21:17:21 2017 +0300
+
+    Lazy up some plugins.
+
+commit 5c7fb567a3ea177f5f2f3639949b6ce8957d98b9
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed Apr 5 09:35:33 2017 +0300
+
+    Kill tmux panes with ease.
+
+commit d514efa1c3cebacecdf03fdc0994a022747c2748
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Apr 3 21:42:47 2017 +0300
+
+    Configure denite some more.
+
+commit 290880aea1b764059b486ccc03e7dcb881f336f2
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Apr 3 21:12:47 2017 +0300
+
+    Add snippets, move utility to just settings, fix source issue in fish config.
+
+commit 7dddf8e3187f99abb0742b52a97046063d7e9692
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Apr 3 14:46:02 2017 +0300
+
+    Further extract stuff from init.vim.
+
+commit 4a369e1f7c17e4a0ad0c83f76b1489ca3b80cc25
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Apr 3 13:28:49 2017 +0300
+
+    Split vimrc in several files.
+
+commit a9bd0a13c651b8b2048de63179a0cfb445a09616
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Apr 3 13:28:32 2017 +0300
+
+    Move vimrc in several files for easier editing.
+
+commit 8ba13a1aca02941756609adca2e60c6602c19907
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Apr 3 12:53:46 2017 +0300
+
+    Don't add the dotfiles to vim rtp, use .vim instead, maybe uploading everything is a bad idea.
+
+commit 5e8056e6fd0542a6e37cff13c139022f3d23c95d
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Fri Mar 31 09:21:23 2017 +0300
+
+    Change fish config to export less stuff to Path.
+
+commit 9409659829ba14af788ad6f62f4dd746ff1c8c8a
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sat Mar 18 11:24:39 2017 +0200
+
+    Add new plugins to vim.
+
+commit 2185010c399d125d7c38389f0409135b9f825f71
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Fri Mar 3 11:49:09 2017 +0200
+
+    Add expandtab to ruby files.
+
+commit d37bd1b274d821c100832070200b2b46f989ff55
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Fri Mar 3 11:43:34 2017 +0200
+
+    Let polyglot handle everything but ruby.
+
+commit 72d0121a332645598e28879f807dbc12217bfb90
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Fri Mar 3 11:32:55 2017 +0200
+
+    Remove old Plugins left in bundle from plug.
+
+commit 3f87c3bdf22d6774f8e76adf70562ed663206ba2
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Fri Mar 3 11:32:11 2017 +0200
+
+    Move to dein vim instead of plug.
+
+commit 460aef257d6fd356d304dd8bc00b4d01277e2b65
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Jan 22 11:47:57 2017 +0200
+
+    Add zshenv.
+
+commit ffeedd73ea7c409602af2c0604a5d7e2f5bd16ed
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Thu Jan 12 15:54:03 2017 +0200
+
+    Small updates.
+
+commit 6b6734322507415ef2c2a4a7047f287c7bcfddc7
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Jan 1 19:28:54 2017 +0200
+
+    Add gemrc, change back to urxvt.
+
+commit bb18c3a4435e49e0dd7ec1a9481209612b111981
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sun Jan 1 19:28:31 2017 +0200
+
+    Remove useless plugins, update old ones.
+
+commit b76302922ab068cfb02ca7008b7982596ea354ed
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Tue Dec 20 18:32:17 2016 +0200
+
+    Ignore plugins dir.
+
+commit 06780a9106499e6a5426d29ebca8550bb79f86d0
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Tue Dec 20 18:30:01 2016 +0200
+
+    Add elixir and haskell plugins.
+
+commit 2013b6ed8976604a21187e3dcda9f54405ce8ea0
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sat Dec 10 21:16:55 2016 +0200
+
+    Change test maps and fix tag support. Now I can open gem implementation
+    just fine.
+
+commit 5f261ce92e7dd52623b1d4058d90b340f878e429
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Tue Nov 8 14:19:24 2016 +0200
+
+    Remove snippets from vim
+
+commit 745acad682c4035d544dea7c5784d8d42a25f45d
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Thu Oct 20 11:16:13 2016 +0300
+
+    Some refactorings.
+
+commit da0bb088a229f64c4b6b260e1442cfa450eff05b
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed Oct 19 12:20:54 2016 +0300
+
+    Refactor useless shit python stuff.
+
+commit a9ae678569f7eab2ac6174e0e7e628c8490b8606
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Thu Oct 13 20:02:52 2016 +0300
+
+    Add some lazy loading with Plug.
+    Switched to konsole for ligatures.
+    Go back to gruvbox since Genata.
+    Add some racket repl alias.
+
+commit 371491d33d24f7c120e7c2d55f2f8e81faa932aa
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Fri Oct 7 21:35:10 2016 +0300
+
+    Added ctags file.
+
+commit e6ac720b078450236883f85fa29a41acbc996a7b
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Thu Oct 6 16:02:11 2016 +0300
+
+    Add racket syntax highlight
+
+commit c1729b85c4cf10b28752faca9387a6c32db9c937
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed Oct 5 15:36:15 2016 +0300
+
+    Added new i3 config.
+
+commit 631e34a74fb9208830ac4d861b8cd2d7b2589716
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed Oct 5 15:35:10 2016 +0300
+
+    Remove old i3 config.
+
+commit 973e6c9b7ef959356a027abe8e84b40339266bf2
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Tue Oct 4 21:40:42 2016 +0300
+
+    Add autoload tab complete function.
+
+commit 4f4c9a2b999c04f7c6222e85e1b21b3d0c19ac50
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Fri Sep 30 22:43:57 2016 +0300
+
+    Added i3 config to dotfiles
+
+commit 4bf4f8a3d47fef1e666a7d6b189f5b84690d82a4
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sat Sep 10 11:32:35 2016 +0300
+
+    Switch back to vim.
+
+commit 6572f1c940b37596ef6e0d48ab5a51899ccb6fb8
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Aug 29 16:39:44 2016 +0300
+
+    Added same keys for switching between vim splits and tmux panes.
+
+commit d5923f4cd773f16970dda2abadbf6c935a4b482e
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Aug 29 15:28:02 2016 +0300
+
+    Use my old vimrc.
+
+commit cf927f90c973ead7e1fd42d016444849e5ac2935
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Sat Jul 9 16:36:02 2016 +0300
+
+    Remove buybug history from git.
+
+commit aa1d54ce5fc4ccc1de6d4662e7102a361ce6e55f
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon Jul 4 16:57:11 2016 +0300
+
+    Small vim changes.
+
+commit 4e8b7a859a29d39d469781a389b7956463bae6dc
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Thu May 26 09:30:26 2016 +0300
+
+    Added tmuxline preset and .tmuxline conf snapshot.
+
+commit e91f5b4a1e744f5cc9146e0fb8573963e7fd912e
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Thu May 26 08:51:28 2016 +0300
+
+    Added simple gitconfig.
+
+commit aef03fcd66f676c441f4817f271454e19804a25b
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Thu May 26 08:46:36 2016 +0300
+
+    Added mroe gitignore for tags, also add copy mode for tmux in vi keys
+    mode.
+
+commit b8e03d0c22c31c2b8ffb93c4acbdd9e3137a3cbe
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 18 12:46:47 2016 +0300
+
+    For now manually link dotfiles.
+
+commit 3733c1d08f634a3d58c525b40bbe3fb30c490745
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 18 12:38:24 2016 +0300
+
+    Named xfce4 setup.
+
+commit add75ebef03b46fca82f7ca70a3ebcb0fc328d61
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 18 12:37:21 2016 +0300
+
+    Add `.tags` to gitignore.
+
+commit 13ab4110c04f4799077f4531e143497d2ecc35e8
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Wed May 18 12:36:21 2016 +0300
+
+    Small changes to vim and spacemacs.
+
+commit 24fd26ab36f225890720132912d46f2c55aae2b7
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon May 16 10:52:08 2016 +0300
+
+    Added gitignore
+
+commit 12f1a70a34e01a4fbe0f62c643db56f5dfb6ed6d
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon May 16 10:25:25 2016 +0300
+
+    Added XLIP alais.
+
+commit d8da1fc6afdfe64d6ebd9a131ed10076555e5961
+Author: Nikola Jichev <njichev@gmail.com>
+Date:   Mon May 16 10:19:18 2016 +0300
+
+    Add xfce and tmux changes to dotfiles.
+
+commit 994b0ba2c2a2b918ff1b5cf74f9d69c914d9223a
+Author: niko <njichev@gmail.com>
+Date:   Sat May 14 17:35:14 2016 +0300
+
+    Added urxvt setup to dotfiles.
+
+commit 6049f991cac98f9d617e601665af1415206d969e
+Author: niko <njichev@gmail.com>
+Date:   Sat May 14 17:33:19 2016 +0300
+
+    Add spacemacs and update zshrc and vimrc.
+
+commit dee5a1e2db2765cdd56ac6b4b3962995be2c3f68
+Author: niko <njichev@gmail.com>
+Date:   Mon Mar 21 13:46:04 2016 +0200
+
+    Add zshrc to dotfiles.
+
+commit d35b64e56ee9d4e8d5aabb8ff0b7d5e5fe950448
+Author: niko <njichev@gmail.com>
+Date:   Sun Mar 20 00:46:57 2016 +0200
+
+    Removed syslinked empty files.
+
+commit 4acf82845015d416f50857fc9ccb8b22f4c0cb4a
+Merge: e28d026 2629836
+Author: niko <njichev@gmail.com>
+Date:   Sun Mar 20 00:29:50 2016 +0200
+
+    Merge branch 'master' of github.com:NJichev/dotfiles
+
+commit 26298364e948a3af20c5ae9f76cff4ef5a1df660
+Author: Никола Жишев / Nikola Jichev <njichev@gmail.com>
+Date:   Sun Mar 20 00:28:40 2016 +0200
+
+    Initial commit
+
+commit e28d02623b6e5eeac7f9977c27007623eae5c514
+Author: niko <njichev@gmail.com>
+Date:   Sun Mar 20 00:26:34 2016 +0200
+
+    Create dotfiles repo.

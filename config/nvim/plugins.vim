@@ -14,8 +14,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'fishbullet/deoplete-ruby'
   Plug 'wellle/tmux-complete.vim'
 
+  " Nerdtree
+  Plug 'scrooloose/nerdtree'
+
   "Ale linter
-  Plug 'w0rp/ale'
+  " Plug 'w0rp/ale'
 
   " Syntax for many languages
   Plug 'sheerun/vim-polyglot'
@@ -38,6 +41,9 @@ call plug#begin('~/.vim/plugged')
 
   " Elixir
   Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
+  Plug 'elixir-lang/vim-elixir'
+  Plug 'thinca/vim-ref'
+  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
   " Tpope utility plugins
   Plug 'tpope/vim-repeat'
