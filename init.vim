@@ -13,8 +13,7 @@ runtime config/plugins/ultisnips.vim
 " Nerdcommenter
 let NERDSpaceDelims=1
 
-" Open files with last place of cursour.
-
+" Open files with last place of cursor.
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
   autocmd BufReadPost .exs setf elixir
@@ -24,6 +23,9 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  " Fixes alacritty rendering issue
+  autocmd BufEnter * highlight Normal guibg=0
 endif
 
 " Open pictures and other stuff with other programms

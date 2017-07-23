@@ -40,7 +40,7 @@ nnoremap <leader>cc :only<cr>
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
-nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>t :w<cr>\|:TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
@@ -108,15 +108,39 @@ nnoremap <Leader>sf :CtrlSF<Space>
 " FZF
 nnoremap <space>f :Files<cr>
 nnoremap <space>b :Buffers<cr>
+nnoremap <space>bl :Lines<cr>
+nnoremap <space>bc :Commits<cr>
+nnoremap <space>bs :GFiles?<cr>
 
-nnoremap <space>m :FZF app/models<cr>
-nnoremap <space>c :FZF app/controllers<cr>
-nnoremap <space>h :FZF app/helpers<CR>
-nnoremap <space>s :FZF spec<CR>
-nnoremap <space>t :FZF test<CR>
-nnoremap <space>v :FZF app/views<CR>
-nnoremap <space>l :FZF lib/<cr>
+nnoremap <space>fam :FZF app/models<cr>
+nnoremap <space>fac :FZF app/controllers<cr>
+nnoremap <space>fah :FZF app/helpers<CR>
+nnoremap <space>fas :FZF spec<CR>
+nnoremap <space>fat :FZF test<CR>
+nnoremap <space>fav :FZF app/views<CR>
+nnoremap <space>fal :FZF lib/<cr>
 
+" Neoterm
+" Term file
+nnoremap <silent> <space>tf :TREPLSendFile<cr>
+" Term line
+nnoremap <silent> <space>tl :TREPLSendLine<cr>
+" Term line selection
+vnoremap <silent> <space>tl :TREPLSendSelection<cr>
+
+" Useful maps
+" hide/close terminal
+nnoremap <silent> <space>th :Tclose<cr>
+" open terminal
+nnoremap <silent> <space>to :Topen<cr>
+" clear terminal
+nnoremap <silent> <space>tl :call neoterm#clear()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <silent> <space>tc :call neoterm#kill()<cr>
+nnoremap <silent> <space>trc :T rails console<cr>
+nnoremap <silent> <space>trs :T rails server<cr>
+nnoremap <silent> <space>tbi :T bundle install<cr>
+nnoremap <silent> <space>trr :T rake routes<cr>
 
 " Tabularize Align
 vnoremap <Leader>a :Tabularize /
@@ -153,3 +177,5 @@ nnoremap / /\v
 vnoremap / /\v
 
 map <F2> :NERDTreeToggle<CR>
+
+nmap <leader>ale :ALEToggle<CR>

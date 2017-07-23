@@ -69,6 +69,9 @@ bindsym $mod+Shift+q kill
 # lock screen
 bindsym $mod+p exec $HOME/.config/i3/.scripts/lock -p 10
 
+# launch rofi-pass
+bindsym $mod+o exec rofi-pass
+
 # start dmenu (a program launcher)
 bindsym $mod+w exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications

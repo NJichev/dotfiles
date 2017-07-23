@@ -29,9 +29,6 @@ then
         echo "done"
     done
 fi
-dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+amixer set Master mute
 i3lock  -I 10 -d -e -u -n -i /tmp/screen.png
-setxkbmap us
-setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,bg -variant ,phonetic &
-amixer set Master mute 
-playerctl stop
+amixer set Master unmute

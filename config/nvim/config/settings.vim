@@ -1,9 +1,9 @@
 " More like default settings.
-" Let vim know that I use fish
+" Let vim know that I use bash
 set shell=/bin/bash
 
 " Set ctags lookup
-set tags+=.tags,.git/tags
+set tags=.tags,.git/tags
 
 " Use the backspace key as expected
 set backspace=2
@@ -50,7 +50,7 @@ set ruler   " show the cursor position all the time
 
 " Splits
 " Resize splits when the window is resized
-" au VimResized * exe "normal! \<c-w>="
+au VimResized * exe "normal! \<c-w>="
 
 set splitbelow
 set splitright
@@ -62,16 +62,21 @@ set splitright
 set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 " Neoterm broke in latest build /cry
-" let g:test#strategy = 'neoterm'
-function! SplitStrategy(cmd)
-  botright new | resize 20 | call termopen(a:cmd) | startinsert
-endfunction
+" function! SplitStrategy(cmd)
+"   botright new | resize 20 | call termopen(a:cmd) | startinsert
+" endfunction
 
-let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
-let g:test#strategy = 'terminal_split'
+" let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
+let g:test#strategy = 'neoterm'
 " Auto Pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
 if has("nvim")
   set inccommand=split
 endif
+
+" set timeout to run ale to 0.5 second
+let g:ale_lint_delay=500
+
+" Neoterm
+let g:neoterm_autoscroll = '1'

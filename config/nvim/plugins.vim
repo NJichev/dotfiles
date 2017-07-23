@@ -5,7 +5,6 @@ endif
 call plug#begin('~/.vim/plugged')
   " Colorschemes
   Plug 'quanganhdo/grb256'
-  Plug 'tamelion/neovim-molokai'
   Plug 'morhetz/gruvbox'
 
   " Go back to deoplete
@@ -14,11 +13,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'fishbullet/deoplete-ruby'
   Plug 'wellle/tmux-complete.vim'
 
+  " Tags
+  Plug 'ludovicchabant/vim-gutentags'
+
   " Nerdtree
   Plug 'scrooloose/nerdtree'
 
   "Ale linter
-  " Plug 'w0rp/ale'
+  Plug 'w0rp/ale'
 
   " Syntax for many languages
   Plug 'sheerun/vim-polyglot'
@@ -29,6 +31,8 @@ call plug#begin('~/.vim/plugged')
   " Testing for different languages
   Plug 'janko-m/vim-test'
   Plug 'njichev/alter-vim'
+  Plug 'kassio/neoterm'
+
 
   " Autopairs
   Plug 'jiangmiao/auto-pairs'

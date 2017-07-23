@@ -7,11 +7,15 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 let g:rubycomplete_load_gemfile = 1
 
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 " Deoplete
 
 let g:deoplete#enable_at_startup = 1
+
+" With deoplete.nvim
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
 let g:deoplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
@@ -21,7 +25,7 @@ let g:deoplete#sources#omni#input_patterns = {
 inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
-let g:deoplete#enable_refresh_always=0
+let g:deoplete#enable_refresh_always=1
 let g:deoplete#file#enable_buffer_path=1
 let g:deoplete#auto_complete_start_length=1
 
