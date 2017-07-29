@@ -7,11 +7,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
 
+  " LSP support
+  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
   " Go back to deoplete
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/deoplete-rct'
   Plug 'fishbullet/deoplete-ruby'
   Plug 'wellle/tmux-complete.vim'
+
+  " CamelCase and snake_case motions
+  Plug 'bkad/CamelCaseMotion'
 
   " Tags
   Plug 'ludovicchabant/vim-gutentags'
@@ -40,6 +46,8 @@ call plug#begin('~/.vim/plugged')
   " Ruby plugins
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
+  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+  Plug 'tpope/vim-rake', { 'for': 'ruby' }
   Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
   Plug 'tpope/vim-endwise'
 
@@ -49,22 +57,21 @@ call plug#begin('~/.vim/plugged')
   Plug 'thinca/vim-ref'
   Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
+  " Rust
+  Plug 'rust-lang/rust.vim'
+
   " Tpope utility plugins
   Plug 'tpope/vim-repeat'
-
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-surround'
-
   Plug 'tpope/vim-fugitive'
-
   Plug 'tpope/vim-unimpaired'
 
   " Other utility plugins
   Plug 'christoomey/vim-tmux-navigator'
-
   Plug 'terryma/vim-multiple-cursors'
-
   Plug 'tomtom/tcomment_vim'
+
   " Vim fast searching and moving around
   Plug 'dyng/ctrlsf.vim'
 
@@ -74,13 +81,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'honza/vim-snippets'
   Plug 'SirVer/ultisnips'
 
-  Plug 'godlygeek/tabular'
+  Plug 'junegunn/vim-easy-align'
 
   " Vim stuff
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
   Plug 'AndrewRadev/switch.vim'
   Plug 'AndrewRadev/splitjoin.vim'
+
+  Plug 'tweekmonster/startuptime.vim'
+
+  Plug 'kana/vim-textobj-user'
+  Plug 'nelstrom/vim-textobj-rubyblock/'
 call plug#end()
 
 filetype plugin indent on

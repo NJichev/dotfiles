@@ -5,6 +5,7 @@ rbenv rehash >/dev/null ^&1
 status --is-interactive; and . (rbenv init - | psub)
 
 set -gx PATH ~/.npm-global/bin $PATH
+set -gx PATH ~/.cargo/bin/ $PATH
 set -x EDITOR nvim
 set -x DISABLE_AUTO_TITLE true
 # Source the aliases in ~/.config/fish/aliases.fish.

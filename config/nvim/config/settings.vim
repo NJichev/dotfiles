@@ -75,8 +75,18 @@ if has("nvim")
   set inccommand=split
 endif
 
-" set timeout to run ale to 0.5 second
-let g:ale_lint_delay=500
+" set timeout to run ale to 0.3 second
+let g:ale_lint_delay=300
+let g:ale_linters = {'rust': ['rustc']}
 
 " Neoterm
 let g:neoterm_autoscroll = '1'
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>

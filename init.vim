@@ -9,6 +9,7 @@ runtime config/settings.vim
 runtime config/plugins/deoplete.vim
 runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim
+runtime macros/matchit.vim
 
 " Nerdcommenter
 let NERDSpaceDelims=1

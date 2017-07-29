@@ -142,8 +142,12 @@ nnoremap <silent> <space>trs :T rails server<cr>
 nnoremap <silent> <space>tbi :T bundle install<cr>
 nnoremap <silent> <space>trr :T rake routes<cr>
 
-" Tabularize Align
-vnoremap <Leader>a :Tabularize /
+" EasyAlign setup.
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " Resizing splits with arrows
@@ -179,3 +183,13 @@ vnoremap / /\v
 map <F2> :NERDTreeToggle<CR>
 
 nmap <leader>ale :ALEToggle<CR>
+
+" Use CamelCaseMotion instead of default motions
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge

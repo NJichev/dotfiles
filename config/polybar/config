@@ -11,37 +11,6 @@
 margin-top = 5
 margin-bottom = 5
 
-[bar/bot]
-width = 100%
-height = 25
-offset-x = 0
-offset-y = 0
-
-bottom = true
-background = #00000000
-foreground = #888888
-
-spacing = 1
-padding-left = 4
-padding-right = 4
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = hack:pixelsize=12;1
-font-1 = unifont:size=6:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=14;0
-
-modules-left =
-modules-center = i3
-modules-right =
-
-override-redirect = true
-wm-restack = i3
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
 [bar/top]
 width = 100%
 height = 25
