@@ -166,3 +166,5 @@ eval "$(jump shell zsh)"
 
 export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(direnv hook zsh)"

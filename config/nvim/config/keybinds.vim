@@ -142,13 +142,8 @@ nnoremap <silent> <space>trs :T rails server<cr>
 nnoremap <silent> <space>tbi :T bundle install<cr>
 nnoremap <silent> <space>trr :T rake routes<cr>
 
-" EasyAlign setup.
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
+" Tabularize Align
+vnoremap <Leader>a :Tabularize /
 
 " Resizing splits with arrows
 nnoremap <left>  <c-w><

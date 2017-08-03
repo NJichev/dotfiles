@@ -72,6 +72,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tomtom/tcomment_vim'
 
+  " Alignment
+  Plug 'godlygeek/tabular'
+
   " Vim fast searching and moving around
   Plug 'dyng/ctrlsf.vim'
 
@@ -80,8 +83,6 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'honza/vim-snippets'
   Plug 'SirVer/ultisnips'
-
-  Plug 'junegunn/vim-easy-align'
 
   " Vim stuff
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
