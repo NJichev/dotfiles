@@ -188,3 +188,6 @@ sunmap w
 sunmap b
 sunmap e
 sunmap ge
+
+" Git binds
+map <leader>wip :!git add . && git commit -m "WIP" && git push<cr>

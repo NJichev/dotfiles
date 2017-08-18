@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
 
   " Testing for different languages
   Plug 'janko-m/vim-test'
-  Plug 'njichev/alter-vim'
+  Plug '~/alter-vim'
   Plug 'kassio/neoterm'
 
 

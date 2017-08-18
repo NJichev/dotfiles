@@ -48,3 +48,6 @@ abbr -a gd git diff
 abbr -a gl git log
 abbr -a gs git status
 abbr -a ga git commit --amend
+
+alias timewalk "git log -p --"
+alias wip "git commit -mWIP"

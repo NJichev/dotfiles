@@ -76,9 +76,10 @@ if has("nvim")
 endif
 
 " set timeout to run ale to 0.3 second
-let g:ale_lint_delay=300
-let g:ale_linters = {'rust': ['rustc']}
-
+" let g:ale_lint_delay=300
+" let g:ale_linters = {'rust': ['rustc']}
+let g:ale_enable=0
+"
 " Neoterm
 let g:neoterm_autoscroll = '1'
 
