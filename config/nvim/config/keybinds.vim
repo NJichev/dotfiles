@@ -190,4 +190,21 @@ sunmap e
 sunmap ge
 
 " Git binds
-map <leader>wip :!git add . && git commit -m "WIP" && git push<cr>
+map <leader>gw :!git add . && git commit -m "WIP" && git push<cr>
+map <leader>gs :Gstatus<cr>
+map <leader>gb :Gblame<cr>
+
+" Write using `sudo` in COMMAND mode if the file is read-only.
+" Ripped off @StanAngeloff.
+cnoremap w!! w !sudo tee % >/dev/null
+
+" When in Bulgarian layout
+cnoreabbrev в w
+cnoreabbrev В w
+cnoreabbrev я q
+cnoreabbrev яа qа
+cnoreabbrev яал qаl
+cnoreabbrev яалл qаll
+
+nnoremap й gj
+nnoremap к gk

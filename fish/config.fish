@@ -1,6 +1,7 @@
 eval (direnv hook fish)
 status --is-interactive; and . (jump shell fish | psub)
 
+
 rbenv rehash >/dev/null ^&1
 
 status --is-interactive; and . (rbenv init - | psub)
@@ -19,4 +20,3 @@ set -gx TTC_REPOS ~/Work/,~/private-projects,~/ruby-projects,~/elixir-projects
 set -gx TTC_REPOS_DEPTH 2
 set -gx TTC_GITBOT git log
 set -gx TTC_WEATHER Sofia
-

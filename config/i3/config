@@ -71,6 +71,7 @@ bindsym $mod+p exec $HOME/.config/i3/.scripts/lock -p 10
 
 # launch rofi-pass
 bindsym $mod+o exec rofi-pass
+bindsym $mod+g exec g!
 
 # start dmenu (a program launcher)
 bindsym $mod+w exec rofi -show run
@@ -250,9 +251,10 @@ bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 # Startup
+exec --no-startup-id feh --bg-scale $HOME/dotfiles/wallpaper.jpg
+exec --no-startup-id redshift -l 43:25
+exec --no-startup-id compton --config $HOME/dotfiles/config/i3/.compton.conf
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
-exec_always --no-startup-id feh --bg-scale $HOME/dotfiles/wallpaper.jpg
-exec_always --no-startup-id redshift -l 43:25
-exec_always --no-startup-id compton --config $HOME/dotfiles/config/i3/.compton.conf
 # exec_always--no-startup-id slack
 # exec --no-startup-id spotify

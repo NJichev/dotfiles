@@ -6,7 +6,6 @@ alias .... "cd ../../.."
 alias ..... "cd ../../../.."
 alias ...... "cd ../../../../.."
 
-# alias pacman -S "sudo pacman -S"
 
 alias mkdir "mkdir -p"
 
@@ -23,6 +22,7 @@ abbr -a i iex
 abbr -a b bundle
 abbr -a be bundle exec
 abbr -a bi bundle install
+abbr -a bop bundle open
 
 # Tmux related shortcuts
 abbr -a t tmux
@@ -50,4 +50,4 @@ abbr -a gs git status
 abbr -a ga git commit --amend
 
 alias timewalk "git log -p --"
-alias wip "git commit -mWIP"
+alias wip "git add . and; git commit -mWIP"

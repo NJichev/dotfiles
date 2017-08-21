@@ -83,11 +83,4 @@ let g:ale_enable=0
 " Neoterm
 let g:neoterm_autoscroll = '1'
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ }
-
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+let g:ruby_indent_assignment_style = 'variable' 
