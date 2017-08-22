@@ -18,14 +18,12 @@ inoremap <C-f> <C-x><C-e>
 cnoremap <expr> %% expand('%:h').'/'
 
 " Try to open spec file for current file
-nnoremap <leader>. :OpenTestAlternate<cr>
+nnoremap <leader>. :OpenTestAlternate<CR>
 
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
 
-" Insert a triangle (|>) with <c-.>(it's too awkward to write)
-" Apparently vim cant map c-. since . and c-. is the same thing for it
-" I guess we will use something else like <c-k>
+" Insert a pipe |> with <c-k>
 imap <c-k> <bar>><space>
 
 "call Dispatch
@@ -35,12 +33,12 @@ nnoremap <leader>d :Dispatch<space>
 nnoremap <leader>ds :Start<space>
 
 " Close  but Current
-nnoremap <leader>cc :only<cr>
+nnoremap <leader>cc :only<CR>
 
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 
-nmap <silent> <leader>t :w<cr>\|:TestNearest<CR>
+nmap <silent> <leader>t :w<CR>\|:TestNearest<CR>\|:Topen<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
@@ -49,6 +47,19 @@ nmap <silent> <leader>g :TestVisit<CR>
 if has("nvim")
   " Terminal mode maps
   tnoremap <Esc> <C-\><C-n>
+
+  " Moving around in the terminal buffer
+  " tnoremap <C-h> <C-\><C-n><C-w>h
+  " tnoremap <C-j> <C-\><C-n><C-w>j
+  " tnoremap <C-k> <C-\><C-n><C-w>k
+  " tnoremap <C-l> <C-\><C-n><C-w>l
+
+  " Run test in terminal
+  " tnoremap <silent> <leader>t :w<CR>\|:TestNearest<CR>
+  " tnoremap <silent> <leader>T :TestFile<CR>
+  " tnoremap <silent> <leader>a :TestSuite<CR>
+  " tnoremap <silent> <leader>l :TestLast<CR>
+  " tnoremap <silent> <leader>g :TestVisit<CR>
 endif
 
 " Because the Esc key is too far...
@@ -75,7 +86,7 @@ noremap <Leader>vv :vsplit<CR>
 " Paste in the next line.
 nnoremap <leader>p o<ESC>p
 
-:map <leader>p :PromoteToLet<cr>
+:map <leader>p :PromoteToLet<CR>
 
 " Sudo to write
 cnoremap w!! w !sudo tee % >/dev/null
@@ -100,47 +111,47 @@ noremap L $
 vnoremap L g_
 
 " Dirty tmux integration
-nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+nnoremap <silent> <BS> :TmuxNavigateLeft<CR>
 
 " CtrlSF setup
 nnoremap <Leader>sf :CtrlSF<Space>
 
 " FZF
-nnoremap <space>f :Files<cr>
-nnoremap <space>b :Buffers<cr>
-nnoremap <space>bl :Lines<cr>
-nnoremap <space>bc :Commits<cr>
-nnoremap <space>bs :GFiles?<cr>
+nnoremap <space>f :Files<CR>
+nnoremap <space>b :Buffers<CR>
+nnoremap <space>bl :Lines<CR>
+nnoremap <space>bc :Commits<CR>
+nnoremap <space>bs :GFiles?<CR>
 
-nnoremap <space>fam :FZF app/models<cr>
-nnoremap <space>fac :FZF app/controllers<cr>
+nnoremap <space>fam :FZF app/models<CR>
+nnoremap <space>fac :FZF app/controllers<CR>
 nnoremap <space>fah :FZF app/helpers<CR>
 nnoremap <space>fas :FZF spec<CR>
 nnoremap <space>fat :FZF test<CR>
 nnoremap <space>fav :FZF app/views<CR>
-nnoremap <space>fal :FZF lib/<cr>
+nnoremap <space>fal :FZF lib/<CR>
 
 " Neoterm
 " Term file
-nnoremap <silent> <space>tf :TREPLSendFile<cr>
+nnoremap <silent> <space>tf :TREPLSendFile<CR>
 " Term line
-nnoremap <silent> <space>tl :TREPLSendLine<cr>
+nnoremap <silent> <space>tl :TREPLSendLine<CR>
 " Term line selection
-vnoremap <silent> <space>tl :TREPLSendSelection<cr>
+vnoremap <silent> <space>tl :TREPLSendSelection<CR>
 
 " Useful maps
 " hide/close terminal
-nnoremap <silent> <space>th :Tclose<cr>
+nnoremap <silent> <space>th :Tclose<CR>
 " open terminal
-nnoremap <silent> <space>to :Topen<cr>
+nnoremap <silent> <space>to :Topen<CR>
 " clear terminal
-nnoremap <silent> <space>tl :call neoterm#clear()<cr>
+nnoremap <silent> <space>tl :call neoterm#clear()<CR>
 " kills the current job (send a <c-c>)
-nnoremap <silent> <space>tc :call neoterm#kill()<cr>
-nnoremap <silent> <space>trc :T rails console<cr>
-nnoremap <silent> <space>trs :T rails server<cr>
-nnoremap <silent> <space>tbi :T bundle install<cr>
-nnoremap <silent> <space>trr :T rake routes<cr>
+nnoremap <silent> <space>tc :call neoterm#kill()<CR>
+nnoremap <silent> <space>trc :T rails console<CR>
+nnoremap <silent> <space>trs :T rails server<CR>
+nnoremap <silent> <space>tbi :T bundle install<CR>
+nnoremap <silent> <space>trr :T rake routes<CR>
 
 " Tabularize Align
 vnoremap <Leader>a :Tabularize /
@@ -152,13 +163,13 @@ nnoremap <up>    <c-w>-
 nnoremap <down>  <c-w>+
 
 " Edit vimrc
-nnoremap <leader>ev :tabedit $MYVIMRC<cr>
+nnoremap <leader>ev :tabedit $MYVIMRC<CR>
 
 " Edit tmux.conf
-nnoremap <leader>et :tabedit ~/.tmux.conf<cr>
+nnoremap <leader>et :tabedit ~/.tmux.conf<CR>
 
 " Edit fish config
-nnoremap <leader>ef :tabedit ~/.config/fish/config.fish<cr>
+nnoremap <leader>ef :tabedit ~/.config/fish/config.fish<CR>
 
 " Clear search highlights
 noremap <silent><Leader>/ :nohls<CR>
@@ -190,9 +201,9 @@ sunmap e
 sunmap ge
 
 " Git binds
-map <leader>gw :!git add . && git commit -m "WIP" && git push<cr>
-map <leader>gs :Gstatus<cr>
-map <leader>gb :Gblame<cr>
+map <leader>gw :!git add . && git commit -m "WIP" && git push<CR>
+map <leader>gs :Gstatus<CR>
+map <leader>gb :Gblame<CR>
 
 " Write using `sudo` in COMMAND mode if the file is read-only.
 " Ripped off @StanAngeloff.

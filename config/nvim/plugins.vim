@@ -92,8 +92,12 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'tweekmonster/startuptime.vim'
 
+  " Ruby text objects
   Plug 'kana/vim-textobj-user'
   Plug 'nelstrom/vim-textobj-rubyblock/'
+
+  " Git gutter
+  Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 filetype plugin indent on

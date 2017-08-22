@@ -1,1 +1,1 @@
-/home/njichev/.vim/plugged/fzf/shell/key-bindings.fish
+/home/njichev/.fzf/shell/key-bindings.fish

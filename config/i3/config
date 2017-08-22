@@ -243,9 +243,9 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 # Media player controls
-# bindsym XF86Search  exec playerctl play-pause
-# bindsym XF86LaunchA exec playerctl next
-# bindsym XF86Tools   exec playerctl previous
+bindsym XF86AudioPause  exec playerctl play-pause
+bindsym XF86AudioNext   exec playerctl next
+bindsym XF86AudioRewind exec playerctl previous
 
 ## Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
@@ -257,4 +257,4 @@ exec --no-startup-id compton --config $HOME/dotfiles/config/i3/.compton.conf
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
 # exec_always--no-startup-id slack
-# exec --no-startup-id spotify
+exec --no-startup-id spotify

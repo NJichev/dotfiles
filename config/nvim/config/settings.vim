@@ -61,13 +61,9 @@ set splitright
 " Statusline
 set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
-" Neoterm broke in latest build /cry
-" function! SplitStrategy(cmd)
-"   botright new | resize 20 | call termopen(a:cmd) | startinsert
-" endfunction
-
-" let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
+" Test-vim
 let g:test#strategy = 'neoterm'
+
 " Auto Pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
@@ -79,8 +75,5 @@ endif
 " let g:ale_lint_delay=300
 " let g:ale_linters = {'rust': ['rustc']}
 let g:ale_enable=0
-"
-" Neoterm
-let g:neoterm_autoscroll = '1'
 
 let g:ruby_indent_assignment_style = 'variable' 
