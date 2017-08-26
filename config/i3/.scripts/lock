@@ -30,5 +30,8 @@ then
     done
 fi
 amixer set Master mute
+playerctl stop
 i3lock  -I 10 -d -e -u -n -i /tmp/screen.png
 amixer set Master unmute
+amixer set Headphone unmute
+playerctl play
