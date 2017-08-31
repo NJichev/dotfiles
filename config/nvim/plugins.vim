@@ -7,14 +7,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
 
-  " LSP support
-  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-
   " Go back to deoplete
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/deoplete-rct'
   Plug 'fishbullet/deoplete-ruby'
-  Plug 'wellle/tmux-complete.vim'
 
   " CamelCase and snake_case motions
   Plug 'bkad/CamelCaseMotion'
@@ -25,20 +21,13 @@ call plug#begin('~/.vim/plugged')
   " Nerdtree
   Plug 'scrooloose/nerdtree'
 
-  "Ale linter
-  Plug 'w0rp/ale'
-
   " Syntax for many languages
   Plug 'sheerun/vim-polyglot'
-
-  " Html snippets, thank god.
-  Plug 'mattn/emmet-vim'
 
   " Testing for different languages
   Plug 'janko-m/vim-test'
   Plug '~/alter-vim'
   Plug 'kassio/neoterm'
-
 
   " Autopairs
   Plug 'jiangmiao/auto-pairs'
