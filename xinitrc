@@ -6,7 +6,6 @@ setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,bg -variant 
 
 # Disable processor sounds
 xset -b
-xset r rate 200 25
 
 xrandr --dpi 125
 
