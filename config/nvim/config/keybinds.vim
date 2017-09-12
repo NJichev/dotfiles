@@ -219,3 +219,6 @@ cnoreabbrev яалл qаll
 
 nnoremap й gj
 nnoremap к gk
+
+nnoremap <leader>en :e _Notes.md<CR>
+nnoremap <leader>et :e _TODO.md<CR>
