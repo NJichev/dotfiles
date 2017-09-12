@@ -33,3 +33,5 @@ cache/
 .tags*
 _build/*
 tmp/
+_Notes.md
+_TODO.md
