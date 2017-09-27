@@ -168,3 +168,4 @@ export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow --
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
+source /usr/share/nvm/init-nvm.sh
