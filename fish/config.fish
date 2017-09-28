@@ -13,8 +13,6 @@ set -x DISABLE_AUTO_TITLE true
 # Source the aliases in ~/.config/fish/aliases.fish.
 test -f ~/.config/fish/alias.fish; and source ~/.config/fish/alias.fish
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-# nvm
-test -f /usr/share/nvm/init-nvm.sh; and source /usr/share/nvm/init-nvm.sh
 
 # tiny-care-terminal
 set -gx TTC_SAY_BOX parrot
