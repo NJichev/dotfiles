@@ -52,3 +52,6 @@ Xft.rgba:       rgb
 ! -- Fonts -- !
 URxvt.font:xft:Monaco for Powerline:pixelsize=15:antialias=true:style=Bold
 URxvt.letterSpace: -1
+
+! Disable this stupid shit.
+URxvt*iso14755: False
