@@ -19,6 +19,7 @@ let NERDSpaceDelims=1
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
   autocmd BufReadPost .exs setf elixir
+  autocmd BufReadPost .pl setf prolog
 
   " Open vim from where it last was
   autocmd BufReadPost *
@@ -35,3 +36,6 @@ augroup nonvim
   au BufRead *.png,*.jpg,*.pdf,*.gif,*.xls*,*.scpt sil exe "!xdg-open " . shellescape(expand("%:p")) | bd | let &ft=&ft | redraw!
 augroup END
 autocmd Filetype gitcommit setlocal spell textwidth=72
+augroup filetypedetect
+  au! BufRead,BufNewFile *.pl setfiletype prolog
+augroup END

@@ -95,11 +95,6 @@ alias szh="source ~/.zshrc"
 alias -g A='| ag'
 alias -g G='| grep'
 
-# TMUX
-alias tma='tmux attach -t'
-alias tmn='tmux new-session -s'
-alias tmd='tmux detach'
-
 # Github stuff
 alias gs='git status'
 alias gad='git add --all .'
@@ -169,3 +164,13 @@ export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow --
 
 eval "$(direnv hook zsh)"
 source /usr/share/nvm/init-nvm.sh
+
+alias timewalk="git log -p --"
+alias wip="git add . and; git commit -mWIP"
+
+alias tmn="tmux new-session -s"
+alias tma="tmux attach -t"
+alias tmd="tmux detach"
+alias tmk="tmux kill-session -t"
+
+alias vim="vim -u NONE"

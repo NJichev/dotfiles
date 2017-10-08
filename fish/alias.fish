@@ -1,10 +1,5 @@
 alias rg "/usr/bin/rg"
 
-alias .. "cd .."
-alias ... "cd ../.."
-alias .... "cd ../../.."
-alias ..... "cd ../../../.."
-alias ...... "cd ../../../../.."
 
 
 alias mkdir "mkdir -p"
@@ -51,3 +46,5 @@ abbr -a ga git commit --amend
 
 alias timewalk "git log -p --"
 alias wip "git add . and; git commit -mWIP"
+
+alias vim "vim -u NONE"

@@ -12,9 +12,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete-rct'
   Plug 'fishbullet/deoplete-ruby'
 
-  " CamelCase and snake_case motions
-  Plug 'bkad/CamelCaseMotion'
-
   " Tags
   Plug 'ludovicchabant/vim-gutentags'
 

@@ -1,3 +1,4 @@
+
 *customization: -color
 ! URxvt setup
 URxvt*background:Black
@@ -5,22 +6,6 @@ URxvt*foreground:White
 URxvt*geometry: 80x30
 URxvt*scrollBar: false
 
-! urxvt colors
-! *color0:  #2E3436
-! *color1:  #a40000
-! *color2:  #4E9A06
-! *color3:  #C4A000
-! *color4:  #3465A4
-! *color5:  #75507B
-! *color6:  #ce5c00
-! *color7:  #babdb9
-! *color8:  #555753
-! *color9:  #EF2929
-! *color10: #8AE234
-! *color11: #FCE94F
-! *color12: #729FCF
-! *color13: #AD7FA8
-! *color14: #fcaf3e
 ! *color15: #EEEEEC
 Old colorscheme:
 URxvt*color0: black
@@ -45,47 +30,6 @@ URxvt*color14: cyan
 URxvt*color15: white
 
 
-! Dark pastel theme
-! *color0:  #000000
-! *color1:  #ff5555
-! *color2:  #55ff55
-! *color3:  #ffff55
-! *color4:  #5555ff
-! *color5:  #ff55ff
-! *color6:  #55ffff
-! *color7:  #bbbbbb
-! *color8:  #555555
-! *color9:  #ff5555
-! *color10: #55ff55
-! *color11: #ffff55
-! *color12: #5555ff
-! *color13: #ff55ff
-! *color14: #55ffff
-! *color15: #ffffff
-! urxvt.background: #000000
-! urxvt.foreground: #D3D2D3
-! urxvt.color0: #000000
-! urxvt.color1: #FF7768
-! urxvt.color2: #ABFA68
-! urxvt.color3: #FFFD88
-! urxvt.color4: #98D0FE
-! urxvt.color5: #FF85FD
-! urxvt.color6: #CACBFE
-! urxvt.color7: #EFEFEF
-! urxvt.color8: #848484
-! urxvt.color9: #FFBCB5
-! urxvt.color10: #D1FCB1
-! urxvt.color11: #FFFDD0
-! urxvt.color12: #BADFFF
-! urxvt.color13: #FFA9FE
-! urxvt.color14: #E2E3FE
-! urxvt.color15: #FFFFFF
-! urxvt.scrollBar: false
-
-! transperency
-! urxvt*transparent: true
-! urxvt*shading: 15
-
 ! clipboard
 ! Set xclip
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
@@ -102,17 +46,9 @@ URxvt.keysym.C-S-Down: font-size:decglobal
 Xft.dpi:        125
 Xft.antialias:  true
 Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintfull
+! Xft.hinting:    true
+! Xft.hintstyle:  hintfull
 
 ! -- Fonts -- !
-! URxvt.font:xft:Source Code Pro:pixelsize=16:antialias=true
-! URxvt.boldfont:xft:Source Code Pro:pixelsize=16
-! URxvt.letterSpace: -1
-! URxvt.font:xft:Inconsolata for Powerline:style=Bold:pixelsize=17:antialias=true
-! URxvt.font:xft:Inconsolata for Powerline:pixelsize=17:antialias=true
-! URxvt.boldfont:xft:Inconsolata for Powerline:pixelsize=17:antialias=true
-! URxvt.letterSpace: -1
 URxvt.font:xft:Monaco for Powerline:pixelsize=15:antialias=true:style=Bold
-! URxvt.boldfont:xft:Monaco:pixelsize=14:antialias=true
 URxvt.letterSpace: -1
