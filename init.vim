@@ -6,11 +6,14 @@ runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
-runtime config/plugins/deoplete.vim
+runtime config/plugins/ncm.vim
 runtime config/plugins/neoterm.vim
 runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim
 runtime macros/matchit.vim
+
+" Disable python check
+let g:python_host_skip_check=0
 
 " Nerdcommenter
 let NERDSpaceDelims=1

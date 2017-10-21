@@ -31,6 +31,6 @@ set background=dark
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'
 
-colorscheme gruvbox
+colorscheme ir_black
 "
 " set cc=80

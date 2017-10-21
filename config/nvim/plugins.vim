@@ -7,16 +7,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
 
-  " Go back to deoplete
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/deoplete-rct'
-  Plug 'fishbullet/deoplete-ruby'
+  " Autocomplete
+  Plug 'roxma/nvim-completion-manager'
+
+  " NerdTree
+  Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
 
   " Tags
   Plug 'ludovicchabant/vim-gutentags'
-
-  " Nerdtree
-  Plug 'scrooloose/nerdtree'
 
   " Syntax for many languages
   Plug 'sheerun/vim-polyglot'
@@ -30,21 +28,23 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
 
   " Ruby plugins
+  Plug 'roxma/ncm-rct-complete', { 'for' : 'ruby' }
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'tpope/vim-bundler', { 'for': 'ruby' }
   Plug 'tpope/vim-rake', { 'for': 'ruby' }
   Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
+  Plug 'nelstrom/vim-textobj-rubyblock/', { 'for' : 'ruby' }
   Plug 'tpope/vim-endwise'
 
   " Elixir
   Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
-  Plug 'elixir-lang/vim-elixir'
-  Plug 'thinca/vim-ref'
-  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+  Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir' } 
+  Plug 'thinca/vim-ref', { 'for' : 'elixir' }
+  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh', 'for' : 'elixir' }
 
   " Rust
-  Plug 'rust-lang/rust.vim'
+  Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
 
   " Tpope utility plugins
   Plug 'tpope/vim-repeat'
@@ -52,6 +52,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-sleuth'
 
   " Other utility plugins
   Plug 'christoomey/vim-tmux-navigator'
@@ -59,10 +60,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tomtom/tcomment_vim'
 
   " Alignment
-  Plug 'godlygeek/tabular'
+  Plug 'godlygeek/tabular', { 'on' : 'Tabularize' }
 
   " Vim fast searching and moving around
-  Plug 'dyng/ctrlsf.vim'
+  Plug 'dyng/ctrlsf.vim', { 'on' : 'CtrlSF' }
 
   Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
   Plug 'junegunn/fzf.vim'
@@ -80,11 +81,7 @@ call plug#begin('~/.vim/plugged')
 
   " Ruby text objects
   Plug 'kana/vim-textobj-user'
-  Plug 'nelstrom/vim-textobj-rubyblock/'
 
   " Git gutter
   Plug 'airblade/vim-gitgutter'
 call plug#end()
-
-filetype plugin indent on
-syntax enable
