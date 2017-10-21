@@ -47,7 +47,7 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rake ruby bundler rbenv gem web-search mix zsh-autosuggestions)
+plugins=(git rake ruby bundler rbenv gem web-search mix zsh-autosuggestions ssh-agent)
 # rake ruby bundler rbenv gem rails
 
 # User configuration
@@ -94,6 +94,7 @@ alias szh="source ~/.zshrc"
 # Prefix stuff like ag and grep
 alias -g A='| ag'
 alias -g G='| grep'
+alias -g L='| less'
 
 # Github stuff
 alias gs='git status'
@@ -159,7 +160,7 @@ eval "$(jump shell zsh)"
 
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --color "always"'
 
-export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
@@ -174,3 +175,6 @@ alias tmd="tmux detach"
 alias tmk="tmux kill-session -t"
 
 alias vim="vim -u NONE"
+alias bop="bundle open"
+alias killrails="kill -9 $(lsof -i tcp:3000 -t)"
+
