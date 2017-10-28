@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
 
   " Testing for different languages
   Plug 'janko-m/vim-test'
-  Plug '~/alter-vim'
+  Plug 'njichev/alter-vim'
   Plug 'kassio/neoterm'
 
   " Autopairs

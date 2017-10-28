@@ -3,7 +3,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="lambda"
+#ZSH_THEME="lambda"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -47,13 +47,13 @@ ZSH_THEME="lambda"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rake ruby bundler rbenv gem web-search mix zsh-autosuggestions ssh-agent)
+# plugins=(git rake ruby bundler rbenv gem web-search mix zsh-autosuggestions ssh-agent)
 # rake ruby bundler rbenv gem rails
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -98,6 +98,7 @@ alias -g L='| less'
 
 # Github stuff
 alias gs='git status'
+alias gc='git commit'
 alias gad='git add --all .'
 alias gag='git add . && git commit --amend --no-edit && git push -f'
 alias gbc='gdc'
@@ -120,6 +121,10 @@ alias rials='rails'
 alias rs='rails s'
 alias rc='rails c'
 alias deploy='bundle exec cap staging deploy'
+alias b='bundle'
+alias be='bundle exec'
+alias bi='bundle install'
+alias bu='bundle update'
 
 # Racket
 alias rktrepl='racket -il xrepl'
@@ -149,12 +154,11 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
-PATH="/home/njichev/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
+# PATH="/home/njichev/bin:$PATH"
+# export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(jump shell zsh)"
 
@@ -164,7 +168,6 @@ export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --hidden --follow -g "!{.git,nod
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
-source /usr/share/nvm/init-nvm.sh
 
 alias timewalk="git log -p --"
 alias wip="git add . and; git commit -mWIP"
