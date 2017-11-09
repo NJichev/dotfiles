@@ -1,4 +1,3 @@
-
 export ZSH_THEME="robbyrussell"
 export ZSH=/home/njichev/.oh-my-zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
