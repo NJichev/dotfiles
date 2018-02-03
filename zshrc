@@ -58,6 +58,8 @@ alias sound='pulseaudio -k && sudo alsa force-reload'
 alias clipin="xclip -i -selection clipboard"
 alias clipout="xclip -o -selection clipboard"
 
+# SSH
+alias vpn="sshuttle --dns -D -x 77.246.208.12 -r njichev@77.246.208.12 0/0"
 
 # Browser
 alias chrome="google-chrome-stable"
@@ -80,6 +82,9 @@ bindkey '^Z' fancy-ctrl-z
 
 # PATH="/home/njichev/bin:$PATH"
 # export PATH="$HOME/.rbenv/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.pyenv/:$PATH"
 
 eval "$(jump shell zsh)"
 
@@ -109,3 +114,33 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 export EDITOR='nvim'
+source /usr/share/nvm/init-nvm.sh
+
+# Python
+alias pmt="py.test --reuse-db --tb=native -s"
+alias pms="python manage.py shell"
+alias pmr="python manage.py runserver"
+alias pm="python manage.py"
+alias pmm="python manage.py migrate"
+alias pmmm="python manage.py makemigrations"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+if [ -n "$VIRTUAL_ENV" ]; then
+    source $VIRTUAL_ENV/bin/activate;
+fi
+
+if [[ -n "$TMUX" ]]; then
+    tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+fi
+
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/bin/virtualenvwrapper.sh
+
+alias da="direnv allow"
+alias vim="nvim"

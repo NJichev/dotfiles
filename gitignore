@@ -35,3 +35,6 @@ _build/*
 tmp/
 _Notes.md
 _TODO.md
+/env
+media/
+s.py

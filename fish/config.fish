@@ -1,13 +1,9 @@
 eval (direnv hook fish)
+eval (python -m virtualfish)
 status --is-interactive; and . (jump shell fish | psub)
 
-
-rbenv rehash >/dev/null ^&1
-
-status --is-interactive; and . (rbenv init - | psub)
-
-set -gx PATH ~/.npm-global/bin $PATH
-set -gx PATH ~/.cargo/bin/ $PATH
+# set -gx PATH ~/.npm-global/bin $PATH
+# set -gx PATH ~/.cargo/bin/ $PATH
 set -x EDITOR nvim
 set -x DISABLE_AUTO_TITLE true
 # Source the aliases in ~/.config/fish/aliases.fish.
@@ -20,3 +16,7 @@ set -gx TTC_REPOS ~/Work/,~/private-projects,~/ruby-projects,~/elixir-projects
 set -gx TTC_REPOS_DEPTH 2
 set -gx TTC_GITBOT git log
 set -gx TTC_WEATHER Sofia
+
+source /usr/local/share/chruby/chruby.fish
+source /usr/local/share/chruby/auto.fish
+set -gx CHRUBY_ROOT /usr

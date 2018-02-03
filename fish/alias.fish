@@ -34,7 +34,16 @@ alias rials "rails"
 alias riasl "rails"
 alias raisl "rails"
 
+# Python shortcuts
+abbr -a p python
+abbr -a pm python manage.py
+abbr -a pmm python manage.py migrate
+abbr -a pmmm python manage.py makemigrations
+abbr -a pmr python manage.py runserver
+abbr -a pms python manage.py shell_plus
+
 # Git subcommands shortcuts.
+abbr -a g git
 abbr -a gc git commit
 abbr -a gco git checkout
 abbr -a gcp git cherry-pick
@@ -48,3 +57,13 @@ alias timewalk "git log -p --"
 alias wip "git add . and; git commit -mWIP"
 
 alias vim "vim -u NONE"
+
+# XCLIP
+alias clipin="xclip -i -selection clipboard"
+alias clipout="xclip -o -selection clipboard"
+
+# SSH
+alias vpn="sshuttle --dns -D -x 77.246.208.12 -r njichev@77.246.208.12 0/0"
+
+# Browser
+alias chrome="google-chrome-stable"

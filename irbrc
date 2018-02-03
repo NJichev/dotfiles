@@ -37,3 +37,13 @@ begin
 rescue LoadError
   # Well, I tried.
 end
+
+def delete_sidekiq
+  if defined? Sidekiq::RetrySet
+    q = Sidekiq::RetrySet.new
+    q.map(&:delete)
+  else
+    puts 'Sidekiq not loaded.'
+  end
+end
+

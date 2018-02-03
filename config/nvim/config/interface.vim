@@ -27,6 +27,7 @@ set autoindent " always set autoindenting on
 if has("nvim")
   set termguicolors
 endif
+
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'

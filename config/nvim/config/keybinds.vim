@@ -37,7 +37,7 @@ nnoremap <leader>cc :only<CR>
 
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
-
+nnoremap <leader>pdb oimport pdb; pdb.set_trace()<esc>
 nmap <silent> <leader>t :w<CR>\|:TestNearest<CR>\|:Topen<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
@@ -191,14 +191,14 @@ map <F2> :NERDTreeToggle<CR>
 nmap <leader>ale :ALEToggle<CR>
 
 " Use CamelCaseMotion instead of default motions
-" map <silent> w <Plug>CamelCaseMotion_w
-" map <silent> b <Plug>CamelCaseMotion_b
-" map <silent> e <Plug>CamelCaseMotion_e
-" map <silent> ge <Plug>CamelCaseMotion_ge
-" sunmap w
-" sunmap b
-" sunmap e
-" sunmap ge
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 
 " Git binds
 map <leader>gw :!git add . && git commit -m "WIP" && git push<CR>
@@ -206,7 +206,6 @@ map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
 
 " Write using `sudo` in COMMAND mode if the file is read-only.
-" Ripped off @StanAngeloff.
 cnoremap w!! w !sudo tee % >/dev/null
 
 " When in Bulgarian layout

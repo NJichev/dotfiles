@@ -7,8 +7,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
 
+  " Linting
+  Plug 'w0rp/ale'
+
   " Autocomplete
   Plug 'roxma/nvim-completion-manager'
+  Plug 'Shougo/neco-syntax'
+
+  " Jedi-vim
+  Plug 'davidhalter/jedi-vim', { 'for' : 'python' }
+
+  "Camel Case motions
+  Plug 'bkad/CamelCaseMotion'
 
   " NerdTree
   Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
@@ -73,7 +83,6 @@ call plug#begin('~/.vim/plugged')
 
   " Vim stuff
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-
   Plug 'AndrewRadev/switch.vim'
   Plug 'AndrewRadev/splitjoin.vim'
 
@@ -84,4 +93,10 @@ call plug#begin('~/.vim/plugged')
 
   " Git gutter
   Plug 'airblade/vim-gitgutter'
+
+  " Games
+  Plug 'johngrib/vim-game-code-break'
+
+  " Show off
+  Plug 'DougBeney/pickachu', { 'on' : 'Pick' }
 call plug#end()

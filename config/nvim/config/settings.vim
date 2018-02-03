@@ -42,8 +42,7 @@ set nofoldenable
 set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
 set wildmode=list:full
-set completeopt=longest,menuone,preview
-
+set completeopt=menu,menuone,longest
 " Some options
 set history=500   " keep 500 lines of command line history
 set ruler   " show the cursor position all the time
@@ -74,6 +73,7 @@ endif
 " set timeout to run ale to 0.3 second
 " let g:ale_lint_delay=300
 " let g:ale_linters = {'rust': ['rustc']}
-let g:ale_enable=0
+
+let g:ale_linters = {'python': ['flake8']}
 
 let g:ruby_indent_assignment_style = 'variable' 
