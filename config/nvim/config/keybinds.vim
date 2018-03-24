@@ -37,7 +37,7 @@ nnoremap <leader>cc :only<CR>
 
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
-nnoremap <leader>pdb oimport pdb; pdb.set_trace()<esc>
+nnoremap <leader>pdb oimport ipdb; ipdb.set_trace()<esc>
 nmap <silent> <leader>t :w<CR>\|:TestNearest<CR>\|:Topen<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>

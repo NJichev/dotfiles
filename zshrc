@@ -106,12 +106,6 @@ alias vim="vim -u NONE"
 alias bop="bundle open"
 alias killrails="kill -9 $(lsof -i tcp:3000 -t)"
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-thing
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)"
-fi
 
 export EDITOR='nvim'
 source /usr/share/nvm/init-nvm.sh

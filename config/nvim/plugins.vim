@@ -50,8 +50,6 @@ call plug#begin('~/.vim/plugged')
   " Elixir
   Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
   Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir' } 
-  Plug 'thinca/vim-ref', { 'for' : 'elixir' }
-  Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh', 'for' : 'elixir' }
 
   " Rust
   Plug 'rust-lang/rust.vim', { 'for' : 'rust' }

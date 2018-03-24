@@ -1,3 +1,4 @@
+#!/bin/sh
 # Disable processor sounds
 xset -b
 

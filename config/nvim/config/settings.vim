@@ -63,6 +63,7 @@ set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 " Test-vim
 let g:test#strategy = 'neoterm'
 
+let test#python#runner = 'pytest'
 " Auto Pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
@@ -74,6 +75,21 @@ endif
 " let g:ale_lint_delay=300
 " let g:ale_linters = {'rust': ['rustc']}
 
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8', 'autopep8']}
+
+let g:ale_fixers = {
+\   'python': [
+\       'yapf',
+\       'autopep8',
+\   ],
+\   'elixir': [
+\       'mix_format',
+\   ],
+\}
+
+nmap <F8> <Plug>(ale_fix)
 
 let g:ruby_indent_assignment_style = 'variable' 
+
+" Let vim-elixir handle this better.
+" let g:polyglot_disabled = ['elixir']
