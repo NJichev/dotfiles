@@ -9,3 +9,4 @@ test -f ~/.config/fish/alias.fish; and source ~/.config/fish/alias.fish
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 source ~/.asdf/asdf.fish
+set fish_greeting ""

@@ -49,7 +49,7 @@ call plug#begin('~/.vim/plugged')
 
   " Elixir
   Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
-  Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir' } 
+  Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir' }
 
   " Rust
   Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
