@@ -8,5 +8,7 @@ set -x DISABLE_AUTO_TITLE true
 test -f ~/.config/fish/alias.fish; and source ~/.config/fish/alias.fish
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
+set -x ERL_AFLAGS "-kernel shell_history enabled"
+
 source ~/.asdf/asdf.fish
 set fish_greeting ""
