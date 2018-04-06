@@ -12,9 +12,6 @@ runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim
 runtime macros/matchit.vim
 
-" Disable python check
-" let g:python_host_skip_check=0
-
 " Nerdcommenter
 let NERDSpaceDelims=1
 

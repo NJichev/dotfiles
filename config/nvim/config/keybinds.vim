@@ -221,3 +221,5 @@ nnoremap к gk
 
 nnoremap <leader>en :e _Notes.md<CR>
 nnoremap <leader>et :e _TODO.md<CR>
+
+nnoremap <leader>ri :call InlineVariable()<cr>
