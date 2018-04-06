@@ -12,3 +12,8 @@ set -x ERL_AFLAGS "-kernel shell_history enabled"
 
 source ~/.asdf/asdf.fish
 set fish_greeting ""
+
+function term
+  set config_file ~/.config/alacritty/alacritty.yml
+  sed -i"" "s/\(^colors: \*\).*/\1$argv/g" $config_file
+end
