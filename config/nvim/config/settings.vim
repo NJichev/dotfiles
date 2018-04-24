@@ -61,6 +61,7 @@ set splitright
 set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 " Test-vim
+let g:neoterm_default_mod = 'botright'
 let g:test#strategy = 'neoterm'
 
 let test#python#runner = 'pytest'
@@ -75,16 +76,12 @@ endif
 " let g:ale_lint_delay=300
 " let g:ale_linters = {'rust': ['rustc']}
 
-let g:ale_linters = {'python': ['flake8', 'autopep8']}
-
 let g:ale_fixers = {
 \   'python': [
 \       'yapf',
 \       'autopep8',
 \   ],
-\   'elixir': [
-\       'mix_format',
-\   ],
+\   'elixir': [],
 \}
 
 nmap <F8> <Plug>(ale_fix)
@@ -93,3 +90,11 @@ let g:ruby_indent_assignment_style = 'variable'
 
 " Let vim-elixir handle this better.
 " let g:polyglot_disabled = ['elixir']
+
+" Folder to save tags.
+let g:gutentags_cache_dir = '~/.tags_cache'
+
+let g:neomake_markdown_enabled_makers = ['alex', 'markdownlint', 'proselint']
+let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+
+let g:mix_format_on_save = 1

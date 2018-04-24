@@ -263,7 +263,7 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
 exec --no-startup-id slack
 exec --no-startup-id spotify
-
+exec --no-startup-id nm-applet --sm-disable
 ## Plasma Integration
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
 exec --no-startup-id wmctrl -c Plasma

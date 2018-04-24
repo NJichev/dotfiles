@@ -6,7 +6,7 @@ runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
-runtime config/plugins/ncm.vim
+runtime config/plugins/deoplete.vim
 runtime config/plugins/neoterm.vim
 runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim
@@ -18,9 +18,10 @@ let NERDSpaceDelims=1
 " Open files with last place of cursor.
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
-  autocmd BufReadPost .exs setf elixir
   autocmd BufReadPost .pl setf prolog
 
+  " autocmd! BufWritePost * Neomake
+  " autocmd! BufReadPost * Neomake
   " Open vim from where it last was
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |

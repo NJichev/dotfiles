@@ -1,0 +1,34 @@
+snippet gs "gen server"
+	use GenServer
+
+	## Public API
+
+	@doc false
+	def start_link do
+		GenServer.start_link(__MODULE__, ${1:%{}})
+	end
+
+	def get(pid) do
+		GenServer.call(pid, ${2:message})
+	end
+
+	def update(pid) do
+		GenServer.cast(pid, ${3:message})
+	end
+
+	## Server callbacks
+
+	@impl true
+	def init(state) do
+		{:ok, state}
+	end
+
+	def handle_call(${2}, _from, state) do
+		{:reply, state}
+	end
+
+	def handle_cast(message, state) do
+		{:noreply, state}
+	end
+
+endsnippet

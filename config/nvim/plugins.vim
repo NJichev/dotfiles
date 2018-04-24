@@ -8,10 +8,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
 
   " Linting
-  Plug 'w0rp/ale'
+  " Plug 'w0rp/ale'
+  Plug 'neomake/neomake'
 
   " Autocomplete
-  Plug 'roxma/nvim-completion-manager'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/neco-syntax'
 
   " Jedi-vim
@@ -50,6 +51,7 @@ call plug#begin('~/.vim/plugged')
   " Elixir
   Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
   Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir' }
+  " Plug 'mhinz/vim-mix-format', { 'for' : 'elixir' }
 
   " Rust
   Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
