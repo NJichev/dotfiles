@@ -25,7 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
 
   " Tags
-  Plug 'ludovicchabant/vim-gutentags'
+  Plug 'ludovicchabant/vim-gutentags', { 'for' : 'ruby' }
 
   " Syntax for many languages
   Plug 'sheerun/vim-polyglot'
@@ -51,6 +51,7 @@ call plug#begin('~/.vim/plugged')
   " Elixir
   Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
   Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir' }
+
   " Plug 'mhinz/vim-mix-format', { 'for' : 'elixir' }
 
   " Rust
@@ -90,9 +91,6 @@ call plug#begin('~/.vim/plugged')
 
   " Ruby text objects
   Plug 'kana/vim-textobj-user'
-
-  " Git gutter
-  Plug 'airblade/vim-gitgutter'
 
   " Games
   Plug 'johngrib/vim-game-code-break'
