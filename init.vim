@@ -18,6 +18,7 @@ let NERDSpaceDelims=1
 " Open files with last place of cursor.
 if has("autocmd")
   autocmd Filetype ruby setlocal ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
+  autocmd Filetype elixir setlocal formatprg=mix\ format\ -
   autocmd BufReadPost .pl setf prolog
 
   " autocmd! BufWritePost * Neomake
