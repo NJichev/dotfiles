@@ -13,6 +13,10 @@ call plug#begin('~/.vim/plugged')
 
   " Autocomplete
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
   Plug 'Shougo/neco-syntax'
 
   " Jedi-vim

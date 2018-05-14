@@ -35,8 +35,8 @@ set incsearch
 
 " Turn off folding for good
 " Turn folding off for real, hopefully
-" set foldmethod=manual
-" set nofoldenable
+set foldmethod=manual
+set nofoldenable
 
 " Better? completion on command line
 set wildmenu

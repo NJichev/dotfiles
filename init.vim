@@ -7,6 +7,7 @@ runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
 runtime config/plugins/deoplete.vim
+runtime config/plugins/lsp.vim
 runtime config/plugins/neoterm.vim
 runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim
