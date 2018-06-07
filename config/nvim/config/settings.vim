@@ -88,9 +88,6 @@ nmap <F8> <Plug>(ale_fix)
 
 let g:ruby_indent_assignment_style = 'variable'
 
-" Let vim-elixir handle this better.
-let g:polyglot_disabled = ['elixir']
-
 " Folder to save tags.
 let g:gutentags_cache_dir = '~/.tags_cache'
 

@@ -42,7 +42,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
 
   " Ruby plugins
-  Plug 'roxma/ncm-rct-complete', { 'for' : 'ruby' }
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'tpope/vim-bundler', { 'for': 'ruby' }
@@ -53,7 +52,7 @@ call plug#begin('~/.vim/plugged')
 
   " Elixir
   Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
-  Plug 'elixir-lang/vim-elixir', { 'for' : 'elixir' }
+  Plug 'elixir-editors/vim-elixir', { 'for' : 'elixir' }
 
   " Plug 'mhinz/vim-mix-format', { 'for' : 'elixir' }
 
