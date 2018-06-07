@@ -4,6 +4,10 @@ alias rg "/usr/bin/rg"
 
 alias mkdir "mkdir -p"
 
+abbr -a c cc
+abbr -a k make
+abbr -a v valgrind
+
 # Shortcuts for rails, grunt, make, docker and git.
 abbr -a r rails
 abbr -a d docker

@@ -123,14 +123,6 @@ nnoremap <space>bl :Lines<CR>
 nnoremap <space>bc :Commits<CR>
 nnoremap <space>bs :GFiles?<CR>
 
-nnoremap <space>fam :FZF app/models<CR>
-nnoremap <space>fac :FZF app/controllers<CR>
-nnoremap <space>fah :FZF app/helpers<CR>
-nnoremap <space>fas :FZF spec<CR>
-nnoremap <space>fat :FZF test<CR>
-nnoremap <space>fav :FZF app/views<CR>
-nnoremap <space>fal :FZF lib/<CR>
-
 " Neoterm
 " Term file
 nnoremap <silent> <space>tf :TREPLSendFile<CR>

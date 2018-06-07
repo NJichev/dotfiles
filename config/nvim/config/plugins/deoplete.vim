@@ -39,6 +39,7 @@ let g:deoplete#sources['javascript.jsx'] = ['buffer', 'file', 'ultisnips', 'tern
 let g:deoplete#sources.css  = ['buffer', 'member', 'file', 'omni', 'ultisnips']
 let g:deoplete#sources.scss = ['buffer', 'member', 'file', 'omni', 'ultisnips']
 let g:deoplete#sources.elixir = ['LanguageClient']
+let g:deoplete#sources.c = ['LanguageClient']
 " let g:deoplete#disable_auto_complete = 1
 "
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : deoplete#mappings#manual_complete()

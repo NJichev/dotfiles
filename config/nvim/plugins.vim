@@ -8,8 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
 
   " Linting
-  " Plug 'w0rp/ale'
-  Plug 'neomake/neomake'
+  " Plug 'neomake/neomake'
 
   " Autocomplete
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

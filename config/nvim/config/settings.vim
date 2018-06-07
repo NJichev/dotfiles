@@ -15,13 +15,13 @@ set clipboard+=unnamedplus
 set nobackup                     " disable backups
 set noswapfile                   " it's 2015, NeoVim.
 
-" Tabs and spaces
+" " Tabs and spaces
 set smartindent
 set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
 set tabstop=2     " an hard TAB displays as 2 columns
 set shiftround    " round indent to multiple of 'shiftwidth'
 set expandtab
-" It seems that polyglot doesn't handle this well.
+" " It seems that polyglot doesn't handle this well.
 
 set ignorecase
 set smartcase
@@ -86,15 +86,14 @@ let g:ale_fixers = {
 
 nmap <F8> <Plug>(ale_fix)
 
-let g:ruby_indent_assignment_style = 'variable' 
+let g:ruby_indent_assignment_style = 'variable'
 
 " Let vim-elixir handle this better.
-" let g:polyglot_disabled = ['elixir']
+let g:polyglot_disabled = ['elixir']
 
 " Folder to save tags.
 let g:gutentags_cache_dir = '~/.tags_cache'
 
-let g:neomake_markdown_enabled_makers = ['alex', 'markdownlint', 'proselint']
-let g:neomake_elixir_enabled_makers = ['mix', 'credo']
-
-let g:mix_format_on_save = 1
+let g:ctrlsf_extra_backend_args = {
+    \ 'rg': '--files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+    \ }

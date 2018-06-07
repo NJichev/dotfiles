@@ -18,7 +18,8 @@ let NERDSpaceDelims=1
 
 " Open files with last place of cursor.
 if has("autocmd")
-  autocmd Filetype ruby setlocal ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
+  autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
+  autocmd Filetype ruby set ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
   autocmd Filetype elixir setlocal formatprg=mix\ format\ -
   autocmd BufReadPost .pl setf prolog
 

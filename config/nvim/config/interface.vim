@@ -13,7 +13,7 @@ set lazyredraw
 set so=7
 
 " set omnifunc=syntaxcomplete#Complete
-set list listchars+=trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
+set list listchars+=tab:\|\ ,trail:•,extends:→,precedes:←,nbsp:‗,eol:¬
 " Tell vim that powerline is loaded
 let g:powerline_loaded = 1
 

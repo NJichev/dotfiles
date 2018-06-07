@@ -217,8 +217,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # i3 gaps
-gaps outer 5
-gaps inner 20
+gaps outer 1
+gaps inner 5
 smart_gaps on
 
 # i3 Status Bar
