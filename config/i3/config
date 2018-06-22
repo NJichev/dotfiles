@@ -258,16 +258,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 # Startup
 exec_always --no-startup-id feh --randomize --bg-scale $HOME/Desktop/wallpaper/
 exec --no-startup-id redshift -l 43:25
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # exec --no-startup-id urxvtd
 # exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
-exec --no-startup-id slack
-exec --no-startup-id spotify
-exec --no-startup-id nm-applet --sm-disable
-## Plasma Integration
-# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
-exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 ## Avoid tiling popups, dropdown windows from plasma
 # for the first time, manually resize them, i3 will remember the setting for floating windows

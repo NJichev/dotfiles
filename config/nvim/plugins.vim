@@ -51,7 +51,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-endwise'
 
   " Elixir
-  Plug 'slashmili/alchemist.vim', { 'for' : 'elixir' }
   Plug 'elixir-editors/vim-elixir', { 'for' : 'elixir' }
 
   " Plug 'mhinz/vim-mix-format', { 'for' : 'elixir' }
@@ -89,7 +88,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/switch.vim'
   Plug 'AndrewRadev/splitjoin.vim'
 
-  Plug 'tweekmonster/startuptime.vim'
+  Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 
   " Ruby text objects
   Plug 'kana/vim-textobj-user'
