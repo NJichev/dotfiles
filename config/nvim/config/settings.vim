@@ -32,11 +32,8 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
-
-" Turn off folding for good
-" Turn folding off for real, hopefully
-set foldmethod=manual
-set nofoldenable
+"auto save and restore folds
+set viewoptions-=options
 
 " Better? completion on command line
 set wildmenu

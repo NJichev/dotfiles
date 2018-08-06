@@ -11,12 +11,22 @@ call plug#begin('~/.vim/plugged')
   " Plug 'neomake/neomake'
 
   " Autocomplete
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " A dependency of 'ncm2'.
+  Plug 'roxma/nvim-yarp'
+
+  " v2 of the nvim-completion-manager.
+  Plug 'ncm2/ncm2'
+
+  "Add some ncm2 sources
+  Plug 'ncm2/ncm2-bufword'
+  Plug 'ncm2/ncm2-tmux'
+  Plug 'ncm2/ncm2-path'
+
+  " LanguageServer client for NeoVim.
   Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
-  Plug 'Shougo/neco-syntax'
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
   " Jedi-vim
   Plug 'davidhalter/jedi-vim', { 'for' : 'python' }

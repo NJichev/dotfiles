@@ -258,6 +258,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 # Startup
 exec_always --no-startup-id feh --randomize --bg-scale $HOME/Desktop/wallpaper/
 exec --no-startup-id redshift -l 43:25
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # exec --no-startup-id urxvtd
 # exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
 
