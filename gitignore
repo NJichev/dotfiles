@@ -40,3 +40,4 @@ media/
 s.py
 sshuttle.pid
 .elixir_ls/
+.tool-versions

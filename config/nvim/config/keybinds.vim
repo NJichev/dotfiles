@@ -38,7 +38,6 @@ nnoremap <leader>cc :only<CR>
 " puts the caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 nnoremap <leader>pdb oimport pdb<c-m>pdb.set_trace()<esc>
-nnoremap <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>
 nmap <silent> <leader>t :w<CR>\|:TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
@@ -222,4 +221,5 @@ augroup ElixirLSBindings
   autocmd FileType elixir nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
   autocmd FileType elixir nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
   autocmd FileType elixir nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+  autocmd FileType elixir nnoremap <buffer> <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>kviw
 augroup END
