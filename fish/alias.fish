@@ -3,6 +3,7 @@ alias rg "/usr/bin/rg"
 
 
 alias mkdir "mkdir -p"
+alias untar "tar -xzvf"
 
 abbr -a c cc
 abbr -a k make

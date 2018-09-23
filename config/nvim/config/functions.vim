@@ -1,18 +1,3 @@
-function! g:utils#tabComplete() abort
-  let l:col = col('.') - 1
-
-  if pumvisible()
-    return "\<C-n>"
-  else
-    if !l:col || getline('.')[l:col - 1] !~# '\k'
-      return "\<TAB>"
-    else
-      return "\<C-n>"
-    endif
-  endif
-endfunction
-
-
 " Custom test run strategy
 function! SplitStrategy(cmd)
   botright new | resize 15 | call termopen(a:cmd) | startinsert

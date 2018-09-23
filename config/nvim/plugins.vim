@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
 
+  Plug 'w0rp/ale'
+
   " Linting
   " Plug 'neomake/neomake'
 

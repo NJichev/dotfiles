@@ -87,7 +87,3 @@ let g:ruby_indent_assignment_style = 'variable'
 
 " Folder to save tags.
 let g:gutentags_cache_dir = '~/.tags_cache'
-
-let g:ctrlsf_extra_backend_args = {
-    \ 'rg': '--files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-    \ }
