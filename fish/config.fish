@@ -1,5 +1,5 @@
 eval (direnv hook fish)
-eval (python -m virtualfish)
+eval (/usr/bin/python -m virtualfish)
 status --is-interactive; and . (jump shell fish | psub)
 
 set -x EDITOR nvim
