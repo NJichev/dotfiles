@@ -119,7 +119,7 @@ nnoremap <Leader>sf :CtrlSF<Space>
 " FZF
 nnoremap <space>f :Files<CR>
 nnoremap <space>b :Buffers<CR>
-nnoremap <space>bl :Lines<CR>
+nnoremap <space>l :Lines<CR>
 nnoremap <space>bc :Commits<CR>
 nnoremap <space>bs :GFiles?<CR>
 
