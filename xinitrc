@@ -10,3 +10,4 @@ setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,bg -variant 
 
 xrandr --dpi 125
 exec i3
+./mouse.sh

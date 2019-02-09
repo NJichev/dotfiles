@@ -7,7 +7,6 @@ runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
 runtime config/plugins/ncm.vim
-runtime config/plugins/fzf.vim
 runtime config/plugins/lsp.vim
 runtime config/plugins/neoterm.vim
 runtime config/plugins/gutentags.vim

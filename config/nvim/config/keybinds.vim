@@ -220,6 +220,6 @@ augroup ElixirLSBindings
   autocmd!
   autocmd FileType elixir nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
   autocmd FileType elixir nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  autocmd FileType elixir nnoremap <buffer> <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+  autocmd FileType elixir nnoremap <buffer> <silent> <F3> :call LanguageClient#textDocument_rename()<CR>
   autocmd FileType elixir nnoremap <buffer> <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>kviw
 augroup END

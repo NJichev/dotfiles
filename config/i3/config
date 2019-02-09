@@ -62,7 +62,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec st -f "Monaco for Powerline:pixelsize=16:antialias=true:style"
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+m exec deepin-screenshot
 bindsym $mod+shift+m exec sh ~/.screenlayout/home.sh
 

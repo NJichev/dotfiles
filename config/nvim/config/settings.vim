@@ -22,6 +22,7 @@ set tabstop=2     " an hard TAB displays as 2 columns
 set shiftround    " round indent to multiple of 'shiftwidth'
 set expandtab
 " " It seems that polyglot doesn't handle this well.
+let g:polyglot_disabled = ['markdown', 'elixir', 'ruby']
 
 set ignorecase
 set smartcase

@@ -64,8 +64,6 @@ call plug#begin('~/.vim/plugged')
   " Elixir
   Plug 'elixir-editors/vim-elixir', { 'for' : 'elixir' }
 
-  " Plug 'mhinz/vim-mix-format', { 'for' : 'elixir' }
-
   " Rust
   Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
 
