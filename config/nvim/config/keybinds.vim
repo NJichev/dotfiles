@@ -216,10 +216,7 @@ nnoremap <leader>et :e _TODO.md<CR>
 
 nnoremap <leader>ri :call InlineVariable()<cr>
 
-augroup ElixirLSBindings
-  autocmd!
-  autocmd FileType elixir nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
-  autocmd FileType elixir nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  autocmd FileType elixir nnoremap <buffer> <silent> <F3> :call LanguageClient#textDocument_rename()<CR>
-  autocmd FileType elixir nnoremap <buffer> <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>kviw
-augroup END
+nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <buffer> <silent> <F3> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <buffer> <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>kviw

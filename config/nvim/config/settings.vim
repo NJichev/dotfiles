@@ -17,12 +17,12 @@ set noswapfile                   " it's 2015, NeoVim.
 
 " " Tabs and spaces
 set smartindent
+set autoindent
 set shiftwidth=2  " operation >> indents 2 columns; << unindents 2 columns
 set tabstop=2     " an hard TAB displays as 2 columns
 set shiftround    " round indent to multiple of 'shiftwidth'
 set expandtab
 " " It seems that polyglot doesn't handle this well.
-let g:polyglot_disabled = ['markdown', 'elixir', 'ruby']
 
 set ignorecase
 set smartcase
@@ -61,6 +61,18 @@ set statusline=%<%f\ [%{&ft}]\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 " Test-vim
 let g:neoterm_default_mod = 'botright'
 let g:test#strategy = 'neoterm'
+"
+"  `.vim/after/ftplugin/elixir.vim` or `.vimrc`, whatever you prefer
+function! ElixirUmbrellaTransform(cmd) abort
+  if match(a:cmd, 'apps/') != -1
+    return substitute(a:cmd, 'mix test apps/\([^/]*\)/', 'mix cmd --app \1 mix test --color ', '')
+  else
+    return a:cmd
+  end
+endfunction
+
+let g:test#custom_transformations = {'elixir_umbrella': function('ElixirUmbrellaTransform')}
+let g:test#transformation = 'elixir_umbrella'
 
 let test#python#runner = 'pytest'
 " Auto Pairs

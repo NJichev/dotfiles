@@ -62,7 +62,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-endwise'
 
   " Elixir
-  Plug 'elixir-editors/vim-elixir', { 'for' : 'elixir' }
+  Plug 'elixir-editors/vim-elixir'
 
   " Rust
   Plug 'rust-lang/rust.vim', { 'for' : 'rust' }

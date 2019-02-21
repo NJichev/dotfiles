@@ -22,7 +22,6 @@ set relativenumber
 set ruler
 set cursorline
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
-set autoindent " always set autoindenting on
 
 if has("nvim")
   set termguicolors
