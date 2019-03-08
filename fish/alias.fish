@@ -8,6 +8,7 @@ alias untar "tar -xzvf"
 abbr -a c cc
 abbr -a k make
 abbr -a v valgrind
+abbr -a n nvim
 
 # Shortcuts for rails, grunt, make, docker and git.
 abbr -a r rails

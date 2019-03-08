@@ -1,0 +1,43 @@
+{
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnSaveFiletypes": [],
+  "suggest.autoTrigger": "always",
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.acceptSuggestionOnCommitCharacter": false,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "suggest.numberSelect": false,
+  "suggest.enablePreview":true,
+  "suggest.snippetIndicator": "",
+  "suggest.noselect": false,
+  "suggest.timeout": 5000,
+
+  "diagnostic.enable": true,
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.displayByAle": true,
+  "diagnostic.locationlist": false,
+  "diagnostic.signOffset": 1000,
+  "diagnostic.highlightOffset": 1000,
+  "diagnostic.errorSign": "✖-",
+  "diagnostic.warningSign": "⬥-",
+  "diagnostic.infoSign": "‣",
+  "diagnostic.hintSign": "‣",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextLines": 3,
+  "codeLens.enable": true,
+  "codeLens.separator": "❯ ",
+  "languageserver": {
+     "elixirLS": {
+      "command": "/home/njichev/Projects/elixir-ls/rel/language_server.sh",
+      "filetypes": ["elixir", "eelixir", "ex", "exs", "eex"],
+      "cwd": "./",
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "elixirLS": {
+          "dialyzerEnabled": true
+        }
+      },
+      "settings": {}
+    }
+  }
+}

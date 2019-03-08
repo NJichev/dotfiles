@@ -7,30 +7,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
 
-  " Linting
-  " Plug 'neomake/neomake'
-
-  " Autocomplete
-  " A dependency of 'ncm2'.
-  Plug 'roxma/nvim-yarp'
-
-  " v2 of the nvim-completion-manager.
-  Plug 'ncm2/ncm2'
-
-  "Add some ncm2 sources
-  Plug 'ncm2/ncm2-bufword'
-  Plug 'ncm2/ncm2-tmux'
-  Plug 'ncm2/ncm2-path'
-  Plug 'ncm2/ncm2-ultisnips'
-
-  " LanguageServer client for NeoVim.
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
   " Jedi-vim
   Plug 'davidhalter/jedi-vim', { 'for' : 'python' }
+
+  Plug 'w0rp/ale'
 
   "Camel Case motions
   Plug 'bkad/CamelCaseMotion'

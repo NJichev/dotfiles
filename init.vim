@@ -6,8 +6,7 @@ runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
-runtime config/plugins/ncm.vim
-runtime config/plugins/lsp.vim
+runtime config/plugins/completion.vim
 runtime config/plugins/neoterm.vim
 runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim
@@ -24,7 +23,7 @@ if has("autocmd")
   autocmd BufReadPost .pl setf prolog
 
   " Enable autocompletion for every buffer
-  au BufEnter ?* call ncm2#enable_for_buffer()
+  " au BufEnter ?* call ncm2#enable_for_buffer()
   " autocmd! BufWritePost * Neomake
   " autocmd! BufReadPost * Neomake
   " Open vim from where it last was

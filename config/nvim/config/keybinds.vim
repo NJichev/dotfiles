@@ -216,7 +216,4 @@ nnoremap <leader>et :e _TODO.md<CR>
 
 nnoremap <leader>ri :call InlineVariable()<cr>
 
-nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <buffer> <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <buffer> <silent> <F3> :call LanguageClient#textDocument_rename()<CR>
 nnoremap <buffer> <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>kviw

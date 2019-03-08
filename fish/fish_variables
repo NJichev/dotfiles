@@ -25,6 +25,7 @@ SETUVAR _fish_abbr_ie:iex\x20\x2dS\x20mix
 SETUVAR _fish_abbr_k:make
 SETUVAR _fish_abbr_m:mix
 SETUVAR _fish_abbr_mr:mix\x20run\x20\x2d\x2dno\x2dhalt
+SETUVAR _fish_abbr_n:nvim
 SETUVAR _fish_abbr_p:python
 SETUVAR _fish_abbr_pm:python\x20manage\x2epy
 SETUVAR _fish_abbr_pmm:python\x20manage\x2epy\x20migrate
