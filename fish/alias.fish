@@ -53,6 +53,8 @@ abbr -a g git
 abbr -a gc git commit
 abbr -a gco git checkout
 abbr -a gcp git cherry-pick
+abbr -a gp git pull origin 
+abbr -a grc git rebase --continue
 abbr -a gpo git push origin master
 abbr -a gd git diff
 abbr -a gl git log

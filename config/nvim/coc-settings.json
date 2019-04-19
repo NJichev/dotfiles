@@ -2,12 +2,12 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [],
   "suggest.autoTrigger": "always",
-  "suggest.triggerAfterInsertEnter": false,
+  "suggest.triggerAfterInsertEnter": true,
   "suggest.minTriggerInputLength": 2,
   "suggest.acceptSuggestionOnCommitCharacter": false,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.numberSelect": false,
-  "suggest.enablePreview":true,
+  "suggest.enablePreview": false,
   "suggest.snippetIndicator": "",
   "suggest.noselect": false,
   "suggest.timeout": 5000,
@@ -24,7 +24,7 @@
   "diagnostic.hintSign": "‣",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextLines": 3,
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "codeLens.separator": "❯ ",
   "languageserver": {
      "elixirLS": {
@@ -34,7 +34,7 @@
       "trace.server": "verbose",
       "initializationOptions": {
         "elixirLS": {
-          "dialyzerEnabled": true
+          "dialyzerEnabled": false
         }
       },
       "settings": {}

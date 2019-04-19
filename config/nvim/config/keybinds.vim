@@ -1,4 +1,4 @@
-" Make your keyboard actually do something when you switch to Cyrillic layout. 
+" Make your keyboard actually do something when you switch to Cyrillic layout.
 " Basically map Bulgarian keychords to English ones in vim.
 set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕРТЪУИОПШЩАСДФГХЙКЛЗѝЦЖБНМ;`qwertyuiop[]asdfghjklzxcvbnm~QWERTYUIOP{}ASDFGHJKLZXCVBNM,ю\\,Ю\|,
 
@@ -115,6 +115,7 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<CR>
 
 " CtrlSF setup
 nnoremap <Leader>sf :CtrlSF<Space>
+nnoremap <Leader>st :CtrlSF<Space>-filematch<Space>*ex<Space>
 
 " FZF
 nnoremap <space>f :Files<CR>
@@ -215,5 +216,6 @@ nnoremap <leader>en :e _Notes.md<CR>
 nnoremap <leader>et :e _TODO.md<CR>
 
 nnoremap <leader>ri :call InlineVariable()<cr>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 nnoremap <buffer> <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>kviw
