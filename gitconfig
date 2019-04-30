@@ -1,0 +1,15 @@
+[user]
+  email = njichev@gmail.com
+	name = njichev
+	signingkey = 2C4DDDCD13A13722
+[core]
+  excludesfile = ~/.gitignore
+[push]
+  default = simple
+[commit]
+  template = ~/.gitmessage
+	gpgsign = true
+[init]
+templatedir = ~/.git_template
+[gpg]
+	program = gpg

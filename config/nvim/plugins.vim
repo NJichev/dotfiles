@@ -23,34 +23,20 @@ call plug#begin('~/.vim/plugged')
 
   " Testing for different languages
   Plug 'janko-m/vim-test'
-  Plug 'njichev/alter-vim'
   Plug 'kassio/neoterm'
 
   " Autopairs
   Plug 'jiangmiao/auto-pairs'
 
-  " Ruby plugins
-  Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-  Plug 'tpope/vim-rails', { 'for': 'ruby' }
-  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-  Plug 'tpope/vim-rake', { 'for': 'ruby' }
-  Plug 'bruno-/vim-ruby-fold', { 'for': 'ruby' }
-  Plug 'nelstrom/vim-textobj-rubyblock/', { 'for' : 'ruby' }
-  Plug 'tpope/vim-endwise'
-
   " Elixir
   Plug 'elixir-editors/vim-elixir'
 
-  " Rust
-  Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
-
   " Tpope utility plugins
   Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-sleuth'
+  Plug 'tpope/vim-endwise'
 
   " Other utility plugins
   Plug 'christoomey/vim-tmux-navigator'
@@ -75,10 +61,4 @@ call plug#begin('~/.vim/plugged')
 
   " Ruby text objects
   Plug 'kana/vim-textobj-user'
-
-  " Games
-  Plug 'johngrib/vim-game-code-break'
-
-  " Show off
-  Plug 'DougBeney/pickachu', { 'on' : 'Pick' }
 call plug#end()

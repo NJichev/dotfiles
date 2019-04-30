@@ -100,3 +100,6 @@ let g:ruby_indent_assignment_style = 'variable'
 
 " Folder to save tags.
 let g:gutentags_cache_dir = '~/.tags_cache'
+
+" Disable polyglot for rust and elixir
+let g:polyglot_disabled = ['elixir', 'rust']

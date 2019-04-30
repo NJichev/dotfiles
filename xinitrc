@@ -1,6 +1,7 @@
 #!/bin/sh
 # Disable processor sounds
 xset -b
+xset r rate 400 100
 
 # asdf
 setxkbmap -option 'caps:ctrl_modifier' && xcape -e 'Caps_Lock=Escape' &

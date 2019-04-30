@@ -62,7 +62,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+m exec deepin-screenshot
+bindsym --release $mod+m exec scrot -s ~/Desktop/screenshots/%Y-%m-%d-%T-screenshot.png
 bindsym $mod+shift+m exec sh ~/.screenlayout/home.sh
 
 # kill focused window
