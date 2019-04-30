@@ -7,11 +7,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
 
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
-  " Jedi-vim
-  Plug 'davidhalter/jedi-vim', { 'for' : 'python' }
-
   Plug 'w0rp/ale'
 
   "Camel Case motions
@@ -70,9 +65,6 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
   Plug 'junegunn/fzf.vim'
-
-  Plug 'honza/vim-snippets'
-  Plug 'SirVer/ultisnips'
 
   " Vim stuff
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }

@@ -25,7 +25,7 @@ client.focused_inactive $base02 $base02    $base03 $base0F
 client.unfocused        $base02 $base02    $base03 $base0F
 #
 # General Configuration
-font pango:FontAwesome 8
+font pango:FontAwesome 9
 floating_modifier $mod
 hide_edge_borders both
 new_window pixel 1
@@ -61,7 +61,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st -f "Monaco:pixelsize=16:antialias=true:style"
+bindsym $mod+Return exec kitty
 bindsym $mod+m exec deepin-screenshot
 bindsym $mod+shift+m exec sh ~/.screenlayout/home.sh
 
@@ -222,7 +222,6 @@ smart_gaps on
 
 # i3 Status Bar
 bar {
-  # font pango: FontAwesome 5
   font pango:FontAwesome 9
   position bottom
   # mode invisible
@@ -255,7 +254,7 @@ bindsym XF86AudioPrev   exec playerctl previous
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 # Startup
-exec_always --no-startup-id feh --bg-fill $HOME/Desktop/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpaper.jpg
 exec --no-startup-id redshift -l 43:25
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec_always compton
