@@ -14,6 +14,8 @@ abbr -a n nvim
 abbr -a r rails
 abbr -a d docker
 abbr -a g git
+abbr -a gg git lg
+abbr -a da direnv allow
 abbr -a m mix
 abbr -a mr mix run --no-halt
 abbr -a ie iex -S mix
@@ -53,10 +55,11 @@ abbr -a g git
 abbr -a gc git commit
 abbr -a gco git checkout
 abbr -a gcp git cherry-pick
-abbr -a gp git pull origin 
+abbr -a gp git pull origin
 abbr -a grc git rebase --continue
-abbr -a gpo git push origin master
+abbr -a gpo git push origin
 abbr -a gd git diff
+abbr -a gds git diff --staged
 abbr -a gl git log
 abbr -a gs git status
 abbr -a ga git commit --amend

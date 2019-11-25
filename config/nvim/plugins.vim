@@ -3,23 +3,25 @@ if &compatible
 endif
 
 call plug#begin('~/.vim/plugged')
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
   " Colorschemes
   Plug 'quanganhdo/grb256'
   Plug 'morhetz/gruvbox'
+  Plug 'edkolev/tmuxline.vim'
+
+  " Completion
+  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
   Plug 'w0rp/ale'
-
   "Camel Case motions
   Plug 'bkad/CamelCaseMotion'
 
   " NerdTree
-  Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
+  Plug 'scrooloose/nerdtree'
 
   " Tags
   Plug 'ludovicchabant/vim-gutentags', { 'for' : 'ruby' }
-
-  " Syntax for many languages
-  Plug 'sheerun/vim-polyglot'
 
   " Testing for different languages
   Plug 'janko-m/vim-test'
@@ -61,4 +63,8 @@ call plug#begin('~/.vim/plugged')
 
   " Ruby text objects
   Plug 'kana/vim-textobj-user'
+
+  " Syntax for many languages
+  let g:polyglot_disabled = ['elixir']
+  Plug 'sheerun/vim-polyglot'
 call plug#end()

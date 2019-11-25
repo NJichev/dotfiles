@@ -179,7 +179,7 @@ nnoremap N Nzzzv
 nnoremap / /\v
 vnoremap / /\v
 
-map <F2> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
 
 nmap <leader>ale :ALEToggle<CR>
 

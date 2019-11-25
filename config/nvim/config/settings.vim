@@ -1,6 +1,6 @@
 " More like default settings.
-" Let vim know that I use bash
-set shell=/bin/bash
+" Let vim know to use bash
+set shell=/usr/bin/bash
 
 " Set ctags lookup
 set tags=.tags,.git/tags
@@ -40,7 +40,7 @@ set viewoptions-=options
 set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
 set wildmode=list:full
-set completeopt=menu,menuone,longest
+set completeopt+=menu,menuone,longest,noselect
 " Some options
 set history=500   " keep 500 lines of command line history
 set ruler   " show the cursor position all the time
@@ -100,6 +100,3 @@ let g:ruby_indent_assignment_style = 'variable'
 
 " Folder to save tags.
 let g:gutentags_cache_dir = '~/.tags_cache'
-
-" Disable polyglot for rust and elixir
-let g:polyglot_disabled = ['elixir', 'rust']

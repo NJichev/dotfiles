@@ -6,6 +6,7 @@ runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
+runtime config/plugins/fzf.vim
 runtime config/plugins/completion.vim
 runtime config/plugins/neoterm.vim
 runtime config/plugins/gutentags.vim
@@ -21,6 +22,9 @@ if has("autocmd")
   autocmd Filetype ruby set ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
   autocmd Filetype elixir setlocal formatprg=mix\ format\ -
   autocmd BufReadPost .pl setf prolog
+
+  au BufRead,BufNewFile *.md setlocal textwidth=72
+
 
   " Enable autocompletion for every buffer
   " au BufEnter ?* call ncm2#enable_for_buffer()

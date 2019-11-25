@@ -61,7 +61,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym --release $mod+m exec scrot -s ~/Desktop/screenshots/%Y-%m-%d-%T-screenshot.png
 bindsym $mod+shift+m exec sh ~/.screenlayout/home.sh
 
@@ -167,16 +167,19 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Program Workspace Assignments
-assign [class="firefox"] $workspace1
+assign [class="firefox"] $workspace3
 assign [class="google-chrome"] $workspace1
 assign [class="Slack"] $workspace9
 assign [class="Spotify"] $workspace10
 assign [class="transmission-gtk"] $workspace7
+assign [class="^Steam$"] $workspace4
 
 # Default to Floating
 for_window [class="Lxappearance"] floating enable
 for_window [class="Seahorse"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [title="^__mixer$"] move scratchpad
+for_window [title="^__notes$"] move scratchpad
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -213,7 +216,8 @@ bindsym $mod+r mode "resize"
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+minus [title="^__mixer$"] scratchpad show
+bindsym $mod+n [title="^__notes$"] scratchpad show
 
 # i3 gaps
 gaps inner 10
@@ -257,6 +261,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpaper.jpg
 exec --no-startup-id redshift -l 43:25
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id slack
+exec --no-startup-id alacritty --title __mixer -e alsamixer
+exec --no-startup-id alacritty --title __notes -e nvim "Todo.md"
 exec_always compton
 # exec --no-startup-id urxvtd
 # exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
@@ -271,3 +278,18 @@ for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
+
+## steam shit
+
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title="Steam - Update News"] floating enable
+for_window [class="^Steam$" title="Steam"] floating enable
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable

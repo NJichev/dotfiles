@@ -3,12 +3,14 @@
 SETUVAR --export SSH_AUTH_SOCK:/home/njichev/\x2egnupg/S\x2egpg\x2dagent\x2essh
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR __fish_init_3_x:\x1d
 SETUVAR _fish_abbr_b:bundle
 SETUVAR _fish_abbr_be:bundle\x20exec
 SETUVAR _fish_abbr_bi:bundle\x20install
 SETUVAR _fish_abbr_bop:bundle\x20open
 SETUVAR _fish_abbr_c:cc
 SETUVAR _fish_abbr_d:docker
+SETUVAR _fish_abbr_da:direnv\x20allow
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_g_5B_:git\x20\x5b
 SETUVAR _fish_abbr_g_5D_:git\x20\x5d
@@ -17,9 +19,11 @@ SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_gcp:git\x20cherry\x2dpick
 SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gds:git\x20diff\x20\x2d\x2dstaged
+SETUVAR _fish_abbr_gg:git\x20lg
 SETUVAR _fish_abbr_gl:git\x20log
 SETUVAR _fish_abbr_gp:git\x20pull\x20origin
-SETUVAR _fish_abbr_gpo:git\x20push\x20origin\x20master
+SETUVAR _fish_abbr_gpo:git\x20push\x20origin
 SETUVAR _fish_abbr_grc:git\x20rebase\x20\x2d\x2dcontinue
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_i:iex
