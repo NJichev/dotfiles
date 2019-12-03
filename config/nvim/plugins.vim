@@ -13,15 +13,13 @@ call plug#begin('~/.vim/plugged')
   " Completion
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
+  " Linting
   Plug 'w0rp/ale'
   "Camel Case motions
   Plug 'bkad/CamelCaseMotion'
 
   " NerdTree
-  Plug 'scrooloose/nerdtree'
-
-  " Tags
-  Plug 'ludovicchabant/vim-gutentags', { 'for' : 'ruby' }
+  Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
   " Testing for different languages
   Plug 'janko-m/vim-test'
@@ -61,7 +59,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'tweekmonster/startuptime.vim', { 'on': 'StartupTime' }
 
-  " Ruby text objects
+  " Text objects
   Plug 'kana/vim-textobj-user'
 
   " Syntax for many languages

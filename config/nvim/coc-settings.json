@@ -1,6 +1,16 @@
 {
   "coc.preferences.formatOnType": false,
-  "coc.preferences.formatOnSaveFiletypes": ["elixir", "eelixer"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "elixir",
+    "eelixer",
+    "javascript",
+    "typescript",
+    "json",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql"
+  ],
   "suggest.autoTrigger": "always",
   "suggest.triggerAfterInsertEnter": true,
   "suggest.minTriggerInputLength": 2,
@@ -38,6 +48,12 @@
         }
       },
       "settings": {}
-    }
+    },
+     "purescript": {
+       "command": "purescript-language-server",
+       "args": ["--stdio"],
+       "filetypes": ["purescript"],
+       "rootPatterns": ["bower.json", "psc-package.json", "spago.dhall"]
+     }
   }
 }

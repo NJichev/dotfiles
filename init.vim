@@ -9,7 +9,6 @@ runtime config/settings.vim
 runtime config/plugins/fzf.vim
 runtime config/plugins/completion.vim
 runtime config/plugins/neoterm.vim
-runtime config/plugins/gutentags.vim
 runtime config/plugins/ultisnips.vim
 runtime macros/matchit.vim
 
