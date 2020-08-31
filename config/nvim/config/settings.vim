@@ -82,21 +82,4 @@ if has("nvim")
   set inccommand=split
 endif
 
-" set timeout to run ale to 0.3 second
-" let g:ale_lint_delay=300
-" let g:ale_linters = {'rust': ['rustc']}
-let g:ale_elixir_elixir_ls_release = '/home/njichev/Projects/elixir-ls/rel'
-let g:ale_completion_enabled = 0
-
-let g:ale_linters = {}
-let g:ale_linters.elixir = ['elixir-ls', 'credo']
-
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-let g:ale_fixers.elixir = ['mix_format']
-
-nmap <F8> <Plug>(ale_fix)
-
 let g:ruby_indent_assignment_style = 'variable'
-
-" Folder to save tags.
-let g:gutentags_cache_dir = '~/.tags_cache'

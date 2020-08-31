@@ -10,11 +10,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'edkolev/tmuxline.vim'
 
+  " better matchit
+  Plug 'andymass/vim-matchup'
+
   " Completion
-  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Linting
-  Plug 'w0rp/ale'
+  " Plug 'w0rp/ale'
   "Camel Case motions
   Plug 'bkad/CamelCaseMotion'
 

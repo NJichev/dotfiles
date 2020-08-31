@@ -1,5 +1,5 @@
 eval (direnv hook fish)
-status --is-interactive; and . (jump shell fish | psub)
+status --is-interactive; and source (jump shell fish | psub)
 
 set -x EDITOR nvim
 
@@ -55,3 +55,10 @@ else
         start_agent
     end
 end
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/serverless.fish ]; and . /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/serverless.fish
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/sls.fish ]; and . /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/sls.fish

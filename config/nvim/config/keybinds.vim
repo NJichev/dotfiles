@@ -137,14 +137,14 @@ vnoremap <silent> <space>tl :TREPLSendSelection<CR>
 nnoremap <silent> <space>th :Tclose<CR>
 " open terminal
 nnoremap <silent> <space>to :Topen<CR>
-" clear terminal
+nnoremap <silent> <space>tro :belowright Topen<CR>
+
+nnoremap <silent> <space>tn :Tnew<CR>
+nnoremap <silent> <space>trn :belowright Tnew<CR>
+" clear terminaj
 nnoremap <silent> <space>tl :call neoterm#clear()<CR>
 " kills the current job (send a <c-c>)
 nnoremap <silent> <space>tc :call neoterm#kill()<CR>
-nnoremap <silent> <space>trc :T rails console<CR>
-nnoremap <silent> <space>trs :T rails server<CR>
-nnoremap <silent> <space>tbi :T bundle install<CR>
-nnoremap <silent> <space>trr :T rake routes<CR>
 
 " Tabularize Align
 vnoremap <Leader>a :Tabularize /

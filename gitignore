@@ -42,3 +42,4 @@ sshuttle.pid
 .elixir_ls/
 .tool-versions
 .deliver/releases/
+target/

@@ -9,6 +9,7 @@ let g:ale_linters = {
       \ }
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'markdown': [],
       \   'elixir': [],
       \   'eelixir': [],
       \ }                                                                       "Fix eslint errors
@@ -69,6 +70,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
+
 " Use K to show documentation in preview window
 nnoremap <silent> <space>k :call <SID>show_documentation()<CR>
 
@@ -85,6 +88,4 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint',
-  \ 'coc-prettier',
-  \ 'coc-json',
   \ ]
