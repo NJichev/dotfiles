@@ -259,7 +259,7 @@ bindsym XF86AudioPrev   exec playerctl previous
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 # Startup
-exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/smoking.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/dotfiles/wallpapers/smoking.jpeg
 exec --no-startup-id redshift -l 43:25
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id slack

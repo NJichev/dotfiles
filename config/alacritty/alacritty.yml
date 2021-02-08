@@ -26,7 +26,7 @@ font:
   italic:
     family: monaco
 
-  size: 12
+  size: 14
 
   offset:
     x: 0
@@ -178,7 +178,7 @@ color_schemes:
 
 colors: *ir_black
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -190,7 +190,7 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
-  hide_when_typing: false
+  hide_when_typing: true
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -205,7 +205,7 @@ key_bindings:
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: NumpadSubtract, mods: Control, action: DecreaseFontSize             }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
