@@ -265,7 +265,6 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id slack
 exec --no-startup-id alacritty --title __mixer -e alsamixer
 exec --no-startup-id alacritty --title __notes -e nvim "Todo.md"
-exec_always compton
 # exec --no-startup-id urxvtd
 # exec_always --no-startup-id $HOME/dotfiles/config/polybar/run_polybar.sh
 

@@ -1,13 +1,14 @@
+require("plugins")
+
+vim.cmd([[
 set runtimepath+=~/.vim/
 set runtimepath+=~/dotfiles/config/nvim/
 
-runtime plugins.vim
 runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
 runtime config/plugins/fzf.vim
-runtime config/plugins/completion.vim
 runtime config/plugins/neoterm.vim
 runtime config/plugins/ultisnips.vim
 runtime macros/matchit.vim
@@ -47,3 +48,4 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 augroup filetypedetect
   au! BufRead,BufNewFile *.pl setfiletype prolog
 augroup END
+]])
