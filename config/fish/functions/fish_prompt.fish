@@ -9,7 +9,7 @@ end
 
 function fish_right_prompt
   echo -n (set_color -o black)(test $PWD = $HOME; and echo '~'; or basename $PWD)
-  if eval (command git rev-parse --is-inside-work-tree ^/dev/null; or echo false)
+  if eval (command git rev-parse --is-inside-work-tree 2&>/dev/null; or echo false)
     echo -n (set_color -o red)" ⎇ "(set_color -o black)(__fish_git_prompt "%s")
   end
   set_color normal
