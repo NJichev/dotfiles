@@ -12,6 +12,7 @@ return {
   -- },
   {
     "laytan/tailwind-sorter.nvim",
+    event = "VeryLazy",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
@@ -181,8 +182,8 @@ return {
           "yaml",
         },
         highlight = {
-          enable = vim.g.vscode ~= 1,
-          disable = function(lang, bufnr) return true end,
+          enable = true,
+          disable = function(lang, bufnr) return false end,
           use_languagetree = true,
           -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
           -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
