@@ -98,7 +98,7 @@ function M.config()
     },
     fzf_colors = fzf_colors,
     winopts = {
-      height = 0.35,
+      height = 0.45,
       width = 1.00,
       row = 0.94,
       col = 1,
@@ -208,7 +208,7 @@ function M.config()
   if vim.ui then
     fzf_lua.register_ui_select({
       winopts = {
-        win_height = 0.30,
+        win_height = 0.40,
         win_width = 0.70,
         win_row = 0.40,
       },
