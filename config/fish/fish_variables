@@ -4,7 +4,7 @@ SETUVAR --export SSH_AUTH_SOCK:/home/njichev/\x2egnupg/S\x2egpg\x2dagent\x2essh
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_b:bundle
 SETUVAR _fish_abbr_be:bundle\x20exec
 SETUVAR _fish_abbr_bi:bundle\x20install
@@ -84,5 +84,6 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_abbreviations:r\x20rails\x1ed\x20docker\x1eg\x20git\x1em\x20mix\x1emr\x20mix\x20run\x20\x2d\x2dno\x2dhalt\x1eie\x20iex\x20\x2dS\x20mix\x1ei\x20iex\x1eb\x20bundle\x1ebe\x20bundle\x20exec\x1ebi\x20bundle\x20install\x1ebop\x20bundle\x20open\x1et\x20tmux\x1etmn\x20tmux\x20new\x2dsession\x20\x2ds\x1etma\x20tmux\x20attach\x20\x2dt\x1etmd\x20tmux\x20detach\x1etmk\x20tmux\x20kill\x2dsession\x20\x2dt\x1ert\x20rails\x20test\x1erc\x20rails\x20console\x1ers\x20rails\x20server\x1egc\x20git\x20commit\x1egco\x20git\x20checkout\x1egcp\x20git\x20cherry\x2dpick\x1egpo\x20git\x20push\x20origin\x20master\x1egd\x20git\x20diff\x1egl\x20git\x20log\x1egs\x20git\x20status\x1ega\x20git\x20commit\x20\x2d\x2damend\x1ep\x20python\x1epm\x20python\x20manage\x2epy\x1epmm\x20python\x20manage\x2epy\x20migrate\x1epmmm\x20python\x20manage\x2epy\x20makemigrations\x1epmr\x20python\x20manage\x2epy\x20runserver\x1epms\x20python\x20manage\x2epy\x20shell_plus\x1eg\x5b\x20git\x20\x5b\x1eg\x5d\x20git\x20\x5d\x1ek\x20make\x1ev\x20valgrind\x1ec\x20cc
-SETUVAR fish_user_paths:/home/njichev/\x2evim/plugged/fzf/bin\x1e/home/njichev/\x2eyarn/bin
+SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/home/njichev/\x2evim/plugged/fzf/bin\x1e/home/njichev/\x2eyarn/bin

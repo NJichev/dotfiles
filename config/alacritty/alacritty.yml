@@ -10,6 +10,8 @@ window:
     x: 2
     y: 2
 
+  opacity: 1.0
+
 draw_bold_text_with_bright_colors: true
 
 # * hintstyle
@@ -181,8 +183,6 @@ colors: *ir_black
 bell:
   animation: EaseOutExpo
   duration: 0
-
-background_opacity: 1.0
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }

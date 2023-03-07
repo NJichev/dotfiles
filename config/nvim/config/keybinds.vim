@@ -118,11 +118,10 @@ nnoremap <Leader>sf :CtrlSF<Space>
 nnoremap <Leader>st :CtrlSF<Space>-filematch<Space>*ex<Space>
 
 " FZF
-nnoremap <space>f :Files<CR>
-nnoremap <space>b :Buffers<CR>
-nnoremap <space>l :Lines<CR>
-nnoremap <space>bc :Commits<CR>
-nnoremap <space>bs :GFiles?<CR>
+" nnoremap <space>b :Buffers<CR>
+" nnoremap <space>l :Lines<CR>
+" nnoremap <space>bc :Commits<CR>
+" nnoremap <space>bs :GFiles?<CR>
 
 " Neoterm
 " Term file

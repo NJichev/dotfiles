@@ -1,16 +1,20 @@
 eval (direnv hook fish)
-status --is-interactive; and source (jump shell fish | psub)
+jump shell fish | source
+
+echo -e "\nsource "(brew --prefix asdf)"/libexec/asdf.fish" >> ~/.config/fish/config.fish
 
 set -x EDITOR nvim
 
 set -x DISABLE_AUTO_TITLE true
 # Source the aliases in ~/.config/fish/aliases.fish.
 test -f ~/.config/fish/alias.fish; and source ~/.config/fish/alias.fish
+# Setup fish
+test -f ~/.config/fish/jump.fish; and source ~/.config/fish/jump.fish
+
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 set -x ERL_AFLAGS "-kernel shell_history enabled"
 
-source ~/.asdf/asdf.fish
 set fish_greeting ""
 
 function term
@@ -56,9 +60,4 @@ else
     end
 end
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/serverless.fish ]; and . /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/serverless.fish
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/sls.fish ]; and . /home/njichev/Work/inflowmatix/inflownet-webapp-lambdas/node_modules/tabtab/.completions/sls.fish
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
