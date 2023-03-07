@@ -1,8 +1,6 @@
 eval (direnv hook fish)
 jump shell fish | source
 
-echo -e "\nsource "(brew --prefix asdf)"/libexec/asdf.fish" >> ~/.config/fish/config.fish
-
 set -x EDITOR nvim
 
 set -x DISABLE_AUTO_TITLE true
@@ -59,11 +57,5 @@ else
         start_agent
     end
 end
-
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
