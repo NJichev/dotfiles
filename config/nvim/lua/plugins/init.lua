@@ -16,6 +16,9 @@ return {
   },
   {
     "vim-test/vim-test",
+    dependencies = {
+      "kassio/neoterm"
+    },
     keys = {
       {"<leader>T", "<cmd>TestFile<cr>", "n", "<silent>"},
       {"<leader>a", "<cmd>TestSuite<cr>", "n", "<silent>"},

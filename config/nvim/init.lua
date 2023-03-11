@@ -18,9 +18,6 @@ require("lazy").setup("plugins")
 
 
 vim.cmd([[
-set runtimepath+=~/.vim/
-set runtimepath+=~/dotfiles/config/nvim/
-
 runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
