@@ -2,12 +2,14 @@ return {
   {
     -- Start the theme first so that any 
     "ellisonleao/gruvbox.nvim",
+    lazy = false,
     priority = 1000
   },
   "christoomey/vim-tmux-navigator",
   "bkad/CamelCaseMotion",
   {
     "kassio/neoterm",
+    cmd = { "T", "Topen", "Tclose" }
   },
   {
     "vim-test/vim-test",
@@ -19,7 +21,13 @@ return {
       {"<leader>t", "<cmd>TestNearest<cr>", "n", "<silent>"},
     }
   },
-  { "numToStr/Comment.nvim" },
+  {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("Comment").setup({})
+    end
+  },
   { "tpope/vim-surround" },
   { "tpope/vim-repeat" },
   { "tpope/vim-endwise" },
