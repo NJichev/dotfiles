@@ -9,7 +9,10 @@ return {
   "bkad/CamelCaseMotion",
   {
     "kassio/neoterm",
-    cmd = { "T", "Topen", "Tclose" }
+    cmd = { "T", "Topen", "Tclose" },
+    config = function()
+      vim.g.neoterm_autoscroll = 1
+    end
   },
   {
     "vim-test/vim-test",
