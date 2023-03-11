@@ -166,12 +166,12 @@ function M.config()
       },
     },
     files = {
-      fd_opts = "--color=never --type f --hidden --follow --no-ignore-vcs --strip-cwd-prefix --exclude .git",
+      fd_opts = "--color=never --type f --hidden --follow --strip-cwd-prefix --exclude .git",
       action = { ["ctrl-g"] = fzf_lua.actions.arg_add },
       previewer = "builtin",
     },
     grep = {
-      rg_opts = "--hidden --column --line-number --no-ignore-vcs --no-heading --color=always --smart-case -g '!.git'",
+      rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case -g '!.git'",
       rg_glob = true, -- enable glob parsing by default to all
       glob_flag = "--iglob", -- for case sensitive globs use '--glob'
       glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'

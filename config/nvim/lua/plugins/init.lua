@@ -19,4 +19,8 @@ return {
       {"<leader>t", "<cmd>TestNearest<cr>", "n", "<silent>"},
     }
   },
+  { "numToStr/Comment.nvim" },
+  { "tpope/vim-surround" },
+  { "tpope/vim-repeat" },
+  { "tpope/vim-endwise" },
 }

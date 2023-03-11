@@ -1,5 +1,6 @@
 {
   "CamelCaseMotion": { "branch": "master", "commit": "de439d7c06cffd0839a29045a103fe4b44b15cdc" },
+  "Comment.nvim": { "branch": "master", "commit": "8d3aa5c22c2d45e788c7a5fe13ad77368b783c20" },
   "fzf": { "branch": "master", "commit": "63cf9d04deab832a3a472b6e4de2db837932d957" },
   "fzf-lua": { "branch": "main", "commit": "78e44ff485bd02cce53454780a405e5b789bcc1c" },
   "gruvbox.nvim": { "branch": "main", "commit": "3e31f9ab01fed42ebac75738c681daacb8c82bff" },
@@ -21,6 +22,9 @@
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "tailwind-sorter.nvim": { "branch": "main", "commit": "7a32f59c0cc8a73022be2c93fcbac1de825abfb9" },
   "treesitter-unit": { "branch": "main", "commit": "89968a1f8c72427691088e6d09d26a52c2ddc6f4" },
+  "vim-endwise": { "branch": "master", "commit": "c3411c95290063f56dfe13b485882111ef403c6e" },
+  "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
+  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-test": { "branch": "master", "commit": "c63b94c1e5089807f4532e05f087351ddb5a207c" },
   "vim-tmux-navigator": { "branch": "master", "commit": "cdd66d6a37d991bba7997d593586fc51a5b37aa8" }
 }
