@@ -12,6 +12,7 @@ test -f ~/.config/fish/jump.fish; and source ~/.config/fish/jump.fish
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 set -x ERL_AFLAGS "-kernel shell_history enabled"
+set -x KERL_BUILD_DOCS yes
 
 set fish_greeting ""
 
