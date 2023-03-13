@@ -2,14 +2,6 @@
 -- https://github.com/vsedov/nvim/blob/master/lua/modules/lang/treesitter.lua
 
 return {
-  -- {
-  --   "ckolkey/ts-node-action",
-  --   dependencies = { "nvim-treesitter" },
-  --   config = function()
-  --     require("ts-node-action").setup()
-  --     nmap("K", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
-  --   end,
-  -- },
   {
     "laytan/tailwind-sorter.nvim",
     event = "VeryLazy",
