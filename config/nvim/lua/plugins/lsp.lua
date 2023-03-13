@@ -45,6 +45,11 @@ return {
         require("cmp_nvim_lsp").default_capabilities()
       )
 
+      require("mason").setup({})
+      require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls", "rust_analyzer" },
+      })
+
       lspconfig.lua_ls.setup({})
 
       vim.api.nvim_create_autocmd('LspAttach', {
