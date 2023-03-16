@@ -76,12 +76,12 @@ cnoremap <C-z> <C-^>
 nnoremap vv ^vg_
 
 "leader commands
-noremap <Leader>w :update<CR>
-noremap <Leader>wq :x<CR>
-noremap <Leader>q :quit<CR>
-noremap <Leader>qq :quit!<CR>
-noremap <Leader>ss :split<CR>
-noremap <Leader>vv :vsplit<CR>
+noremap <silent> <Leader>w :update<CR>
+noremap <silent> <Leader>wq :x<CR>
+noremap <silent> <Leader>q :quit<CR>
+noremap <silent> <Leader>qq :quit!<CR>
+noremap <silent> <Leader>ss :split<CR>
+noremap <silent> <Leader>vv :vsplit<CR>
 
 " Paste in the next line.
 nnoremap <leader>p o<ESC>p
