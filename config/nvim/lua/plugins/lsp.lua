@@ -9,7 +9,7 @@ return {
   { "rafamadriz/friendly-snippets" },
   {
     "neovim/nvim-lspconfig",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lspconfig = require("lspconfig")
       local lsp_defaults = lspconfig.util.default_config

@@ -22,18 +22,11 @@ runtime config/functions.vim
 runtime config/keybinds.vim
 runtime config/interface.vim
 runtime config/settings.vim
-runtime config/plugins/fzf.vim
-runtime config/plugins/neoterm.vim
-runtime config/plugins/ultisnips.vim
 runtime macros/matchit.vim
-
-" Nerdcommenter
-let NERDSpaceDelims=1
 
 " Open files with last place of cursor.
 if has("autocmd")
   autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
-  autocmd Filetype ruby set ts=2 sw=2 expandtab omnifunc=rubycomplete#Complete
   autocmd Filetype elixir setlocal formatprg=mix\ format\ -
   autocmd BufReadPost .pl setf prolog
 
