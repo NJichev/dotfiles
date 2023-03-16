@@ -14,10 +14,10 @@ return {
       },
     },
     messages = {
-      backend = "mini",
+      backend = "notify",
     },
     notify = {
-      backend = "mini",
+      backend = "notify",
     },
     lsp = {
       override = {
@@ -26,7 +26,7 @@ return {
         ["cmp.entry.get_documentation"] = true,
       },
       message = {
-        view = "mini",
+        view = "notify",
       },
     },
     views = {
@@ -62,5 +62,6 @@ return {
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
     "MunifTanjim/nui.nvim",
+    "rcarriga/nvim-notify",
   },
 }
