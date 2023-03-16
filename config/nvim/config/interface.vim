@@ -7,7 +7,7 @@ set synmaxcol=800
 set winwidth=80
 
 " do not redraw while running macros (much faster) (LazyRedraw)
-set lazyredraw
+" set lazyredraw
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7

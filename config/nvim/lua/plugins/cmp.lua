@@ -1,6 +1,7 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     init = function() vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" } end,
     config = function()
       local cmp = require("cmp")

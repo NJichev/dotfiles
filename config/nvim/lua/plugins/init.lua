@@ -7,11 +7,13 @@ return {
   },
   "christoomey/vim-tmux-navigator",
   "bkad/CamelCaseMotion",
+  "elixir-editors/vim-elixir",
   {
     "kassio/neoterm",
     cmd = { "T", "Topen", "Tclose" },
     config = function()
       vim.g.neoterm_autoscroll = 1
+      vim.g.neoterm_shell = "fish"
     end
   },
   {
@@ -37,4 +39,5 @@ return {
   { "tpope/vim-surround" },
   { "tpope/vim-repeat" },
   { "tpope/vim-endwise" },
+  { "jiangmiao/auto-pairs" },
 }
