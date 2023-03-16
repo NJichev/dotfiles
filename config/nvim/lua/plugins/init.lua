@@ -5,8 +5,8 @@ return {
     lazy = false,
     priority = 1000
   },
-  "christoomey/vim-tmux-navigator",
-  "bkad/CamelCaseMotion",
+  { "christoomey/vim-tmux-navigator", event = { "BufReadPost", "BufNewFile" } },
+  { "bkad/CamelCaseMotion", event = { "BufReadPost", "BufNewFile" } },
   "elixir-editors/vim-elixir",
   {
     "kassio/neoterm",
@@ -31,13 +31,14 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("Comment").setup({})
     end
   },
-  { "tpope/vim-surround" },
-  { "tpope/vim-repeat" },
-  { "tpope/vim-endwise" },
-  { "jiangmiao/auto-pairs" },
+  { "tpope/vim-surround", event = { "BufReadPost", "BufNewFile" } },
+  { "tpope/vim-repeat", event = { "BufReadPost", "BufNewFile" } },
+  { "tpope/vim-fugitive", event = "VeryLazy" },
+  { "tpope/vim-endwise", event = { "BufReadPost", "BufNewFile" } },
+  { "jiangmiao/auto-pairs", event = { "BufReadPost", "BufNewFile" } },
 }

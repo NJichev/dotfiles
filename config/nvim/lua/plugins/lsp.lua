@@ -25,13 +25,35 @@ return {
         ensure_installed = { "lua_ls", "rust_analyzer" },
       })
 
-      lspconfig.lua_ls.setup({})
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            runtime = {
+              -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = { "vim" },
+              unusedLocalExclude = { "_*" },
+            },
+            workspace = {
+              -- Make the server aware of Neovim runtime files
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
 
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
         callback = function()
           local bufmap = function(mode, lhs, rhs)
-            local opts = {buffer = true}
+            local opts = { buffer = true }
             vim.keymap.set(mode, lhs, rhs, opts)
           end
 
@@ -50,7 +72,7 @@ return {
           -- Jumps to the definition of the type symbol
           bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 
-          -- Lists all the references 
+          -- Lists all the references
           bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
           -- Displays a function's signature information
