@@ -49,9 +49,6 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-  " Fixes alacritty rendering issue
-  autocmd BufEnter * highlight Normal guibg=0
 endif
 
 " Open pictures and other stuff with other programms

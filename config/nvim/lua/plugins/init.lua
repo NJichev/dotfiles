@@ -3,7 +3,14 @@ return {
     -- Start the theme first so that any 
     "ellisonleao/gruvbox.nvim",
     lazy = false,
-    priority = 1000
+    priority = 1000,
+    config = function ()
+      require("gruvbox").setup({
+        palette_overrides = {
+          dark0 = "#000000",
+        }
+      })
+    end
   },
   { "christoomey/vim-tmux-navigator", event = { "BufReadPost", "BufNewFile" } },
   { "bkad/CamelCaseMotion", event = { "BufReadPost", "BufNewFile" } },
