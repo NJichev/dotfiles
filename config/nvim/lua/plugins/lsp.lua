@@ -22,7 +22,7 @@ return {
 
       require("mason").setup({})
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer" },
+        ensure_installed = { "lua_ls", "rust_analyzer", "tailwindcss" },
       })
 
       lspconfig.lua_ls.setup({
@@ -46,6 +46,19 @@ return {
               enable = false,
             },
           },
+        },
+      })
+
+      lspconfig.elixirls.setup{
+          cms = { "~/Projects/elixir-ls/release/language_server.sh" },
+          dialyzerEnabled = false
+      }
+
+      lspconfig.tailwindcss.setup({
+        userLanguages = {
+          elixir = "phoenix-heex",
+          eruby = "erb",
+          heex = "phoenix-heex",
         },
       })
 
