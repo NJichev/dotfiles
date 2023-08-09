@@ -22,7 +22,9 @@ return {
 
       require("mason").setup({})
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "tailwindcss" },
+        ensure_installed = {
+          "lua_ls", "rust_analyzer", "tailwindcss", "tsserver"
+        },
       })
 
       lspconfig.lua_ls.setup({
@@ -50,7 +52,7 @@ return {
       })
 
       lspconfig.elixirls.setup{
-          cms = { "~/Projects/elixir-ls/release/language_server.sh" },
+          cmd = { "/Users/njichev/Projects/elixir-ls/release/language_server.sh" },
           dialyzerEnabled = false
       }
 
@@ -60,6 +62,10 @@ return {
           eruby = "erb",
           heex = "phoenix-heex",
         },
+      })
+
+      lspconfig.tsserver.setup({
+        filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
       })
 
       vim.api.nvim_create_autocmd('LspAttach', {

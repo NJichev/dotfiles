@@ -43,3 +43,4 @@ sshuttle.pid
 .tool-versions
 .deliver/releases/
 target/
+.DS_Store

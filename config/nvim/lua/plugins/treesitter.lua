@@ -4,7 +4,7 @@
 return {
   {
     "laytan/tailwind-sorter.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
@@ -13,64 +13,64 @@ return {
     build = "cd formatter && npm i && npm run build",
     opts = {
       on_save_enabled = true,
-      on_save_pattern = { "*.html", "*.heex", "*.ex" },
+      on_save_pattern = { '*.html', '*.js', '*.jsx', '*.tsx', '*.twig', '*.hbs', '*.php', '*.heex' }, -- The file patterns to watch and sort.
     },
   },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    enabled = true,
-    event = "BufReadPre",
-    config = function()
-      require("treesitter-context").setup({
-        multiline_threshold = 2,
-        -- separator = { "─", "ContextBorder" }, -- alts: ▁ ─ ▄
-        separator = { "▁", "TreesitterContextBorder" }, -- alts: ▁ ─ ▄─▁
-        mode = "cursor",
-        max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-        trim_scope = "outer",
-        patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-          -- For all filetypes
-          -- Note that setting an entry here replaces all other patterns for this entry.
-          -- By setting the 'default' entry below, you can control which nodes you want to
-          -- appear in the context window.
-          default = {
-            "class",
-            "function",
-            "method",
-            "for",
-            "while",
-            "if",
-            "switch",
-            "case",
-          },
-          rust = {
-            "impl_item",
-            "struct",
-            "enum",
-          },
-          markdown = {
-            "section",
-          },
-          elixir = {
-            "anonymous_function",
-            "arguments",
-            "block",
-            "do_block",
-            "list",
-            "map",
-            "tuple",
-            "quoted_content",
-          },
-          json = {
-            "pair",
-          },
-          yaml = {
-            "block_mapping_pair",
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   enabled = true,
+  --   event = "BufReadPre",
+  --   config = function()
+  --     require("treesitter-context").setup({
+  --       multiline_threshold = 2,
+  --       -- separator = { "─", "ContextBorder" }, -- alts: ▁ ─ ▄
+  --       separator = { "▁", "TreesitterContextBorder" }, -- alts: ▁ ─ ▄─▁
+  --       mode = "cursor",
+  --       max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+  --       trim_scope = "outer",
+  --       patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+  --         -- For all filetypes
+  --         -- Note that setting an entry here replaces all other patterns for this entry.
+  --         -- By setting the 'default' entry below, you can control which nodes you want to
+  --         -- appear in the context window.
+  --         default = {
+  --           "class",
+  --           "function",
+  --           "method",
+  --           "for",
+  --           "while",
+  --           "if",
+  --           "switch",
+  --           "case",
+  --         },
+  --         rust = {
+  --           "impl_item",
+  --           "struct",
+  --           "enum",
+  --         },
+  --         markdown = {
+  --           "section",
+  --         },
+  --         elixir = {
+  --           "anonymous_function",
+  --           "arguments",
+  --           "block",
+  --           "do_block",
+  --           "list",
+  --           "map",
+  --           "tuple",
+  --           "quoted_content",
+  --         },
+  --         json = {
+  --           "pair",
+  --         },
+  --         yaml = {
+  --           "block_mapping_pair",
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
   { "nvim-treesitter/playground", cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" } },
   {
     "mfussenegger/nvim-treehopper",

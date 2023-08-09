@@ -110,9 +110,6 @@ noremap H ^
 noremap L $
 vnoremap L g_
 
-" Dirty tmux integration
-nnoremap <silent> <BS> :TmuxNavigateLeft<CR>
-
 " CtrlSF setup
 nnoremap <Leader>sf :CtrlSF<Space>
 nnoremap <Leader>st :CtrlSF<Space>-filematch<Space>*ex<Space>

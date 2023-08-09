@@ -9,6 +9,8 @@ test -f ~/.config/fish/alias.fish; and source ~/.config/fish/alias.fish
 # Setup fish
 test -f ~/.config/fish/jump.fish; and source ~/.config/fish/jump.fish
 
+set -x HOMEBREW_PREFIX "/opt/homebrew"
+
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 set -x ERL_AFLAGS "-kernel shell_history enabled"

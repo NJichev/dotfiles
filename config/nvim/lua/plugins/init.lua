@@ -12,7 +12,18 @@ return {
       })
     end
   },
-  { "christoomey/vim-tmux-navigator", event = { "BufReadPost", "BufNewFile" } },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+    -- keys = {
+    --   {"C-h", "<cmd>NvimTmuxNavigateLeft<CR>", "n", "<silent>"},
+    --   {"C-j", "<cmd>NvimTmuxNavigateDown<CR>", "n", "<silent>"},
+    --   {"C-k", "<cmd>NvimTmuxNavigateRight<CR>", "n", "<silent>"},
+    --   {"C-l", "<cmd>NvimTmuxNavigateUp<CR>", "n", "<silent>"},
+    --   {"C-\\", "<cmd>NvimTmuxNavigateLastActive<CR>", "n", "<silent>"},
+    --   {"C-Space", "<cmd>NvimTmuxNavigateNext<CR>", "n", "<silent>"},
+    -- },
+  },
   { "bkad/CamelCaseMotion", event = { "BufReadPost", "BufNewFile" } },
   "elixir-editors/vim-elixir",
   {
@@ -48,4 +59,6 @@ return {
   { "tpope/vim-fugitive", event = "VeryLazy" },
   { "tpope/vim-endwise", event = { "BufReadPost", "BufNewFile" } },
   { "jiangmiao/auto-pairs", event = { "BufReadPost", "BufNewFile" } },
+  { "dyng/ctrlsf.vim", cmd = { "CtrlSF" } },
+  { "preservim/nerdtree", cmd = { "NERDTreeToggle" } },
 }
