@@ -8,7 +8,7 @@ return {
 
     elixir.setup {
       nextls = {enable = true},
-      credo = {},
+      credo = {enable = false},
       elixirls = {
         enable = true,
         settings = elixirls.settings {
