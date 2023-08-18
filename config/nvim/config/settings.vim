@@ -1,6 +1,5 @@
 " More like default settings.
 " Let vim know to use bash
-set shell=/bin/bash
 
 " Set ctags lookup
 set tags=.tags,.git/tags

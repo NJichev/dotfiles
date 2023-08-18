@@ -1,11 +1,4 @@
 return {
-  {
-    "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "<CurrentMajor>.*",
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp"
-  },
   { "rafamadriz/friendly-snippets" },
   {
     "neovim/nvim-lspconfig",
@@ -51,11 +44,11 @@ return {
         },
       })
 
-      lspconfig.elixirls.setup{
-          cmd = { "/Users/njichev/Projects/elixir-ls/release/language_server.sh" },
-          dialyzerEnabled = false
-      }
-
+      -- lspconfig.elixirls.setup{
+      --     cmd = { "/Users/njichev/Projects/elixir-ls/release/language_server.sh" },
+      --     dialyzerEnabled = false
+      -- }
+      --
       lspconfig.tailwindcss.setup({
         userLanguages = {
           elixir = "phoenix-heex",
