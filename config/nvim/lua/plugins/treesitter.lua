@@ -118,6 +118,7 @@ return {
       -- ft_to_parser("zsh", "bash")
       -- ft_to_parser("kittybuf", "bash")
       -- ft_to_parser("eelixir", "html_eex")
+      vim.g.skip_ts_context_commentstring_module = true
 
       require("nvim-treesitter.configs").setup({
         auto_install = false,
@@ -216,7 +217,7 @@ return {
           },
         },
         endwise = { enable = true },
-        context_commentstring = {
+        require('ts_context_commentstring').setup {
           enable = true,
           enable_autocmd = false,
           config = {

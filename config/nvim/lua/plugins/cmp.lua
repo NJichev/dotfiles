@@ -5,22 +5,22 @@ return {
     init = function() vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" } end,
     config = function()
       local cmp = require("cmp")
-      local luasnip = require("luasnip")
 
       local select_opts = {behavior = cmp.SelectBehavior.Select}
 
       cmp.setup({
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
           end
         },
         sources = {
-          {name = 'path'},
-          {name = 'nvim_lsp', keyword_length = 1},
-          {name = 'buffer', keyword_length = 3},
-          {name = 'luasnip', keyword_length = 2},
-          { name = "spell", keyword_length = 5 },
+          { name = 'copilot' },
+          { name = 'path' },
+          { name = 'nvim_lsp', keyword_length = 1},
+          { name = 'buffer', keyword_length = 3},
+          { name = 'vsnip' },
+          { name = 'spell', keyword_length = 5 },
         },
         window = {
           documentation = cmp.config.window.bordered()
@@ -29,9 +29,9 @@ return {
           format = require("lspkind").cmp_format {
             with_text = true,
             menu = {
+              copilot = '[copilot]',
               buffer = "[Buffer]",
               nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
               -- emoji = "[Emoji]",
               spell = "[Spell]",
               path = "[Path]",
@@ -89,10 +89,26 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-vsnip" },
+      { "hrsh7th/vim-vsnip" },
       { "hrsh7th/cmp-cmdline", event = { "CmdlineEnter" } },
       { "saadparwaiz1/cmp_luasnip" },
       "onsails/lspkind-nvim",
       "f3fora/cmp-spell",
+      {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+          require("copilot").setup({})
+        end,
+      },
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+          require("copilot_cmp").setup()
+        end
+      },
     }
   },
 }

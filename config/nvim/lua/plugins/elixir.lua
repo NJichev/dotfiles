@@ -1,5 +1,5 @@
 return {
-  "elixir-tools/elixir-tools.nvim",
+  "njichev/elixir-tools.nvim",
   version = "*",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
@@ -7,10 +7,22 @@ return {
     local elixirls = require("elixir.elixirls")
 
     elixir.setup {
-      nextls = {enable = true},
+      nextls = {
+        port = 9000,
+        enable = true,
+        init_options = {
+          mix_env = "dev",
+          mix_target = "host",
+          experimental = {
+            completions = {
+              enable = true
+            }
+          }
+        },
+      },
       credo = {enable = false},
       elixirls = {
-        enable = true,
+        enable = false,
         settings = elixirls.settings {
           dialyzerEnabled = false,
           enableTestLenses = false,

@@ -1,12 +1,5 @@
 return {
   {
-    "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp"
-  },
-  {
     -- Start the theme first so that any 
     "ellisonleao/gruvbox.nvim",
     lazy = false,
@@ -62,9 +55,27 @@ return {
   },
   { "tpope/vim-surround", event = { "BufReadPost", "BufNewFile" } },
   { "tpope/vim-repeat", event = { "BufReadPost", "BufNewFile" } },
-  { "tpope/vim-fugitive", event = "VeryLazy" },
+  { "tpope/vim-fugitive", cmd = { "Gblame" } },
   { "tpope/vim-endwise", event = { "BufReadPost", "BufNewFile" } },
   { "jiangmiao/auto-pairs", event = { "BufReadPost", "BufNewFile" } },
   { "dyng/ctrlsf.vim", cmd = { "CtrlSF" } },
   { "preservim/nerdtree", cmd = { "NERDTreeToggle" } },
+  {
+      "smoka7/multicursors.nvim",
+      event = "VeryLazy",
+      dependencies = {
+          'nvim-treesitter/nvim-treesitter',
+          'smoka7/hydra.nvim',
+      },
+      opts = {},
+      cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+      keys = {
+              {
+                  mode = { 'v', 'n' },
+                  '<Leader>m',
+                  '<cmd>MCstart<cr>',
+                  desc = 'Create a selection for selected text or word under the cursor',
+              },
+          },
+  }
 }
