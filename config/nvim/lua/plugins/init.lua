@@ -7,7 +7,10 @@ return {
     config = function ()
       require("gruvbox").setup({
         palette_overrides = {
-          dark0 = "#000000",
+          dark0 = "#000000"
+        },
+        overrides = {
+          ["@module.elixir"] = { link = "GruvboxYellow" }
         }
       })
     end

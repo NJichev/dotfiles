@@ -17,9 +17,6 @@ inoremap <C-f> <C-x><C-e>
 " Expand current path with %%
 cnoremap <expr> %% expand('%:h').'/'
 
-" Try to open spec file for current file
-nnoremap <leader>. :OpenTestAlternate<CR>
-
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
 
@@ -211,7 +208,5 @@ nnoremap к gk
 nnoremap <leader>en :e _Notes.md<CR>
 nnoremap <leader>et :e _TODO.md<CR>
 
-nnoremap <leader>ri :call InlineVariable()<cr>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-
 nnoremap <buffer> <leader>doc o@doc """<c-m>Documentation<c-m>"""<esc>kviw

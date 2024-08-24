@@ -15,7 +15,7 @@ return {
           end
         },
         sources = {
-          { name = 'copilot' },
+          -- { name = 'copilot' },
           { name = 'path' },
           { name = 'nvim_lsp', keyword_length = 1},
           { name = 'buffer', keyword_length = 3},
@@ -29,7 +29,7 @@ return {
           format = require("lspkind").cmp_format {
             with_text = true,
             menu = {
-              copilot = '[copilot]',
+              -- copilot = '[copilot]',
               buffer = "[Buffer]",
               nvim_lsp = "[LSP]",
               -- emoji = "[Emoji]",
@@ -95,20 +95,20 @@ return {
       { "saadparwaiz1/cmp_luasnip" },
       "onsails/lspkind-nvim",
       "f3fora/cmp-spell",
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-          require("copilot").setup({})
-        end,
-      },
-      {
-        "zbirenbaum/copilot-cmp",
-        config = function ()
-          require("copilot_cmp").setup()
-        end
-      },
+      -- {
+      --   "zbirenbaum/copilot.lua",
+      --   cmd = "Copilot",
+      --   event = "InsertEnter",
+      --   config = function()
+      --     require("copilot").setup({})
+      --   end,
+      -- },
+      -- {
+      --   "zbirenbaum/copilot-cmp",
+      --   config = function ()
+      --     require("copilot_cmp").setup()
+      --   end
+      -- },
     }
   },
 }
