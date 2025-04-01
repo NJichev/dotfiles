@@ -44,6 +44,18 @@ return {
         },
       })
 
+      lspconfig.rust_analyzer.setup({
+        settings = {
+          ['rust_analyzer'] = {
+            check = {
+              command = "clippy";
+            },
+            diagnostics = {
+              enable = true;
+            }
+          }
+        }
+      })
       -- lspconfig.elixirls.setup{
       --     cmd = { "/Users/njichev/Projects/elixir-ls/release/language_server.sh" },
       --     dialyzerEnabled = false
