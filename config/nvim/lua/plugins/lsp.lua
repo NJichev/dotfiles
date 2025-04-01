@@ -21,7 +21,7 @@ return {
       require("mason").setup({})
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls", "rust_analyzer", "tailwindcss", "tsserver"
+          "lua_ls", "rust_analyzer", "tailwindcss", "ts_ls"
         },
       })
 
@@ -74,7 +74,7 @@ return {
         },
       })
 
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
       })
 

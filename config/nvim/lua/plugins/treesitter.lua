@@ -103,7 +103,6 @@ return {
       "JoosepAlviste/nvim-ts-context-commentstring",
       "RRethy/nvim-treesitter-endwise",
       "jadengis/nvim-ts-autotag",
-      { "mrjones2014/nvim-ts-rainbow" },
       "David-Kunz/treesitter-unit",
     },
     config = function()
@@ -262,12 +261,6 @@ return {
           },
         },
         matchup = { enable = true },
-        rainbow = {
-          enable = true,
-          disable = { "json", "jsonc", "html" },
-          extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-          max_file_lines = 2000, -- Do not enable for files with more than 1000 lines, int
-        },
         textobjects = {
           lookahead = true,
           select = {
