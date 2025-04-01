@@ -44,3 +44,4 @@ sshuttle.pid
 .deliver/releases/
 target/
 .DS_Store
+.elixir-tools/

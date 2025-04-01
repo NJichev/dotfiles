@@ -6,9 +6,6 @@ set langmap+=чявертъуиопшщасдфгхйклзьцжбнмЧЯВЕ�
 let mapleader=","
 let maplocalleader="\\"
 
-" Insert <TAB> or select next match
-inoremap <silent> <expr> <Tab> utils#tabComplete()
-
 " Mappings
 " Easily scroll up/down in insert mode
 inoremap <C-b> <C-x><C-y>

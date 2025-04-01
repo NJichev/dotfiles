@@ -61,4 +61,6 @@ else
     end
 end
 
+source "$HOME/.cargo/env.fish"
+
 source /opt/homebrew/opt/asdf/libexec/asdf.fish

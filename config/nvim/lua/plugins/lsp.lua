@@ -12,6 +12,11 @@ return {
         lsp_defaults.capabilities,
         require("cmp_nvim_lsp").default_capabilities()
       )
+      lsp_defaults.capabilities = vim.tbl_deep_extend(
+        "force",
+        lsp_defaults.capabilities,
+        require("blink.cmp").get_lsp_capabilities()
+      )
 
       require("mason").setup({})
       require("mason-lspconfig").setup({
@@ -123,6 +128,7 @@ return {
     dependencies = {
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
+      { "saghen/blink.cmp" }
     }
   },
 }

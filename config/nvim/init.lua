@@ -54,3 +54,4 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.pl setfiletype prolog
 augroup END
 ]])
+
