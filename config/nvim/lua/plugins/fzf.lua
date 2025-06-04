@@ -134,7 +134,7 @@ function M.config()
           ["jpeg"] = img_prev_bin,
           ["svg"] = { "chafa" },
         },
-        treesitter = { enable = true },
+        treesitter = { enabled = true },
         -- syntax = true, -- preview syntax highlight?
         -- syntax_limit_l = 0, -- syntax limit (lines), 0=nolimit
         -- syntax_limit_b = 1024 * 1024 * 10, -- syntax limit (bytes), 0=nolimit

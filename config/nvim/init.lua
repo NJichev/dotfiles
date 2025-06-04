@@ -16,6 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ","
 require("keybinds")
 require("lazy").setup("plugins")
+require("lsp")
+require("autocmds")
 
 
 vim.cmd([[
