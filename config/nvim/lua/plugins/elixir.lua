@@ -33,8 +33,15 @@ return {
         },
       }
     end
+
+    local expert_opts = {
+      filetypes = { "elixir", "eelixir", "heex" },
+      cmd = { "/Users/njichev/Projects/expert/apps/expert/burrito_out/expert_darwin_arm64" },
+      settings = {},
+    }
     elixir.setup {
       nextls = nextls_opts,
+      expert = expert_opts,
       credo = { enable = false },
       elixirls = {
         enable = false,

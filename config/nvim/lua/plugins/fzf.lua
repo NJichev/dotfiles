@@ -104,7 +104,7 @@ function M.config()
       col = 1,
       border = { " ", " ", " ", " ", " ", " ", " ", " " },
       preview = {
-        layout = "flex",
+        split = "vertical",
         flip_columns = 130,
         scrollbar = "float",
         scrolloff = "-1",

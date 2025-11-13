@@ -3,7 +3,10 @@ return {
   dependencies = { 'rafamadriz/friendly-snippets' },
   version = '1.*',
   opts = {
-    keymap = { preset = 'default' },
+    keymap = { 
+      preset = 'default',
+      ['<C-e>'] = { 'accept', 'fallback' },
+    },
 
     appearance = {
       nerd_font_variant = 'mono'

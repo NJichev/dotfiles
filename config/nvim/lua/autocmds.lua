@@ -1,3 +1,4 @@
+-- LSP Attach autocmd
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function()
@@ -42,5 +43,79 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Move to the next diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+  end
+})
+
+-- Filetype specific settings
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = 'c',
+  callback = function()
+    vim.opt_local.tabstop = 8
+    vim.opt_local.shiftwidth = 8
+    vim.opt_local.expandtab = false
+  end
+})
+
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = 'elixir',
+  callback = function()
+    vim.opt_local.formatprg = 'mix format -'
+  end
+})
+
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = 'gitcommit',
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.textwidth = 72
+  end
+})
+
+-- Set prolog filetype for .pl files
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = '*.pl',
+  callback = function()
+    vim.bo.filetype = 'prolog'
+  end
+})
+
+-- Set textwidth for markdown files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.md',
+  callback = function()
+    vim.opt_local.textwidth = 72
+  end
+})
+
+-- Open files with last cursor position
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = '*',
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local line_count = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= line_count then
+      vim.cmd('normal! g`"')
+    end
+  end
+})
+
+-- Open pictures and other files with external programs
+vim.api.nvim_create_augroup('nonvim', { clear = true })
+vim.api.nvim_create_autocmd('BufRead', {
+  group = 'nonvim',
+  pattern = { '*.png', '*.jpg', '*.pdf', '*.gif', '*.xls*', '*.scpt' },
+  callback = function()
+    local file = vim.fn.shellescape(vim.fn.expand('%:p'))
+    vim.cmd('silent! !xdg-open ' .. file)
+    vim.cmd('bdelete')
+    vim.cmd('redraw!')
+  end
+})
+
+-- Resize splits when window is resized
+vim.api.nvim_create_autocmd('VimResized', {
+  pattern = '*',
+  callback = function()
+    vim.cmd('normal! \\<c-w>=')
   end
 })

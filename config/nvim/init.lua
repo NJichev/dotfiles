@@ -1,5 +1,7 @@
 -- :help lazy.nvim
 vim.g.maplocalleader = '\\'
+
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -13,47 +15,24 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Set leader key
 vim.g.mapleader = ","
+
+-- Load configuration modules
+require("settings")
+require("interface")
+require("functions")
 require("keybinds")
-require("lazy").setup("plugins")
-require("lsp")
 require("autocmds")
 
+-- Load lazy plugins
+require("lazy").setup("plugins")
 
-vim.cmd([[
-runtime config/functions.vim
-runtime config/keybinds.vim
-runtime config/interface.vim
-runtime config/settings.vim
-runtime macros/matchit.vim
+-- Load LSP
+require("lsp")
 
-" Open files with last place of cursor.
-if has("autocmd")
-  autocmd Filetype c setlocal ts=8 sw=8 noexpandtab
-  autocmd Filetype elixir setlocal formatprg=mix\ format\ -
-  autocmd BufReadPost .pl setf prolog
+-- Load matchit macro
+vim.cmd([[runtime macros/matchit.vim]])
 
-  au BufRead,BufNewFile *.md setlocal textwidth=72
-
-
-  " Enable autocompletion for every buffer
-  " au BufEnter ?* call ncm2#enable_for_buffer()
-  " autocmd! BufWritePost * Neomake
-  " autocmd! BufReadPost * Neomake
-  " Open vim from where it last was
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-endif
-
-" Open pictures and other stuff with other programms
-augroup nonvim
-  au BufRead *.png,*.jpg,*.pdf,*.gif,*.xls*,*.scpt sil exe "!xdg-open " . shellescape(expand("%:p")) | bd | let &ft=&ft | redraw!
-augroup END
-autocmd Filetype gitcommit setlocal spell textwidth=72
-augroup filetypedetect
-  au! BufRead,BufNewFile *.pl setfiletype prolog
-augroup END
-]])
-
+-- Load colorscheme after plugins are loaded
+vim.cmd.colorscheme('gruvbox')
