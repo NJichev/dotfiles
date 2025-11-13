@@ -37,7 +37,8 @@ return {
     elixir.setup {
       nextls = nextls_opts,
       -- Expert is now configured via native LSP in lua/lsp/expert.lua
-      -- so we disable it here to avoid conflicts
+      -- elixir-tools manages Next LS, native LSP manages expert
+      -- Both will run together and provide completions
       expert = { enable = false },
       credo = { enable = false },
       elixirls = {
