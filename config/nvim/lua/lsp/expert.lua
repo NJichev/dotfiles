@@ -19,6 +19,5 @@ return {
     return util.root(fname, { "mix.exs", ".git" })
   end,
   settings = {},
-  single_file_support = true,
   log_level = vim.lsp.protocol.MessageType.Info, -- Set to Info to see more logs
 }
