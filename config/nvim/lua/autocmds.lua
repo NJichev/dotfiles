@@ -43,6 +43,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Move to the next diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+
+    -- Restart LSP servers
+    bufmap('n', '<leader>lr', '<cmd>LspRestart<cr>')
   end
 })
 

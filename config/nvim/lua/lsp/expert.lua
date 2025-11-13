@@ -14,10 +14,10 @@ return {
     "mix.exs",
     ".git",
   },
-  root_dir = function(fname)
-    local util = vim.fs
-    return util.root(fname, { "mix.exs", ".git" })
-  end,
-  settings = {},
-  log_level = vim.lsp.protocol.MessageType.Info, -- Set to Info to see more logs
+  -- root_dir = function(fname)
+  --   local util = vim.fs
+  --   return util.root(fname, { "mix.exs", ".git" })
+  -- end,
+  -- settings = {},
+  -- log_level = vim.lsp.protocol.MessageType.Info, -- Set to Info to see more logs
 }

@@ -76,6 +76,48 @@ vim.api.nvim_create_user_command('LspLog', function()
   vim.cmd.edit(vim.lsp.get_log_path())
 end, {})
 
+-- Command to restart LSP servers attached to current buffer
+vim.api.nvim_create_user_command('LspRestart', function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
+  
+  if #clients == 0 then
+    print("No LSP clients attached to current buffer")
+    return
+  end
+  
+  -- Store client names and configurations before stopping
+  local client_configs = {}
+  for _, client in ipairs(clients) do
+    table.insert(client_configs, {
+      name = client.name,
+      config = client.config,
+    })
+  end
+  
+  -- Stop all clients
+  for _, client in ipairs(clients) do
+    print("Stopping " .. client.name .. "...")
+    client.stop()
+  end
+  
+  -- Wait a bit for clients to stop, then restart them
+  vim.defer_fn(function()
+    for _, client_info in ipairs(client_configs) do
+      print("Restarting " .. client_info.name .. "...")
+      -- For registered servers, use the registered config
+      local ok, config = pcall(require, 'lsp.' .. client_info.name)
+      if ok then
+        vim.lsp.start(config, { bufnr = bufnr })
+      else
+        -- Fall back to the stored config if no registered config found
+        vim.lsp.start(client_info.config, { bufnr = bufnr })
+      end
+    end
+    print("LSP clients restarted")
+  end, 500) -- 500ms delay to ensure clean shutdown
+end, {})
+
 -- Command to manually start expert for debugging
 vim.api.nvim_create_user_command('LspStartExpert', function()
   local config = require('lsp.expert')
