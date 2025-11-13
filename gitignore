@@ -45,3 +45,4 @@ sshuttle.pid
 target/
 .DS_Store
 .elixir-tools/
+.expert/

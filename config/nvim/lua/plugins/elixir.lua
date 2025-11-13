@@ -34,14 +34,11 @@ return {
       }
     end
 
-    local expert_opts = {
-      filetypes = { "elixir", "eelixir", "heex" },
-      cmd = { "/Users/njichev/Projects/expert/apps/expert/burrito_out/expert_darwin_arm64" },
-      settings = {},
-    }
     elixir.setup {
       nextls = nextls_opts,
-      expert = expert_opts,
+      -- Expert is now configured via native LSP in lua/lsp/expert.lua
+      -- so we disable it here to avoid conflicts
+      expert = { enable = false },
       credo = { enable = false },
       elixirls = {
         enable = false,

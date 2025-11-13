@@ -1,28 +1,24 @@
+-- Expert LSP for Elixir
 return {
+  name = "expert",
   cmd = {
-    "path-to-expert",
+    "/Users/njichev/Projects/expert/apps/expert/burrito_out/expert_darwin_arm64",
+    "--stdio",
   },
   filetypes = {
-    "lua",
+    "elixir",
+    "eelixir", 
+    "heex",
   },
   root_markers = {
+    "mix.exs",
     ".git",
-    ".luacheckrc",
-    ".luarc.json",
-    ".luarc.jsonc",
-    ".stylua.toml",
-    "selene.toml",
-    "selene.yml",
-    "stylua.toml",
   },
-  -- settings = {
-  --     Lua = {
-  --         diagnostics = {
-  --             --     disable = { "missing-parameters", "missing-fields" },
-  --         },
-  --     },
-  -- },
-
+  root_dir = function(fname)
+    local util = vim.fs
+    return util.root(fname, { "mix.exs", ".git" })
+  end,
+  settings = {},
   single_file_support = true,
-  log_level = vim.lsp.protocol.MessageType.Warning,
+  log_level = vim.lsp.protocol.MessageType.Info, -- Set to Info to see more logs
 }
