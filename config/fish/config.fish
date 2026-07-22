@@ -61,6 +61,12 @@ else
     end
 end
 
+source ~/.asdf/asdf.fish
 source "$HOME/.cargo/env.fish"
 
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# opencode
+fish_add_path /home/egt/.opencode/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

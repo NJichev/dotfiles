@@ -94,6 +94,8 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    branch = "master",
     build = ":TSUpdate",
     event = "VeryLazy",
     dependencies = {
@@ -108,6 +110,8 @@ return {
     config = function()
       -- for apple silicon
       require("nvim-treesitter.install").compilers = { "gcc" }
+      -- Use bundled tree-sitter CLI instead of system version to avoid --no-bindings incompatibility
+      require("nvim-treesitter.install").auto_install = false
 
       vim.opt.indentexpr = "nvim_treesitter#indent()"
 
@@ -121,6 +125,8 @@ return {
 
       require("nvim-treesitter.configs").setup({
         auto_install = false,
+        -- Ignore install errors for parsers that fail due to tree-sitter CLI incompatibilities
+        ignore_install_errors = true,
         ensure_installed = {
           "bash",
           "c",
@@ -143,7 +149,6 @@ return {
           "go",
           "graphql",
           "heex",
-          "help",
           "html",
           -- "html_eex",
           "javascript",
@@ -167,7 +172,7 @@ return {
           "scheme",
           "sql",
           "surface",
-          "teal",
+          -- "teal", -- removed: causes tree-sitter CLI --no-bindings error
           "toml",
           "tsx",
           "typescript",

@@ -496,9 +496,6 @@ chars = "\u001B[24;3~"
 key = "F12"
 mods = "Super"
 
-[general]
-live_config_reload = true
-
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
@@ -668,18 +665,9 @@ TERM = "xterm-256color"
 [font]
 size = 14
 
-[font.bold]
-family = "FiraCode Nerd Font"
-
 [font.glyph_offset]
 x = 0
 y = 0
-
-[font.italic]
-family = "FiraCode Nerd Font"
-
-[font.normal]
-family = "FiraCode Nerd Font"
 
 [font.offset]
 x = 0
@@ -693,6 +681,7 @@ semantic_escape_chars = ''',│`|:"' ()[]{}<>'''
 
 [window]
 opacity = 1.0
+decorations = "None"
 
 [window.dimensions]
 columns = 80
