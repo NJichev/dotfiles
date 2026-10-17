@@ -20,20 +20,9 @@ vim.opt.listchars = {
   eol = '¬'
 }
 
--- Tell vim that powerline is loaded
-vim.g.powerline_loaded = 1
-
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.ruler = true
 vim.opt.cursorline = true
 vim.opt.gdefault = true -- assume the /g flag on :s substitutions to replace all matches in a line
 
--- Terminal colors
-vim.opt.termguicolors = true
-
--- Gruvbox theme settings (set before loading colorscheme)
 vim.opt.background = 'dark'
-vim.g.gruvbox_contrast_dark = 'hard'
-vim.g.gruvbox_contrast_light = 'hard'
-

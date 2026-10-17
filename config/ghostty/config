@@ -1,0 +1,8 @@
+theme = ir_black
+
+font-size = 14
+bold-color = bright
+mouse-hide-while-typing = true
+
+window-padding-x = 2
+window-padding-y = 2

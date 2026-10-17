@@ -76,9 +76,14 @@ alias wip "git add . and; git commit -mWIP"
 
 alias vim "vim -u NONE"
 
-# XCLIP
-alias clipin="xclip -i -selection clipboard"
-alias clipout="xclip -o -selection clipboard"
+# Clipboard
+if test (uname) = Darwin
+    alias clipin="pbcopy"
+    alias clipout="pbpaste"
+else
+    alias clipin="xclip -i -selection clipboard"
+    alias clipout="xclip -o -selection clipboard"
+end
 
 # SSH
 alias vpn="sshuttle --dns -D -x 77.246.208.12 -r njichev@77.246.208.12 0/0"

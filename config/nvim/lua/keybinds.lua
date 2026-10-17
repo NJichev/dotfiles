@@ -31,12 +31,6 @@ map('i', 'jk', '<Esc>')
 map('i', '<C-z>', '<C-^>')
 
 -- NORMAL MODE MAPPINGS
--- Call Dispatch
-map('n', '<leader>d', ':Dispatch ', { silent = false })
-
--- Call Dispatch Start
-map('n', '<leader>ds', ':Start ', { silent = false })
-
 -- Close all but Current
 map('n', '<leader>cc', ':only<CR>')
 
@@ -58,10 +52,7 @@ map('n', '<Leader>qq', ':quit!<CR>')
 map('n', '<Leader>ss', ':split<CR>')
 map('n', '<Leader>vv', ':vsplit<CR>')
 
--- Paste in the next line
-map('n', '<leader>p', 'o<ESC>p')
-
--- Promote to let (overrides paste mapping when used)
+-- Promote to let
 map('n', '<leader>p', ':PromoteToLet<CR>')
 
 -- Switching between tabs
@@ -106,9 +97,6 @@ map('n', '<space>tc', ':call neoterm#clear()<CR>')
 -- kills the current job (send a <c-c>)
 map('n', '<space>tk', ':call neoterm#kill()<CR>')
 
--- Tabularize Align
-map('v', '<Leader>a', ':Tabularize /', { silent = false })
-
 -- Resizing splits with arrows
 map('n', '<left>', '<c-w><')
 map('n', '<right>', '<c-w>>')
@@ -117,9 +105,6 @@ map('n', '<down>', '<c-w>+')
 
 -- Edit vimrc
 map('n', '<leader>ev', ':tabedit $MYVIMRC<CR>')
-
--- Edit tmux.conf
-map('n', '<leader>et', ':tabedit ~/.tmux.conf<CR>')
 
 -- Edit fish config
 map('n', '<leader>ef', ':tabedit ~/.config/fish/config.fish<CR>')
@@ -141,9 +126,6 @@ map('v', '/', '/\\v', { silent = false })
 -- NERDTree toggle
 map('n', '<F2>', ':NERDTreeToggle<CR>')
 
--- ALE toggle
-map('n', '<leader>ale', ':ALEToggle<CR>')
-
 -- Use CamelCaseMotion instead of default motions
 map('', 'w', '<Plug>CamelCaseMotion_w', { noremap = false })
 map('', 'b', '<Plug>CamelCaseMotion_b', { noremap = false })
@@ -157,8 +139,8 @@ vim.keymap.del('s', 'ge')
 
 -- Git binds
 map('n', '<leader>gw', ':!git add . && git commit -m "WIP" && git push<CR>', { noremap = true, silent = false })
-map('n', '<leader>gs', ':Gstatus<CR>')
-map('n', '<leader>gb', ':Gblame<CR>')
+map('n', '<leader>gs', ':Git<CR>')
+map('n', '<leader>gb', ':Git blame<CR>')
 
 -- Edit notes
 map('n', '<leader>en', ':e _Notes.md<CR>')
@@ -166,9 +148,6 @@ map('n', '<leader>et', ':e _TODO.md<CR>')
 
 -- Substitute word under cursor
 map('n', '<Leader>s', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', { silent = false })
-
--- Elixir doc template
-map('n', '<leader>doc', 'o@doc """<c-m>Documentation<c-m>"""<esc>kviw', { buffer = true, noremap = true, silent = false })
 
 -- VISUAL MODE MAPPINGS
 -- Reselect visual block after indent/outdent

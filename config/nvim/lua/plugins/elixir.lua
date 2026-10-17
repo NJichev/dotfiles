@@ -1,62 +1,22 @@
-return {
-  "elixir-tools/elixir-tools.nvim",
-  version = "*",
-  event = { "BufReadPre", "BufNewFile" },
-  config = function()
-    local elixir = require("elixir")
-    local elixirls = require("elixir.elixirls")
-    local nextls_opts
+vim.pack.add({
+  { src = "https://github.com/elixir-tools/elixir-tools.nvim", version = vim.version.range("*") },
+  "https://github.com/nvim-lua/plenary.nvim",
+}, { confirm = false })
 
-    if vim.env.NEXTLS_LOCAL == "1" then
-      nextls_opts = {
-        enable = true,
-        port = 9000,
-        spitfire = false,
-        init_options = {
-          experimental = {
-            completions = {
-              enable = true,
-            },
-          },
-        },
-      }
-    else
-      nextls_opts = {
-        enable = true,
-        spitfire = false,
-        init_options = {
-          experimental = {
-            completions = {
-              enable = true,
-            },
-          },
-        },
-      }
-    end
-
-    elixir.setup {
-      nextls = nextls_opts,
-      -- Expert is now configured via native LSP in lua/lsp/expert.lua
-      -- elixir-tools manages Next LS, native LSP manages expert
-      -- Both will run together and provide completions
-      expert = { enable = false },
-      credo = { enable = false },
-      elixirls = {
-        enable = false,
-        settings = elixirls.settings {
-          dialyzerEnabled = false,
-          enableTestLenses = false,
-        },
-        on_attach = function(client, bufnr)
-          vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-          vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-          vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-          vim.keymap.set("v", "<space>ar", ":Elixir nextls alias-refactor<cr>", { buffer = true, noremap = true })
-        end,
-      }
-    }
-  end,
-  dependencies = {
-    "nvim-lua/plenary.nvim",
+-- elixir-tools runs Next LS; expert runs through native LSP (lsp/expert.lua)
+require("elixir").setup({
+  nextls = {
+    enable = true,
+    -- NEXTLS_LOCAL=1 connects to a Next LS you're running yourself on port 9000
+    port = vim.env.NEXTLS_LOCAL == "1" and 9000 or nil,
+    spitfire = false,
+    init_options = {
+      experimental = {
+        completions = { enable = true },
+      },
+    },
   },
-}
+  expert = { enable = false },
+  credo = { enable = false },
+  elixirls = { enable = false },
+})

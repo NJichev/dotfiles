@@ -1,54 +1,18 @@
-local M = {
-  "ibhagwan/fzf-lua",
-  cmd = { "FzfLua" },
-  dependencies = {
-    "vijaymarupudi/nvim-fzf",
-    "nvim-tree/nvim-web-devicons",
-    {
-      "junegunn/fzf",
-      init = function()
-        vim.g.fzf_commands_expect = "enter"
-        vim.g.fzf_layout = {
-          window = {
-            width = 1.0,
-            height = 0.4,
-            yoffset = 1,
-            highlight = "Normal",
-          },
-        }
-        vim.g.fzf_colors = {
-          fg = { "fg", "TelescopeNormal" },
-          bg = { "bg", "TelescopeNormal" },
-          hl = { "fg", "Green" },
-          ["fg+"] = { "fg", "CursorLine", "CursorColumn", "Normal" },
-          ["bg+"] = { "bg", "CursorLine", "CursorColumn" },
-          ["hl+"] = { "fg", "Cyan" },
-          info = { "fg", "Aqua" },
-          prompt = { "fg", "Orange" },
-          pointer = { "fg", "Blue" },
-          marker = { "fg", "Yellow" },
-          spinner = { "fg", "Yellow" },
-          header = { "fg", "Grey" },
-          border = { "fg", "TelescopeBorder" },
-        }
-      end,
-    },
-  },
-  keys = {
-    { "<space>a", "<cmd>FzfLua live_grep_glob exec_empty_query=true<cr>", desc = "fzf: live grep" },
-    { "<space>A", "<cmd>FzfLua grep_cword<cr>", desc = "fzf: grep cursor" },
-    { "<space>A", "<cmd>FzfLua grep_visual<cr>", desc = "fzf: grep selection", mode = "v" },
-    { "<space>b", "<cmd>FzfLua buffers<cr>", desc = "fzf: buffers" },
-    { "<space>o", "<cmd>FzfLua oldfiles<cr>", desc = "fzf: oldfiles/history/mru" },
-    { "<space>f", "<cmd>FzfLua files<cr>", desc = "fzf: files" },
-    -- { "<C-u>", function() require("fzf-lua.win").preview_scroll(-1) end, desc = "fzf: scroll preview up" },
-    -- { "<C-d>", function() require("fzf-lua.win").preview_scroll(1) end, desc = "fzf: scroll preview down" },
-  },
-}
+vim.pack.add({
+  "https://github.com/ibhagwan/fzf-lua",
+  "https://github.com/nvim-tree/nvim-web-devicons",
+}, { confirm = false })
 
-function M.config()
-  local res, fzf_lua = pcall(require, "fzf-lua")
-  if not res then return end
+local map = function(mode, lhs, rhs, desc) vim.keymap.set(mode, lhs, rhs, { desc = desc }) end
+map("n", "<space>a", "<cmd>FzfLua live_grep_glob exec_empty_query=true<cr>", "fzf: live grep")
+map("n", "<space>A", "<cmd>FzfLua grep_cword<cr>", "fzf: grep cursor")
+map("v", "<space>A", "<cmd>FzfLua grep_visual<cr>", "fzf: grep selection")
+map("n", "<space>b", "<cmd>FzfLua buffers<cr>", "fzf: buffers")
+map("n", "<space>o", "<cmd>FzfLua oldfiles<cr>", "fzf: oldfiles/history/mru")
+map("n", "<space>f", "<cmd>FzfLua files<cr>", "fzf: files")
+
+do
+  local fzf_lua = require("fzf-lua")
 
   -- local img_prev_bin = vim.fn.executable("ueberzug") == 1 and { "ueberzug" }
   local img_prev_bin = vim.fn.executable("term-image") == 1 and { "term-image" }
@@ -60,10 +24,10 @@ function M.config()
   -- return first matching highlight or nil
   local function hl_match(t)
     for _, h in ipairs(t) do
-      local ok, hl = pcall(vim.api.nvim_get_hl_by_name, h, true)
+      local hl = vim.api.nvim_get_hl(0, { name = h, link = false })
       -- must have at least bg or fg, otherwise this returns
-      -- succesffully for cleared highlights (on colorscheme switch)
-      if ok and (hl.foreground or hl.background) then return h end
+      -- successfully for cleared highlights (on colorscheme switch)
+      if hl.fg or hl.bg then return h end
     end
   end
 
@@ -208,12 +172,10 @@ function M.config()
   if vim.ui then
     fzf_lua.register_ui_select({
       winopts = {
-        win_height = 0.40,
-        win_width = 0.70,
-        win_row = 0.40,
+        height = 0.40,
+        width = 0.70,
+        row = 0.40,
       },
     })
   end
 end
-
-return M

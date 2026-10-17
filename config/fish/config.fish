@@ -1,5 +1,10 @@
-eval (direnv hook fish)
-jump shell fish | source
+if test -x /opt/homebrew/bin/brew
+    /opt/homebrew/bin/brew shellenv | source
+end
+
+type -q mise; and mise activate fish | source
+type -q direnv; and direnv hook fish | source
+type -q jump; and jump shell fish | source
 
 set -x EDITOR nvim
 
@@ -8,8 +13,6 @@ set -x DISABLE_AUTO_TITLE true
 test -f ~/.config/fish/alias.fish; and source ~/.config/fish/alias.fish
 # Setup fish
 test -f ~/.config/fish/jump.fish; and source ~/.config/fish/jump.fish
-
-set -x HOMEBREW_PREFIX "/opt/homebrew"
 
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
@@ -23,49 +26,50 @@ function term
   sed -i"" "s/\(^colors: \*\).*/\1$argv/g" $config_file
 end
 
-setenv SSH_ENV $HOME/.ssh/environment
+# macOS runs its own ssh-agent via launchd, with keys in the Keychain
+if test (uname) != Darwin
+    setenv SSH_ENV $HOME/.ssh/environment
 
-function start_agent
-    echo "Initializing new SSH agent ..."
-    ssh-agent -c | sed 's/^echo/#echo/' > $SSH_ENV
-    echo "succeeded"
-    chmod 600 $SSH_ENV 
-    . $SSH_ENV > /dev/null
-    ssh-add
-end
-
-function test_identities
-    ssh-add -l | grep "The agent has no identities" > /dev/null
-    if [ $status -eq 0 ]
+    function start_agent
+        echo "Initializing new SSH agent ..."
+        ssh-agent -c | sed 's/^echo/#echo/' > $SSH_ENV
+        echo "succeeded"
+        chmod 600 $SSH_ENV 
+        . $SSH_ENV > /dev/null
         ssh-add
-        if [ $status -eq 2 ]
+    end
+
+    function test_identities
+        ssh-add -l | grep "The agent has no identities" > /dev/null
+        if [ $status -eq 0 ]
+            ssh-add
+            if [ $status -eq 2 ]
+                start_agent
+            end
+        end
+    end
+
+    if [ -n "$SSH_AGENT_PID" ] 
+        ps -ef | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null
+        if [ $status -eq 0 ]
+            test_identities
+        end
+    else
+        if [ -f $SSH_ENV ]
+            . $SSH_ENV > /dev/null
+        end
+        ps -ef | grep $SSH_AGENT_PID | grep -v grep | grep ssh-agent > /dev/null
+        if [ $status -eq 0 ]
+            test_identities
+        else
             start_agent
         end
     end
 end
 
-if [ -n "$SSH_AGENT_PID" ] 
-    ps -ef | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null
-    if [ $status -eq 0 ]
-        test_identities
-    end
-else
-    if [ -f $SSH_ENV ]
-        . $SSH_ENV > /dev/null
-    end
-    ps -ef | grep $SSH_AGENT_PID | grep -v grep | grep ssh-agent > /dev/null
-    if [ $status -eq 0 ]
-        test_identities
-    else
-        start_agent
-    end
-end
-
-source ~/.asdf/asdf.fish
-source "$HOME/.cargo/env.fish"
 
 # opencode
-fish_add_path /home/egt/.opencode/bin
+fish_add_path $HOME/.opencode/bin
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

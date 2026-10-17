@@ -4,7 +4,7 @@
 local function split_strategy(cmd)
   vim.cmd('botright new')
   vim.cmd('resize 15')
-  vim.fn.termopen(cmd)
+  vim.fn.jobstart(cmd, { term = true })
   vim.cmd('startinsert')
 end
 
@@ -22,10 +22,11 @@ vim.api.nvim_create_user_command('PromoteToLet', promote_to_let, { bang = true }
 -- FZF Find command
 vim.api.nvim_create_user_command('Find', function(opts)
   local args = opts.args
-  local bang = opts.bang and 1 or 0
-  local cmd = '/usr/bin/rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" ' .. vim.fn.shellescape(args)
-  vim.fn['fzf#vim#grep'](cmd, 1, bang)
-end, { bang = true, nargs = '*' })
+  require('fzf-lua').grep({
+    search = args,
+    rg_opts = '--column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always',
+  })
+end, { nargs = '*' })
 
 -- Inline Variable function
 local function inline_variable()
